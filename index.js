@@ -13,6 +13,7 @@ function main() {
       version: "v0",
     },
     paths: {},
+    tags: [],
   };
 
   const dom = new JSDOM(html);
@@ -21,15 +22,11 @@ function main() {
 
   body.querySelectorAll("div.content-box").forEach(parseApi(output));
 
-  console.log(util.inspect(output, null, 5));
-
   fs.writeFileSync("spec.json", JSON.stringify(output, null, 4));
 }
 
 main();
 
-///users/{$username}
-// => ['username']
 function parsePath(rawPath) {
   return rawPath
     .split("/")
@@ -49,6 +46,11 @@ function parsePath(rawPath) {
 
 function parseApi(spec) {
   return (contentBox) => {
+    const tag = contentBox.querySelector("h2").textContent;
+    spec.tags.push({
+      name: tag,
+      description: `Operations for ${tag}`,
+    });
     contentBox.querySelectorAll("ul.api-methods > li").forEach((apiMethod) => {
       const api = apiMethod.querySelector("pre").textContent.trim();
       const verb = api.split(" ")[0].toLowerCase();
@@ -57,7 +59,8 @@ function parseApi(spec) {
       const path = api.split(" ")[1].replaceAll("$", "");
 
       let apiObj = {};
-      apiObj[verb] = {
+      apiObj = {
+        tags: [tag],
         summary: apiMethod.querySelector("h3")?.textContent,
         operationId: apiMethod.querySelector("a").id,
         parameters: params,
@@ -68,12 +71,18 @@ function parseApi(spec) {
         },
       };
 
-      spec.paths[path] = apiObj;
-
-      // console.log(contentBox.querySelector("h2").textContent);
-      // contentBox.querySelectorAll("h3").forEach((h3Node) => {
-      //   console.log(" - " + h3Node.textContent);
-      // });
+      if (!spec.paths[path]) {
+        spec.paths[path] = {};
+      }
+      const operation = spec.paths[path];
+      operation[verb] = apiObj;
     });
+
+    // console.log(tag);
+    // contentBox
+    //   .querySelectorAll("ul.api-methods > li > h3")
+    //   .forEach((h3Node) => {
+    //     console.log(" - " + h3Node.textContent);
+    //   });
   };
 }

@@ -6,7 +6,54 @@
     },
     "paths": {
         "/users/{username}/": {
+            "get": {
+                "tags": [
+                    "Users"
+                ],
+                "summary": "Get the specified user",
+                "operationId": "users-get",
+                "parameters": [
+                    {
+                        "name": "username",
+                        "in": "path",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "success"
+                    }
+                }
+            },
+            "patch": {
+                "tags": [
+                    "Users"
+                ],
+                "summary": "Update the user's profile",
+                "operationId": "users-patch",
+                "parameters": [
+                    {
+                        "name": "username",
+                        "in": "path",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "success"
+                    }
+                }
+            },
             "delete": {
+                "tags": [
+                    "Users"
+                ],
                 "summary": "Delete a user's account",
                 "operationId": "users-delete",
                 "parameters": [
@@ -28,6 +75,9 @@
         },
         "/users/{username}/search/{term}": {
             "get": {
+                "tags": [
+                    "Users"
+                ],
                 "summary": "Search data by user",
                 "operationId": "users-getsearch",
                 "parameters": [
@@ -57,6 +107,9 @@
         },
         "/users/{username}/things": {
             "get": {
+                "tags": [
+                    "Users"
+                ],
                 "summary": "Get things by user",
                 "operationId": "users-getthings",
                 "parameters": [
@@ -78,6 +131,9 @@
         },
         "/users/{username}/favorites": {
             "get": {
+                "tags": [
+                    "Users"
+                ],
                 "summary": "Get favorites by user",
                 "operationId": "users-getfavorites",
                 "parameters": [
@@ -99,6 +155,9 @@
         },
         "/users/{username}/likes": {
             "get": {
+                "tags": [
+                    "Users"
+                ],
                 "summary": "Get things like by user",
                 "operationId": "users-getlikes",
                 "parameters": [
@@ -120,6 +179,9 @@
         },
         "/users/{username}/copies": {
             "get": {
+                "tags": [
+                    "Users"
+                ],
                 "summary": "Get latest copies by user",
                 "operationId": "users-getcopies",
                 "parameters": [
@@ -141,6 +203,9 @@
         },
         "/users/{username}/collections/{all}": {
             "get": {
+                "tags": [
+                    "Users"
+                ],
                 "summary": "Get latest collections by user",
                 "operationId": "users-getcollections",
                 "parameters": [
@@ -170,6 +235,9 @@
         },
         "/users/{username}/downloads": {
             "get": {
+                "tags": [
+                    "Users"
+                ],
                 "summary": "Get latest downloaded things by user",
                 "operationId": "users-getdownloads",
                 "parameters": [
@@ -191,6 +259,9 @@
         },
         "/users/{username}/verify-account": {
             "post": {
+                "tags": [
+                    "Users"
+                ],
                 "summary": "Send user verification email",
                 "operationId": "users-postverifyaccount",
                 "parameters": [
@@ -212,6 +283,9 @@
         },
         "/users/{username}/event-count": {
             "get": {
+                "tags": [
+                    "Users"
+                ],
                 "summary": "\n                              Get the count of events for user since the\n                              timestamp sent\n                            ",
                 "operationId": "users-geteventcount",
                 "parameters": [
@@ -233,6 +307,9 @@
         },
         "/users/{username}/all-collected-things": {
             "get": {
+                "tags": [
+                    "Users"
+                ],
                 "summary": "\n                              Get all the things that the user added to the\n                              collection\n                            ",
                 "operationId": "users-getallcollectedthings",
                 "parameters": [
@@ -254,6 +331,9 @@
         },
         "/users/unread-message-count": {
             "get": {
+                "tags": [
+                    "Users"
+                ],
                 "summary": "Get the count of messages for user",
                 "operationId": "users-getunreadmessagecount",
                 "parameters": [],
@@ -265,7 +345,32 @@
             }
         },
         "/users/{username}/followers": {
+            "post": {
+                "tags": [
+                    "Users"
+                ],
+                "summary": "Follow an user",
+                "operationId": "users-postfollowers",
+                "parameters": [
+                    {
+                        "name": "username",
+                        "in": "path",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "success"
+                    }
+                }
+            },
             "delete": {
+                "tags": [
+                    "Users"
+                ],
                 "summary": "Unfollow an user",
                 "operationId": "users-deletefollowers",
                 "parameters": [
@@ -287,6 +392,9 @@
         },
         "/users/{username}/avatar-image": {
             "post": {
+                "tags": [
+                    "Users"
+                ],
                 "summary": "Update the avatar image",
                 "operationId": "users-postavatarimage",
                 "parameters": [
@@ -308,6 +416,9 @@
         },
         "/users/{username}/cover-image": {
             "post": {
+                "tags": [
+                    "Users"
+                ],
                 "summary": "Update the cover image",
                 "operationId": "users-postcoverimage",
                 "parameters": [
@@ -328,7 +439,54 @@
             }
         },
         "/things/{id}/": {
+            "get": {
+                "tags": [
+                    "Things"
+                ],
+                "summary": "Get thing by id",
+                "operationId": "things-get",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "success"
+                    }
+                }
+            },
+            "patch": {
+                "tags": [
+                    "Things"
+                ],
+                "summary": "Update an existing thing",
+                "operationId": "things-patch",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "success"
+                    }
+                }
+            },
             "delete": {
+                "tags": [
+                    "Things"
+                ],
                 "summary": "Delete a thing",
                 "operationId": "things-delete",
                 "parameters": [
@@ -349,7 +507,70 @@
             }
         },
         "/things/{id}/images/{image_id}": {
+            "get": {
+                "tags": [
+                    "Things"
+                ],
+                "summary": "Get image(s) by thing",
+                "operationId": "things-getimages",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "image_id",
+                        "in": "path",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "success"
+                    }
+                }
+            },
+            "patch": {
+                "tags": [
+                    "Things"
+                ],
+                "summary": "Update an existing image",
+                "operationId": "things-patchimages",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "image_id",
+                        "in": "path",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "success"
+                    }
+                }
+            },
             "delete": {
+                "tags": [
+                    "Things"
+                ],
                 "summary": "Delete an image from a thing",
                 "operationId": "things-deleteimages",
                 "parameters": [
@@ -378,7 +599,40 @@
             }
         },
         "/things/{id}/files/{file_id}": {
+            "get": {
+                "tags": [
+                    "Things"
+                ],
+                "summary": "Get file(s) by thing",
+                "operationId": "things-getfiles",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "file_id",
+                        "in": "path",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "success"
+                    }
+                }
+            },
             "delete": {
+                "tags": [
+                    "Things"
+                ],
                 "summary": "Delete a file from a thing",
                 "operationId": "things-deletefiles",
                 "parameters": [
@@ -407,7 +661,54 @@
             }
         },
         "/things/{id}/likes": {
+            "get": {
+                "tags": [
+                    "Things"
+                ],
+                "summary": "Get users who liked this thing",
+                "operationId": "things-getlikes",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "success"
+                    }
+                }
+            },
+            "post": {
+                "tags": [
+                    "Things"
+                ],
+                "summary": "Like a thing",
+                "operationId": "things-postlikes",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "success"
+                    }
+                }
+            },
             "delete": {
+                "tags": [
+                    "Things"
+                ],
                 "summary": "Delete a like",
                 "operationId": "things-deletelikes",
                 "parameters": [
@@ -429,6 +730,9 @@
         },
         "/things/{id}/ancestors": {
             "get": {
+                "tags": [
+                    "Things"
+                ],
                 "summary": "Get a list of thing ancestors",
                 "operationId": "things-getancestors",
                 "parameters": [
@@ -450,6 +754,9 @@
         },
         "/things/{id}/derivatives": {
             "get": {
+                "tags": [
+                    "Things"
+                ],
                 "summary": "Get a list of thing derivatives",
                 "operationId": "things-getderivatives",
                 "parameters": [
@@ -471,6 +778,9 @@
         },
         "/things/{id}/tags": {
             "get": {
+                "tags": [
+                    "Things"
+                ],
                 "summary": "Get tags on this thing",
                 "operationId": "things-gettags",
                 "parameters": [
@@ -492,6 +802,9 @@
         },
         "/things/{id}/categories": {
             "get": {
+                "tags": [
+                    "Things"
+                ],
                 "summary": "Get thing category",
                 "operationId": "things-getcategories",
                 "parameters": [
@@ -513,6 +826,9 @@
         },
         "/things/": {
             "post": {
+                "tags": [
+                    "Things"
+                ],
                 "summary": "Create a new thing",
                 "operationId": "things-post",
                 "parameters": [],
@@ -525,6 +841,9 @@
         },
         "/things/{id}/files": {
             "post": {
+                "tags": [
+                    "Things"
+                ],
                 "summary": "Upload a file to the given thing",
                 "operationId": "things-postfiles",
                 "parameters": [
@@ -546,6 +865,9 @@
         },
         "/things/{id}/publish": {
             "post": {
+                "tags": [
+                    "Things"
+                ],
                 "summary": "Publish a thing",
                 "operationId": "things-postpublish",
                 "parameters": [
@@ -566,7 +888,32 @@
             }
         },
         "/things/{id}/copies": {
+            "get": {
+                "tags": [
+                    "Things"
+                ],
+                "summary": "Get copies/makes of a thing",
+                "operationId": "things-getcopies",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "success"
+                    }
+                }
+            },
             "post": {
+                "tags": [
+                    "Things"
+                ],
                 "summary": "Upload image for new copy",
                 "operationId": "things-postcopies",
                 "parameters": [
@@ -588,6 +935,9 @@
         },
         "/things/{id}/prints": {
             "get": {
+                "tags": [
+                    "Things"
+                ],
                 "summary": "\n                              Get a list of prints associated with a thing\n                            ",
                 "operationId": "things-getprints",
                 "parameters": [
@@ -609,6 +959,9 @@
         },
         "/things/{id}/threaded-comments": {
             "get": {
+                "tags": [
+                    "Things"
+                ],
                 "summary": "\n                              Get all comments for this thing in a quick\n                              pre-threaded view. This is an alternative to GET\n                              /things/id/comments\n                            ",
                 "operationId": "things-getthreadedcomments",
                 "parameters": [
@@ -629,7 +982,32 @@
             }
         },
         "/things/{id}/comments": {
+            "get": {
+                "tags": [
+                    "Things"
+                ],
+                "summary": "\n                              Get an unthreaded paginated list of comment\n                              objects. See also GET /things/id/threaded_comments\n                            ",
+                "operationId": "things-getcomments",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "success"
+                    }
+                }
+            },
             "post": {
+                "tags": [
+                    "Things"
+                ],
                 "summary": "Post a comment",
                 "operationId": "things-postcomments",
                 "parameters": [
@@ -651,6 +1029,9 @@
         },
         "/things/{id}/root-comments": {
             "get": {
+                "tags": [
+                    "Things"
+                ],
                 "summary": "\n                              Get an unthreaded paginated list of root comment\n                              objects\n                            ",
                 "operationId": "things-getrootcomments",
                 "parameters": [
@@ -672,6 +1053,9 @@
         },
         "/things/{id}/toggle-watch": {
             "post": {
+                "tags": [
+                    "Things"
+                ],
                 "summary": "Watch/unwatch a Thing",
                 "operationId": "things-posttogglewatch",
                 "parameters": [
@@ -693,6 +1077,9 @@
         },
         "/files/{id}/": {
             "get": {
+                "tags": [
+                    "Files"
+                ],
                 "summary": "Get info about a file by id",
                 "operationId": "files-get",
                 "parameters": [
@@ -713,7 +1100,32 @@
             }
         },
         "/files/{id}/finalize": {
+            "post": {
+                "tags": [
+                    "Files"
+                ],
+                "summary": "Finalize an uploaded file",
+                "operationId": "files-postfinalize",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "success"
+                    }
+                }
+            },
             "get": {
+                "tags": [
+                    "Files"
+                ],
                 "operationId": "files-getfinalize",
                 "parameters": [
                     {
@@ -734,6 +1146,9 @@
         },
         "/files/{id}/download": {
             "get": {
+                "tags": [
+                    "Files"
+                ],
                 "summary": "Get tracked download URL",
                 "operationId": "files-getdownload",
                 "parameters": [
@@ -754,7 +1169,54 @@
             }
         },
         "/copies/{id}/": {
+            "get": {
+                "tags": [
+                    "Copies"
+                ],
+                "summary": "Get copy by id",
+                "operationId": "copies-get",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "success"
+                    }
+                }
+            },
+            "patch": {
+                "tags": [
+                    "Copies"
+                ],
+                "summary": "Update an existing copy",
+                "operationId": "copies-patch",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "success"
+                    }
+                }
+            },
             "delete": {
+                "tags": [
+                    "Copies"
+                ],
                 "summary": "Delete a copy",
                 "operationId": "copies-delete",
                 "parameters": [
@@ -775,7 +1237,32 @@
             }
         },
         "/copies/{id}/images": {
+            "get": {
+                "tags": [
+                    "Copies"
+                ],
+                "summary": "Get images for a copy",
+                "operationId": "copies-getimages",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "success"
+                    }
+                }
+            },
             "post": {
+                "tags": [
+                    "Copies"
+                ],
                 "summary": "Upload image to a copy",
                 "operationId": "copies-postimages",
                 "parameters": [
@@ -796,7 +1283,40 @@
             }
         },
         "/copies/{id}/images/{image_id}": {
+            "patch": {
+                "tags": [
+                    "Copies"
+                ],
+                "summary": "Update an existing image",
+                "operationId": "copies-patchimages",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "image_id",
+                        "in": "path",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "success"
+                    }
+                }
+            },
             "delete": {
+                "tags": [
+                    "Copies"
+                ],
                 "summary": "Delete an image from a copy",
                 "operationId": "copies-deleteimages",
                 "parameters": [
@@ -825,7 +1345,32 @@
             }
         },
         "/copies/{id}/likes": {
+            "post": {
+                "tags": [
+                    "Copies"
+                ],
+                "summary": "Like a copy",
+                "operationId": "copies-postlikes",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "success"
+                    }
+                }
+            },
             "delete": {
+                "tags": [
+                    "Copies"
+                ],
                 "summary": "Delete a like",
                 "operationId": "copies-deletelikes",
                 "parameters": [
@@ -847,6 +1392,9 @@
         },
         "/copies/{id}/threaded-comments": {
             "get": {
+                "tags": [
+                    "Copies"
+                ],
                 "summary": "\n                              Get all comments for this copy in a quick\n                              pre-threaded view. This is an alternative to GET\n                              /copies/id/comments\n                            ",
                 "operationId": "copies-getthreadedcomments",
                 "parameters": [
@@ -868,6 +1416,9 @@
         },
         "/copies/{id}/root-comments": {
             "get": {
+                "tags": [
+                    "Copies"
+                ],
                 "summary": "\n                              Get an unthreaded paginated list of root comment\n                              objects\n                            ",
                 "operationId": "copies-getrootcomments",
                 "parameters": [
@@ -888,7 +1439,32 @@
             }
         },
         "/copies/{id}/comments": {
+            "get": {
+                "tags": [
+                    "Copies"
+                ],
+                "summary": "\n                              Get an unthreaded paginated list of comment\n                              objects. See also GET /copies/id/threaded_comments\n                            ",
+                "operationId": "copies-getcomments",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "success"
+                    }
+                }
+            },
             "post": {
+                "tags": [
+                    "Copies"
+                ],
                 "summary": "Post a comment",
                 "operationId": "copies-postcomments",
                 "parameters": [
@@ -909,7 +1485,54 @@
             }
         },
         "/collections/{id}/": {
+            "get": {
+                "tags": [
+                    "Collections"
+                ],
+                "summary": "Get a collection by id",
+                "operationId": "collections-get",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "success"
+                    }
+                }
+            },
+            "patch": {
+                "tags": [
+                    "Collections"
+                ],
+                "summary": "Update a collection",
+                "operationId": "collections-patch",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "success"
+                    }
+                }
+            },
             "delete": {
+                "tags": [
+                    "Collections"
+                ],
                 "summary": "Delete a collection",
                 "operationId": "collections-delete",
                 "parameters": [
@@ -931,6 +1554,9 @@
         },
         "/collections/{id}/things": {
             "get": {
+                "tags": [
+                    "Collections"
+                ],
                 "summary": "Get Things in a collection",
                 "operationId": "collections-getthings",
                 "parameters": [
@@ -952,6 +1578,9 @@
         },
         "/collections/": {
             "post": {
+                "tags": [
+                    "Collections"
+                ],
                 "summary": "Create a new collection",
                 "operationId": "collections-post",
                 "parameters": [],
@@ -963,7 +1592,40 @@
             }
         },
         "/collections/{collection_id}/thing/{thing_id}": {
+            "post": {
+                "tags": [
+                    "Collections"
+                ],
+                "summary": "Add a thing to a collection",
+                "operationId": "collections-postthing",
+                "parameters": [
+                    {
+                        "name": "collection_id",
+                        "in": "path",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "thing_id",
+                        "in": "path",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "success"
+                    }
+                }
+            },
             "delete": {
+                "tags": [
+                    "Collections"
+                ],
                 "summary": "Removes a thing from a collection",
                 "operationId": "collections-deletething",
                 "parameters": [
@@ -992,7 +1654,54 @@
             }
         },
         "/comments/{id}/": {
+            "get": {
+                "tags": [
+                    "Comments"
+                ],
+                "summary": "Get comment by id",
+                "operationId": "comments-get",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "success"
+                    }
+                }
+            },
+            "patch": {
+                "tags": [
+                    "Comments"
+                ],
+                "summary": "Update an existing comment",
+                "operationId": "comments-patch",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "success"
+                    }
+                }
+            },
             "delete": {
+                "tags": [
+                    "Comments"
+                ],
                 "summary": "Delete a comment",
                 "operationId": "comments-delete",
                 "parameters": [
@@ -1014,6 +1723,9 @@
         },
         "/comments/{parentId}/replies": {
             "get": {
+                "tags": [
+                    "Comments"
+                ],
                 "summary": "\n                              Get an unthreaded list of children comment objects\n                            ",
                 "operationId": "comments-getreplies",
                 "parameters": [
@@ -1035,6 +1747,9 @@
         },
         "/comments/": {
             "post": {
+                "tags": [
+                    "Comments"
+                ],
                 "summary": "Create a new comment",
                 "operationId": "comments-post",
                 "parameters": [],
@@ -1047,6 +1762,9 @@
         },
         "/comments/{id}/reply": {
             "post": {
+                "tags": [
+                    "Comments"
+                ],
                 "summary": "Create a reply to an existing comment",
                 "operationId": "comments-postreply",
                 "parameters": [
@@ -1068,6 +1786,9 @@
         },
         "/newest/": {
             "get": {
+                "tags": [
+                    "Newest"
+                ],
                 "summary": "Get the latest things published",
                 "operationId": "newest-get",
                 "parameters": [],
@@ -1080,6 +1801,9 @@
         },
         "/popular/": {
             "get": {
+                "tags": [
+                    "Popular"
+                ],
                 "summary": "Get the most popular things",
                 "operationId": "popular-get",
                 "parameters": [],
@@ -1092,6 +1816,9 @@
         },
         "/featured/": {
             "get": {
+                "tags": [
+                    "Featured"
+                ],
                 "summary": "Get the latest featured things",
                 "operationId": "featured-get",
                 "parameters": [],
@@ -1104,6 +1831,9 @@
         },
         "/verified/": {
             "get": {
+                "tags": [
+                    "Verified"
+                ],
                 "summary": "Get the latest things verified",
                 "operationId": "verified-get",
                 "parameters": [],
@@ -1116,6 +1846,9 @@
         },
         "/search/{term}/": {
             "get": {
+                "tags": [
+                    "Search"
+                ],
                 "summary": "\n                              Search for Things, Makes, Users, or Collections\n                            ",
                 "operationId": "search-get",
                 "parameters": [
@@ -1137,6 +1870,9 @@
         },
         "/search/{term}/library": {
             "get": {
+                "tags": [
+                    "Search"
+                ],
                 "operationId": "search-getlibrary",
                 "parameters": [
                     {
@@ -1157,6 +1893,9 @@
         },
         "/search/{tag}/tag": {
             "get": {
+                "tags": [
+                    "Search"
+                ],
                 "operationId": "search-gettag",
                 "parameters": [
                     {
@@ -1177,6 +1916,9 @@
         },
         "/search/{term}/autocomplete": {
             "get": {
+                "tags": [
+                    "Search"
+                ],
                 "operationId": "search-getautocomplete",
                 "parameters": [
                     {
@@ -1197,6 +1939,9 @@
         },
         "/categories/{category_slug}/": {
             "get": {
+                "tags": [
+                    "Categories"
+                ],
                 "summary": "Get category or categories",
                 "operationId": "categories-get",
                 "parameters": [
@@ -1218,6 +1963,9 @@
         },
         "/categories/{category_slug}/things": {
             "get": {
+                "tags": [
+                    "Categories"
+                ],
                 "summary": "Get latest things in a category",
                 "operationId": "categories-getthings",
                 "parameters": [
@@ -1239,6 +1987,9 @@
         },
         "/tags/{tag}/things": {
             "get": {
+                "tags": [
+                    "Tags"
+                ],
                 "summary": "\n                              Get the latest things with the specified tag\n                            ",
                 "operationId": "tags-getthings",
                 "parameters": [
@@ -1260,6 +2011,9 @@
         },
         "/tags/{tag}/": {
             "get": {
+                "tags": [
+                    "Tags"
+                ],
                 "summary": "Return a representation of the given tag",
                 "operationId": "tags-get",
                 "parameters": [
@@ -1280,7 +2034,54 @@
             }
         },
         "/groups/{id}/": {
+            "get": {
+                "tags": [
+                    "Groups"
+                ],
+                "summary": "Get Group(s)",
+                "operationId": "groups-get",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "success"
+                    }
+                }
+            },
+            "patch": {
+                "tags": [
+                    "Groups"
+                ],
+                "summary": "Update Group",
+                "operationId": "groups-patch",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "success"
+                    }
+                }
+            },
             "delete": {
+                "tags": [
+                    "Groups"
+                ],
                 "summary": "Delete Group",
                 "operationId": "groups-delete",
                 "parameters": [
@@ -1302,6 +2103,9 @@
         },
         "/groups/": {
             "post": {
+                "tags": [
+                    "Groups"
+                ],
                 "summary": "Create a new Group",
                 "operationId": "groups-post",
                 "parameters": [],
@@ -1314,6 +2118,9 @@
         },
         "/groups/{id}/image": {
             "post": {
+                "tags": [
+                    "Groups"
+                ],
                 "summary": "Update the Group Image",
                 "operationId": "groups-postimage",
                 "parameters": [
@@ -1334,7 +2141,32 @@
             }
         },
         "/groups/{id}/group-topics": {
+            "get": {
+                "tags": [
+                    "Groups"
+                ],
+                "summary": "Get Group Topics",
+                "operationId": "groups-getgrouptopics",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "success"
+                    }
+                }
+            },
             "post": {
+                "tags": [
+                    "Groups"
+                ],
                 "summary": "Create a new Group Topic",
                 "operationId": "groups-postgrouptopics",
                 "parameters": [
@@ -1356,6 +2188,9 @@
         },
         "/groups/{id}/group-topics-comments": {
             "get": {
+                "tags": [
+                    "Groups"
+                ],
                 "summary": "Search Group Topics and Comments",
                 "operationId": "groups-getgrouptopicscomments",
                 "parameters": [
@@ -1377,6 +2212,9 @@
         },
         "/groups/{id}/things": {
             "get": {
+                "tags": [
+                    "Groups"
+                ],
                 "summary": "Get Things in a Group",
                 "operationId": "groups-getthings",
                 "parameters": [
@@ -1397,7 +2235,70 @@
             }
         },
         "/groups/{id}/things/{thing_id}": {
+            "post": {
+                "tags": [
+                    "Groups"
+                ],
+                "summary": "Add Thing to Group",
+                "operationId": "groups-postthings",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "thing_id",
+                        "in": "path",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "success"
+                    }
+                }
+            },
+            "delete": {
+                "tags": [
+                    "Groups"
+                ],
+                "summary": "Remove Thing from Group",
+                "operationId": "groups-deletethings",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "thing_id",
+                        "in": "path",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "success"
+                    }
+                }
+            },
             "patch": {
+                "tags": [
+                    "Groups"
+                ],
                 "summary": "Update a Group Thing",
                 "operationId": "groups-patchthings",
                 "parameters": [
@@ -1427,6 +2328,9 @@
         },
         "/groups/{id}/members": {
             "get": {
+                "tags": [
+                    "Groups"
+                ],
                 "summary": "Get Group Members",
                 "operationId": "groups-getmembers",
                 "parameters": [
@@ -1448,6 +2352,9 @@
         },
         "/groups/{group_id}/members": {
             "post": {
+                "tags": [
+                    "Groups"
+                ],
                 "summary": "Join a Group",
                 "operationId": "groups-postmembers",
                 "parameters": [
@@ -1469,6 +2376,9 @@
         },
         "/groups/{group_id}/members/{user_id}": {
             "delete": {
+                "tags": [
+                    "Groups"
+                ],
                 "summary": "Leave a Group",
                 "operationId": "groups-deletemembers",
                 "parameters": [
@@ -1497,7 +2407,31 @@
             }
         },
         "/groups/{id}/group-forums": {
+            "get": {
+                "tags": [
+                    "Groups"
+                ],
+                "operationId": "groups-getgroupforums",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "success"
+                    }
+                }
+            },
             "post": {
+                "tags": [
+                    "Groups"
+                ],
                 "operationId": "groups-postgroupforums",
                 "parameters": [
                     {
@@ -1518,6 +2452,9 @@
         },
         "/groups/{slug}/user-in-group/{userId}": {
             "get": {
+                "tags": [
+                    "Groups"
+                ],
                 "operationId": "groups-getuseringroup",
                 "parameters": [
                     {
@@ -1546,6 +2483,9 @@
         },
         "/groups/{slug}/is-slug-unique": {
             "get": {
+                "tags": [
+                    "Groups"
+                ],
                 "operationId": "groups-getisslugunique",
                 "parameters": [
                     {
@@ -1565,7 +2505,32 @@
             }
         },
         "/group-topics/{id}/": {
+            "get": {
+                "tags": [
+                    "GroupTopics"
+                ],
+                "summary": "Get Group Topic",
+                "operationId": "grouptopics-get",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "success"
+                    }
+                }
+            },
             "patch": {
+                "tags": [
+                    "GroupTopics"
+                ],
                 "summary": "Update Group Topic",
                 "operationId": "grouptopics-patch",
                 "parameters": [
@@ -1586,7 +2551,32 @@
             }
         },
         "/group-topics/{id}/pin": {
+            "post": {
+                "tags": [
+                    "GroupTopics"
+                ],
+                "summary": "Pin Group Topic",
+                "operationId": "grouptopics-postpin",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "success"
+                    }
+                }
+            },
             "delete": {
+                "tags": [
+                    "GroupTopics"
+                ],
                 "summary": "Unpin Group Topic",
                 "operationId": "grouptopics-deletepin",
                 "parameters": [
@@ -1608,6 +2598,9 @@
         },
         "/group-topics/{id}/threaded-comments": {
             "get": {
+                "tags": [
+                    "GroupTopics"
+                ],
                 "summary": "\n                              Get all comments for this topic in a quick\n                              pre-threaded view. This is an alternative to GET\n                              /grouptopics/id/comments\n                            ",
                 "operationId": "grouptopics-getthreadedcomments",
                 "parameters": [
@@ -1628,7 +2621,32 @@
             }
         },
         "/group-topics/{id}/comments": {
+            "get": {
+                "tags": [
+                    "GroupTopics"
+                ],
+                "summary": "\n                              Get an unthreaded paginated list of comment\n                              objects. See also GET\n                              /grouptopics/id/threaded_comments\n                            ",
+                "operationId": "grouptopics-getcomments",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "success"
+                    }
+                }
+            },
             "post": {
+                "tags": [
+                    "GroupTopics"
+                ],
                 "summary": "Post a comment",
                 "operationId": "grouptopics-postcomments",
                 "parameters": [
@@ -1648,5 +2666,67 @@
                 }
             }
         }
-    }
+    },
+    "tags": [
+        {
+            "name": "Users",
+            "description": "Operations for Users"
+        },
+        {
+            "name": "Things",
+            "description": "Operations for Things"
+        },
+        {
+            "name": "Files",
+            "description": "Operations for Files"
+        },
+        {
+            "name": "Copies",
+            "description": "Operations for Copies"
+        },
+        {
+            "name": "Collections",
+            "description": "Operations for Collections"
+        },
+        {
+            "name": "Comments",
+            "description": "Operations for Comments"
+        },
+        {
+            "name": "Newest",
+            "description": "Operations for Newest"
+        },
+        {
+            "name": "Popular",
+            "description": "Operations for Popular"
+        },
+        {
+            "name": "Featured",
+            "description": "Operations for Featured"
+        },
+        {
+            "name": "Verified",
+            "description": "Operations for Verified"
+        },
+        {
+            "name": "Search",
+            "description": "Operations for Search"
+        },
+        {
+            "name": "Categories",
+            "description": "Operations for Categories"
+        },
+        {
+            "name": "Tags",
+            "description": "Operations for Tags"
+        },
+        {
+            "name": "Groups",
+            "description": "Operations for Groups"
+        },
+        {
+            "name": "GroupTopics",
+            "description": "Operations for GroupTopics"
+        }
+    ]
 }
