@@ -1,0 +1,1652 @@
+{
+    "openapi": "3.0.3",
+    "info": {
+        "title": "thingiverse API",
+        "version": "v0"
+    },
+    "paths": {
+        "/users/{username}/": {
+            "delete": {
+                "summary": "Delete a user's account",
+                "operationId": "users-delete",
+                "parameters": [
+                    {
+                        "name": "username",
+                        "in": "path",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "success"
+                    }
+                }
+            }
+        },
+        "/users/{username}/search/{term}": {
+            "get": {
+                "summary": "Search data by user",
+                "operationId": "users-getsearch",
+                "parameters": [
+                    {
+                        "name": "username",
+                        "in": "path",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "term",
+                        "in": "path",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "success"
+                    }
+                }
+            }
+        },
+        "/users/{username}/things": {
+            "get": {
+                "summary": "Get things by user",
+                "operationId": "users-getthings",
+                "parameters": [
+                    {
+                        "name": "username",
+                        "in": "path",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "success"
+                    }
+                }
+            }
+        },
+        "/users/{username}/favorites": {
+            "get": {
+                "summary": "Get favorites by user",
+                "operationId": "users-getfavorites",
+                "parameters": [
+                    {
+                        "name": "username",
+                        "in": "path",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "success"
+                    }
+                }
+            }
+        },
+        "/users/{username}/likes": {
+            "get": {
+                "summary": "Get things like by user",
+                "operationId": "users-getlikes",
+                "parameters": [
+                    {
+                        "name": "username",
+                        "in": "path",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "success"
+                    }
+                }
+            }
+        },
+        "/users/{username}/copies": {
+            "get": {
+                "summary": "Get latest copies by user",
+                "operationId": "users-getcopies",
+                "parameters": [
+                    {
+                        "name": "username",
+                        "in": "path",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "success"
+                    }
+                }
+            }
+        },
+        "/users/{username}/collections/{all}": {
+            "get": {
+                "summary": "Get latest collections by user",
+                "operationId": "users-getcollections",
+                "parameters": [
+                    {
+                        "name": "username",
+                        "in": "path",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "all",
+                        "in": "path",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "success"
+                    }
+                }
+            }
+        },
+        "/users/{username}/downloads": {
+            "get": {
+                "summary": "Get latest downloaded things by user",
+                "operationId": "users-getdownloads",
+                "parameters": [
+                    {
+                        "name": "username",
+                        "in": "path",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "success"
+                    }
+                }
+            }
+        },
+        "/users/{username}/verify-account": {
+            "post": {
+                "summary": "Send user verification email",
+                "operationId": "users-postverifyaccount",
+                "parameters": [
+                    {
+                        "name": "username",
+                        "in": "path",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "success"
+                    }
+                }
+            }
+        },
+        "/users/{username}/event-count": {
+            "get": {
+                "summary": "\n                              Get the count of events for user since the\n                              timestamp sent\n                            ",
+                "operationId": "users-geteventcount",
+                "parameters": [
+                    {
+                        "name": "username",
+                        "in": "path",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "success"
+                    }
+                }
+            }
+        },
+        "/users/{username}/all-collected-things": {
+            "get": {
+                "summary": "\n                              Get all the things that the user added to the\n                              collection\n                            ",
+                "operationId": "users-getallcollectedthings",
+                "parameters": [
+                    {
+                        "name": "username",
+                        "in": "path",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "success"
+                    }
+                }
+            }
+        },
+        "/users/unread-message-count": {
+            "get": {
+                "summary": "Get the count of messages for user",
+                "operationId": "users-getunreadmessagecount",
+                "parameters": [],
+                "responses": {
+                    "200": {
+                        "description": "success"
+                    }
+                }
+            }
+        },
+        "/users/{username}/followers": {
+            "delete": {
+                "summary": "Unfollow an user",
+                "operationId": "users-deletefollowers",
+                "parameters": [
+                    {
+                        "name": "username",
+                        "in": "path",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "success"
+                    }
+                }
+            }
+        },
+        "/users/{username}/avatar-image": {
+            "post": {
+                "summary": "Update the avatar image",
+                "operationId": "users-postavatarimage",
+                "parameters": [
+                    {
+                        "name": "username",
+                        "in": "path",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "success"
+                    }
+                }
+            }
+        },
+        "/users/{username}/cover-image": {
+            "post": {
+                "summary": "Update the cover image",
+                "operationId": "users-postcoverimage",
+                "parameters": [
+                    {
+                        "name": "username",
+                        "in": "path",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "success"
+                    }
+                }
+            }
+        },
+        "/things/{id}/": {
+            "delete": {
+                "summary": "Delete a thing",
+                "operationId": "things-delete",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "success"
+                    }
+                }
+            }
+        },
+        "/things/{id}/images/{image_id}": {
+            "delete": {
+                "summary": "Delete an image from a thing",
+                "operationId": "things-deleteimages",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "image_id",
+                        "in": "path",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "success"
+                    }
+                }
+            }
+        },
+        "/things/{id}/files/{file_id}": {
+            "delete": {
+                "summary": "Delete a file from a thing",
+                "operationId": "things-deletefiles",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "file_id",
+                        "in": "path",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "success"
+                    }
+                }
+            }
+        },
+        "/things/{id}/likes": {
+            "delete": {
+                "summary": "Delete a like",
+                "operationId": "things-deletelikes",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "success"
+                    }
+                }
+            }
+        },
+        "/things/{id}/ancestors": {
+            "get": {
+                "summary": "Get a list of thing ancestors",
+                "operationId": "things-getancestors",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "success"
+                    }
+                }
+            }
+        },
+        "/things/{id}/derivatives": {
+            "get": {
+                "summary": "Get a list of thing derivatives",
+                "operationId": "things-getderivatives",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "success"
+                    }
+                }
+            }
+        },
+        "/things/{id}/tags": {
+            "get": {
+                "summary": "Get tags on this thing",
+                "operationId": "things-gettags",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "success"
+                    }
+                }
+            }
+        },
+        "/things/{id}/categories": {
+            "get": {
+                "summary": "Get thing category",
+                "operationId": "things-getcategories",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "success"
+                    }
+                }
+            }
+        },
+        "/things/": {
+            "post": {
+                "summary": "Create a new thing",
+                "operationId": "things-post",
+                "parameters": [],
+                "responses": {
+                    "200": {
+                        "description": "success"
+                    }
+                }
+            }
+        },
+        "/things/{id}/files": {
+            "post": {
+                "summary": "Upload a file to the given thing",
+                "operationId": "things-postfiles",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "success"
+                    }
+                }
+            }
+        },
+        "/things/{id}/publish": {
+            "post": {
+                "summary": "Publish a thing",
+                "operationId": "things-postpublish",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "success"
+                    }
+                }
+            }
+        },
+        "/things/{id}/copies": {
+            "post": {
+                "summary": "Upload image for new copy",
+                "operationId": "things-postcopies",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "success"
+                    }
+                }
+            }
+        },
+        "/things/{id}/prints": {
+            "get": {
+                "summary": "\n                              Get a list of prints associated with a thing\n                            ",
+                "operationId": "things-getprints",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "success"
+                    }
+                }
+            }
+        },
+        "/things/{id}/threaded-comments": {
+            "get": {
+                "summary": "\n                              Get all comments for this thing in a quick\n                              pre-threaded view. This is an alternative to GET\n                              /things/id/comments\n                            ",
+                "operationId": "things-getthreadedcomments",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "success"
+                    }
+                }
+            }
+        },
+        "/things/{id}/comments": {
+            "post": {
+                "summary": "Post a comment",
+                "operationId": "things-postcomments",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "success"
+                    }
+                }
+            }
+        },
+        "/things/{id}/root-comments": {
+            "get": {
+                "summary": "\n                              Get an unthreaded paginated list of root comment\n                              objects\n                            ",
+                "operationId": "things-getrootcomments",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "success"
+                    }
+                }
+            }
+        },
+        "/things/{id}/toggle-watch": {
+            "post": {
+                "summary": "Watch/unwatch a Thing",
+                "operationId": "things-posttogglewatch",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "success"
+                    }
+                }
+            }
+        },
+        "/files/{id}/": {
+            "get": {
+                "summary": "Get info about a file by id",
+                "operationId": "files-get",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "success"
+                    }
+                }
+            }
+        },
+        "/files/{id}/finalize": {
+            "get": {
+                "operationId": "files-getfinalize",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "success"
+                    }
+                }
+            }
+        },
+        "/files/{id}/download": {
+            "get": {
+                "summary": "Get tracked download URL",
+                "operationId": "files-getdownload",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "success"
+                    }
+                }
+            }
+        },
+        "/copies/{id}/": {
+            "delete": {
+                "summary": "Delete a copy",
+                "operationId": "copies-delete",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "success"
+                    }
+                }
+            }
+        },
+        "/copies/{id}/images": {
+            "post": {
+                "summary": "Upload image to a copy",
+                "operationId": "copies-postimages",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "success"
+                    }
+                }
+            }
+        },
+        "/copies/{id}/images/{image_id}": {
+            "delete": {
+                "summary": "Delete an image from a copy",
+                "operationId": "copies-deleteimages",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "image_id",
+                        "in": "path",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "success"
+                    }
+                }
+            }
+        },
+        "/copies/{id}/likes": {
+            "delete": {
+                "summary": "Delete a like",
+                "operationId": "copies-deletelikes",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "success"
+                    }
+                }
+            }
+        },
+        "/copies/{id}/threaded-comments": {
+            "get": {
+                "summary": "\n                              Get all comments for this copy in a quick\n                              pre-threaded view. This is an alternative to GET\n                              /copies/id/comments\n                            ",
+                "operationId": "copies-getthreadedcomments",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "success"
+                    }
+                }
+            }
+        },
+        "/copies/{id}/root-comments": {
+            "get": {
+                "summary": "\n                              Get an unthreaded paginated list of root comment\n                              objects\n                            ",
+                "operationId": "copies-getrootcomments",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "success"
+                    }
+                }
+            }
+        },
+        "/copies/{id}/comments": {
+            "post": {
+                "summary": "Post a comment",
+                "operationId": "copies-postcomments",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "success"
+                    }
+                }
+            }
+        },
+        "/collections/{id}/": {
+            "delete": {
+                "summary": "Delete a collection",
+                "operationId": "collections-delete",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "success"
+                    }
+                }
+            }
+        },
+        "/collections/{id}/things": {
+            "get": {
+                "summary": "Get Things in a collection",
+                "operationId": "collections-getthings",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "success"
+                    }
+                }
+            }
+        },
+        "/collections/": {
+            "post": {
+                "summary": "Create a new collection",
+                "operationId": "collections-post",
+                "parameters": [],
+                "responses": {
+                    "200": {
+                        "description": "success"
+                    }
+                }
+            }
+        },
+        "/collections/{collection_id}/thing/{thing_id}": {
+            "delete": {
+                "summary": "Removes a thing from a collection",
+                "operationId": "collections-deletething",
+                "parameters": [
+                    {
+                        "name": "collection_id",
+                        "in": "path",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "thing_id",
+                        "in": "path",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "success"
+                    }
+                }
+            }
+        },
+        "/comments/{id}/": {
+            "delete": {
+                "summary": "Delete a comment",
+                "operationId": "comments-delete",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "success"
+                    }
+                }
+            }
+        },
+        "/comments/{parentId}/replies": {
+            "get": {
+                "summary": "\n                              Get an unthreaded list of children comment objects\n                            ",
+                "operationId": "comments-getreplies",
+                "parameters": [
+                    {
+                        "name": "parentId",
+                        "in": "path",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "success"
+                    }
+                }
+            }
+        },
+        "/comments/": {
+            "post": {
+                "summary": "Create a new comment",
+                "operationId": "comments-post",
+                "parameters": [],
+                "responses": {
+                    "200": {
+                        "description": "success"
+                    }
+                }
+            }
+        },
+        "/comments/{id}/reply": {
+            "post": {
+                "summary": "Create a reply to an existing comment",
+                "operationId": "comments-postreply",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "success"
+                    }
+                }
+            }
+        },
+        "/newest/": {
+            "get": {
+                "summary": "Get the latest things published",
+                "operationId": "newest-get",
+                "parameters": [],
+                "responses": {
+                    "200": {
+                        "description": "success"
+                    }
+                }
+            }
+        },
+        "/popular/": {
+            "get": {
+                "summary": "Get the most popular things",
+                "operationId": "popular-get",
+                "parameters": [],
+                "responses": {
+                    "200": {
+                        "description": "success"
+                    }
+                }
+            }
+        },
+        "/featured/": {
+            "get": {
+                "summary": "Get the latest featured things",
+                "operationId": "featured-get",
+                "parameters": [],
+                "responses": {
+                    "200": {
+                        "description": "success"
+                    }
+                }
+            }
+        },
+        "/verified/": {
+            "get": {
+                "summary": "Get the latest things verified",
+                "operationId": "verified-get",
+                "parameters": [],
+                "responses": {
+                    "200": {
+                        "description": "success"
+                    }
+                }
+            }
+        },
+        "/search/{term}/": {
+            "get": {
+                "summary": "\n                              Search for Things, Makes, Users, or Collections\n                            ",
+                "operationId": "search-get",
+                "parameters": [
+                    {
+                        "name": "term",
+                        "in": "path",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "success"
+                    }
+                }
+            }
+        },
+        "/search/{term}/library": {
+            "get": {
+                "operationId": "search-getlibrary",
+                "parameters": [
+                    {
+                        "name": "term",
+                        "in": "path",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "success"
+                    }
+                }
+            }
+        },
+        "/search/{tag}/tag": {
+            "get": {
+                "operationId": "search-gettag",
+                "parameters": [
+                    {
+                        "name": "tag",
+                        "in": "path",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "success"
+                    }
+                }
+            }
+        },
+        "/search/{term}/autocomplete": {
+            "get": {
+                "operationId": "search-getautocomplete",
+                "parameters": [
+                    {
+                        "name": "term",
+                        "in": "path",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "success"
+                    }
+                }
+            }
+        },
+        "/categories/{category_slug}/": {
+            "get": {
+                "summary": "Get category or categories",
+                "operationId": "categories-get",
+                "parameters": [
+                    {
+                        "name": "category_slug",
+                        "in": "path",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "success"
+                    }
+                }
+            }
+        },
+        "/categories/{category_slug}/things": {
+            "get": {
+                "summary": "Get latest things in a category",
+                "operationId": "categories-getthings",
+                "parameters": [
+                    {
+                        "name": "category_slug",
+                        "in": "path",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "success"
+                    }
+                }
+            }
+        },
+        "/tags/{tag}/things": {
+            "get": {
+                "summary": "\n                              Get the latest things with the specified tag\n                            ",
+                "operationId": "tags-getthings",
+                "parameters": [
+                    {
+                        "name": "tag",
+                        "in": "path",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "success"
+                    }
+                }
+            }
+        },
+        "/tags/{tag}/": {
+            "get": {
+                "summary": "Return a representation of the given tag",
+                "operationId": "tags-get",
+                "parameters": [
+                    {
+                        "name": "tag",
+                        "in": "path",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "success"
+                    }
+                }
+            }
+        },
+        "/groups/{id}/": {
+            "delete": {
+                "summary": "Delete Group",
+                "operationId": "groups-delete",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "success"
+                    }
+                }
+            }
+        },
+        "/groups/": {
+            "post": {
+                "summary": "Create a new Group",
+                "operationId": "groups-post",
+                "parameters": [],
+                "responses": {
+                    "200": {
+                        "description": "success"
+                    }
+                }
+            }
+        },
+        "/groups/{id}/image": {
+            "post": {
+                "summary": "Update the Group Image",
+                "operationId": "groups-postimage",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "success"
+                    }
+                }
+            }
+        },
+        "/groups/{id}/group-topics": {
+            "post": {
+                "summary": "Create a new Group Topic",
+                "operationId": "groups-postgrouptopics",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "success"
+                    }
+                }
+            }
+        },
+        "/groups/{id}/group-topics-comments": {
+            "get": {
+                "summary": "Search Group Topics and Comments",
+                "operationId": "groups-getgrouptopicscomments",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "success"
+                    }
+                }
+            }
+        },
+        "/groups/{id}/things": {
+            "get": {
+                "summary": "Get Things in a Group",
+                "operationId": "groups-getthings",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "success"
+                    }
+                }
+            }
+        },
+        "/groups/{id}/things/{thing_id}": {
+            "patch": {
+                "summary": "Update a Group Thing",
+                "operationId": "groups-patchthings",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "thing_id",
+                        "in": "path",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "success"
+                    }
+                }
+            }
+        },
+        "/groups/{id}/members": {
+            "get": {
+                "summary": "Get Group Members",
+                "operationId": "groups-getmembers",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "success"
+                    }
+                }
+            }
+        },
+        "/groups/{group_id}/members": {
+            "post": {
+                "summary": "Join a Group",
+                "operationId": "groups-postmembers",
+                "parameters": [
+                    {
+                        "name": "group_id",
+                        "in": "path",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "success"
+                    }
+                }
+            }
+        },
+        "/groups/{group_id}/members/{user_id}": {
+            "delete": {
+                "summary": "Leave a Group",
+                "operationId": "groups-deletemembers",
+                "parameters": [
+                    {
+                        "name": "group_id",
+                        "in": "path",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "user_id",
+                        "in": "path",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "success"
+                    }
+                }
+            }
+        },
+        "/groups/{id}/group-forums": {
+            "post": {
+                "operationId": "groups-postgroupforums",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "success"
+                    }
+                }
+            }
+        },
+        "/groups/{slug}/user-in-group/{userId}": {
+            "get": {
+                "operationId": "groups-getuseringroup",
+                "parameters": [
+                    {
+                        "name": "slug",
+                        "in": "path",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "userId",
+                        "in": "path",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "success"
+                    }
+                }
+            }
+        },
+        "/groups/{slug}/is-slug-unique": {
+            "get": {
+                "operationId": "groups-getisslugunique",
+                "parameters": [
+                    {
+                        "name": "slug",
+                        "in": "path",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "success"
+                    }
+                }
+            }
+        },
+        "/group-topics/{id}/": {
+            "patch": {
+                "summary": "Update Group Topic",
+                "operationId": "grouptopics-patch",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "success"
+                    }
+                }
+            }
+        },
+        "/group-topics/{id}/pin": {
+            "delete": {
+                "summary": "Unpin Group Topic",
+                "operationId": "grouptopics-deletepin",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "success"
+                    }
+                }
+            }
+        },
+        "/group-topics/{id}/threaded-comments": {
+            "get": {
+                "summary": "\n                              Get all comments for this topic in a quick\n                              pre-threaded view. This is an alternative to GET\n                              /grouptopics/id/comments\n                            ",
+                "operationId": "grouptopics-getthreadedcomments",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "success"
+                    }
+                }
+            }
+        },
+        "/group-topics/{id}/comments": {
+            "post": {
+                "summary": "Post a comment",
+                "operationId": "grouptopics-postcomments",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "success"
+                    }
+                }
+            }
+        }
+    }
+}

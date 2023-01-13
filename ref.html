@@ -1,0 +1,3655 @@
+<!DOCTYPE html>
+<html
+  lang="en"
+  xmlns="http://www.w3.org/1999/xhtml"
+  xmlns:fb="http://ogp.me/ns/fb#"
+  xml:lang="en"
+>
+  <head>
+    <meta
+      name="generator"
+      content="HTML Tidy for HTML5 for Linux version 5.6.0"
+    />
+    <title>REST API Reference - Developers - Thingiverse</title>
+  </head>
+  <body class="thingiverse loggedout">
+    <div class="loading-screen">
+      <img
+        src="https://cdn.thingiverse.com/site/img/loading.gif"
+        alt="Loading"
+        width="50"
+        height="50"
+        class="center"
+      />
+    </div>
+    <div class="page-container">
+      <div id="push-wrap">
+        <div id="push-main">
+          <a name="top" class="nodisplay" id="top"></a>
+          <div id="header" style="max-width: 965px; margin: 0 auto"></div>
+          <div id="main">
+            <div class="basic-page">
+              <header class="path-header">
+                <nav>
+                  <div class="center_content">
+                    <h1>
+                      <a href="/developers">Thingiverse Developers</a> /
+                      <span>Thingiverse REST API Reference</span>
+                    </h1>
+                    <ul>
+                      <li>
+                        <a href="/apps/create" class="button white-button"
+                          >Create an App</a
+                        >
+                      </li>
+                    </ul>
+                  </div>
+                </nav>
+              </header>
+              <div class="apidocs center_content top_content bottom_content">
+                <h1>Thingiverse REST API Reference</h1>
+                <div class="justify">
+                  <div class="width-2 share">
+                    <div>
+                      <div class="content-box full-width">
+                        <a name="users" id="users"></a>
+                        <h2>Users</h2>
+                        <ul class="api-methods">
+                          <li>
+                            <hr />
+                            <a name="users-get" id="users-get"></a>
+                            <h3>Get the specified user</h3>
+                            <pre>GET /users/{$username}/</pre>
+                            <h4>Parameters</h4>
+                            <blockquote>
+                              <ul class="api-vars">
+                                <li>
+                                  <code>$username</code> - Required string - The
+                                  username of the user to get. Use the special
+                                  name "me" to get information about the current
+                                  user.
+                                </li>
+                              </ul>
+                            </blockquote>
+                            <h4>Returns</h4>
+                            <blockquote>
+                              <ul class="api-vars">
+                                <li>
+                                  <code>(object)</code> - The user. @throws
+                                  NotFoundException @throws
+                                  OnionRequestException
+                                </li>
+                              </ul>
+                            </blockquote>
+                          </li>
+                          <li>
+                            <hr />
+                            <a name="users-patch" id="users-patch"></a>
+                            <h3>Update the user's profile</h3>
+                            <pre>PATCH /users/{$username}/</pre>
+                            <p>Must use the PATCH method.</p>
+                            <h4>Body Parameters</h4>
+                            <blockquote>
+                              <ul class="api-vars">
+                                <li>
+                                  <code>first_name</code> - string - Optional.
+                                  Replace the first name of this user.
+                                </li>
+                                <li>
+                                  <code>last_name</code> - string - Optional.
+                                  Replace the last name of this user.
+                                </li>
+                                <li>
+                                  <code>bio</code> - string - Optional. Replace
+                                  the biography for this user.
+                                </li>
+                                <li>
+                                  <code>location</code> - string - Optional.
+                                  Replace the location for this user.
+                                </li>
+                                <li>
+                                  <code>default_license</code> - string -
+                                  Optional. One of cc, cc-sa, cc-nd, cc-nc,
+                                  cc-nc-sa, cc-nc-nd, pd0, gpl, lgpl, bsd.
+                                  Update default license.
+                                </li>
+                              </ul>
+                            </blockquote>
+                            <h4>Parameters</h4>
+                            <blockquote>
+                              <ul class="api-vars">
+                                <li>
+                                  <code>$username</code> - Required integer -
+                                  The username of the user to update
+                                </li>
+                              </ul>
+                            </blockquote>
+                            <h4>Returns</h4>
+                            <blockquote>
+                              <ul class="api-vars">
+                                <li>
+                                  <code>(object)</code> - The updated user.
+                                </li>
+                              </ul>
+                            </blockquote>
+                          </li>
+                          <li>
+                            <hr />
+                            <a name="users-delete" id="users-delete"></a>
+                            <h3>Delete a user's account</h3>
+                            <pre>DELETE /users/{$username}/</pre>
+                            <p>
+                              Restricted endpoint for deleting a user's account.
+                            </p>
+                            <h4>Parameters</h4>
+                            <blockquote>
+                              <ul class="api-vars">
+                                <li>
+                                  <code>$username</code> - Required string - The
+                                  username of the user to delete. Must match
+                                  token.
+                                </li>
+                              </ul>
+                            </blockquote>
+                            <h4>Returns</h4>
+                            <blockquote>
+                              <ul class="api-vars">
+                                <li>NONE</li>
+                              </ul>
+                            </blockquote>
+                          </li>
+                          <li>
+                            <hr />
+                            <a name="users-getsearch" id="users-getsearch"></a>
+                            <h3>Search data by user</h3>
+                            <pre>GET /users/{$username}/search/{$term}</pre>
+                            <h4>Parameters</h4>
+                            <blockquote>
+                              <ul class="api-vars">
+                                <li>
+                                  <code>$username</code> - Required string - The
+                                  username of the user for which to fetch
+                                  things.
+                                </li>
+                                <li>
+                                  <code>$term</code> - Optional string - The
+                                  search query to perform.
+                                </li>
+                              </ul>
+                            </blockquote>
+                            <h4>Returns</h4>
+                            <blockquote>
+                              <ul class="api-vars">
+                                <li>
+                                  <code>(array)</code> - A list of items
+                                  matching the search
+                                </li>
+                              </ul>
+                            </blockquote>
+                          </li>
+                          <li>
+                            <hr />
+                            <a name="users-getthings" id="users-getthings"></a>
+                            <h3>Get things by user</h3>
+                            <pre>GET /users/{$username}/things</pre>
+                            <p>
+                              If an authenticated user is requesting their own
+                              list of things, unpublished things will also
+                              appear in the list. If the user doesn't exist,
+                              result is 404 Not Found.
+                            </p>
+                            <h4>Parameters</h4>
+                            <blockquote>
+                              <ul class="api-vars">
+                                <li>
+                                  <code>$username</code> - Required string - The
+                                  username of the user for which to fetch
+                                  things.
+                                </li>
+                              </ul>
+                            </blockquote>
+                            <h4>Returns</h4>
+                            <blockquote>
+                              <ul class="api-vars">
+                                <li><code>(array)</code> - Thing objects</li>
+                              </ul>
+                            </blockquote>
+                          </li>
+                          <li>
+                            <hr />
+                            <a
+                              name="users-getfavorites"
+                              id="users-getfavorites"
+                            ></a>
+                            <h3>Get favorites by user</h3>
+                            <pre>GET /users/{$username}/favorites</pre>
+                            <p>
+                              If an authenticated user is requesting their own
+                              list of favorites, If the user doesn't exist,
+                              result is 404 Not Found.
+                            </p>
+                            <h4>Parameters</h4>
+                            <blockquote>
+                              <ul class="api-vars">
+                                <li>
+                                  <code>$username</code> - Required string - The
+                                  username of the user for which to fetch
+                                  things.
+                                </li>
+                              </ul>
+                            </blockquote>
+                            <h4>Returns</h4>
+                            <blockquote>
+                              <ul class="api-vars">
+                                <li><code>(array)</code> - Favorite objects</li>
+                              </ul>
+                            </blockquote>
+                          </li>
+                          <li>
+                            <hr />
+                            <a name="users-getlikes" id="users-getlikes"></a>
+                            <h3>Get things like by user</h3>
+                            <pre>GET /users/{$username}/likes</pre>
+                            <p>
+                              If the user doesn't exist, result is 404 Not
+                              Found.
+                            </p>
+                            <h4>Parameters</h4>
+                            <blockquote>
+                              <ul class="api-vars">
+                                <li>
+                                  <code>$username</code> - Required string - The
+                                  username of the user for which to fetch likes.
+                                </li>
+                              </ul>
+                            </blockquote>
+                            <h4>Returns</h4>
+                            <blockquote>
+                              <ul class="api-vars">
+                                <li><code>(array)</code> - Thing objects</li>
+                              </ul>
+                            </blockquote>
+                          </li>
+                          <li>
+                            <hr />
+                            <a name="users-getcopies" id="users-getcopies"></a>
+                            <h3>Get latest copies by user</h3>
+                            <pre>GET /users/{$username}/copies</pre>
+                            <p>
+                              If the user doesn't exist, result is 404 Not
+                              Found.
+                            </p>
+                            <h4>Parameters</h4>
+                            <blockquote>
+                              <ul class="api-vars">
+                                <li>
+                                  <code>$username</code> - Required string - The
+                                  username of the user for which to fetch
+                                  copies.
+                                </li>
+                              </ul>
+                            </blockquote>
+                            <h4>Returns</h4>
+                            <blockquote>
+                              <ul class="api-vars">
+                                <li><code>(array)</code> - Copy objects</li>
+                              </ul>
+                            </blockquote>
+                          </li>
+                          <li>
+                            <hr />
+                            <a
+                              name="users-getcollections"
+                              id="users-getcollections"
+                            ></a>
+                            <h3>Get latest collections by user</h3>
+                            <pre>GET /users/{$username}/collections/{$all}</pre>
+                            <p>
+                              If the user doesn't exist, result is 404 Not
+                              Found.
+                            </p>
+                            <h4>Parameters</h4>
+                            <blockquote>
+                              <ul class="api-vars">
+                                <li>
+                                  <code>$username</code> - Required string - The
+                                  username of the user for which to fetch
+                                  collections.
+                                </li>
+                                <li>
+                                  <code>$all</code> - Optional boolean - If
+                                  'all' is true return full collection list an
+                                  otherwise paginated collection
+                                </li>
+                              </ul>
+                            </blockquote>
+                            <h4>Returns</h4>
+                            <blockquote>
+                              <ul class="api-vars">
+                                <li>
+                                  <code>(array)</code> - Collection objects
+                                </li>
+                              </ul>
+                            </blockquote>
+                          </li>
+                          <li>
+                            <hr />
+                            <a
+                              name="users-getdownloads"
+                              id="users-getdownloads"
+                            ></a>
+                            <h3>Get latest downloaded things by user</h3>
+                            <pre>GET /users/{$username}/downloads</pre>
+                            <p>
+                              If the user doesn't exist, result is 404 Not
+                              Found.
+                            </p>
+                            <h4>Parameters</h4>
+                            <blockquote>
+                              <ul class="api-vars">
+                                <li>
+                                  <code>$username</code> - Required string - The
+                                  username of the user in question.
+                                </li>
+                              </ul>
+                            </blockquote>
+                            <h4>Returns</h4>
+                            <blockquote>
+                              <ul class="api-vars">
+                                <li><code>(array)</code> - Thing objects</li>
+                              </ul>
+                            </blockquote>
+                          </li>
+                          <li>
+                            <hr />
+                            <a
+                              name="users-postverifyaccount"
+                              id="users-postverifyaccount"
+                            ></a>
+                            <h3>Send user verification email</h3>
+                            <pre>POST /users/{$username}/verify-account</pre>
+                            <h4>Parameters</h4>
+                            <blockquote>
+                              <ul class="api-vars">
+                                <li>
+                                  <code>$username</code> - Required string -
+                                  your username.
+                                </li>
+                              </ul>
+                            </blockquote>
+                            <h4>Returns</h4>
+                            <blockquote>
+                              <ul class="api-vars">
+                                <li>
+                                  <code>(object)</code> - The "ok" object.
+                                </li>
+                              </ul>
+                            </blockquote>
+                          </li>
+                          <li>
+                            <hr />
+                            <a
+                              name="users-geteventcount"
+                              id="users-geteventcount"
+                            ></a>
+                            <h3>
+                              Get the count of events for user since the
+                              timestamp sent
+                            </h3>
+                            <pre>GET /users/{$username}/event-count</pre>
+                            <h4>Parameters</h4>
+                            <blockquote>
+                              <ul class="api-vars">
+                                <li>
+                                  <code>$username</code> - Required string - The
+                                  username to get events for
+                                </li>
+                              </ul>
+                            </blockquote>
+                            <h4>Globals</h4>
+                            <blockquote>
+                              <ul class="api-vars">
+                                <li>
+                                  <code>_GET</code> - string - ['timestamp'] The
+                                  timestamp to check against UTC
+                                  (YYYY-MM-DDThh:mm:ssTZD)
+                                </li>
+                              </ul>
+                            </blockquote>
+                            <h4>Returns</h4>
+                            <blockquote>
+                              <ul class="api-vars">
+                                <li>
+                                  <code>(object)</code> - The count of events
+                                </li>
+                              </ul>
+                            </blockquote>
+                          </li>
+                          <li>
+                            <hr />
+                            <a
+                              name="users-getallcollectedthings"
+                              id="users-getallcollectedthings"
+                            ></a>
+                            <h3>
+                              Get all the things that the user added to the
+                              collection
+                            </h3>
+                            <pre>
+GET /users/{$username}/all-collected-things</pre
+                            >
+                            <h4>Parameters</h4>
+                            <blockquote>
+                              <ul class="api-vars">
+                                <li>
+                                  <code>$username</code> - Required string - The
+                                  username for which all items from the
+                                  collections are searched
+                                </li>
+                              </ul>
+                            </blockquote>
+                            <h4>Returns</h4>
+                            <blockquote>
+                              <ul class="api-vars">
+                                <li>
+                                  <code>(object)</code> - All things that the
+                                  user added to the collection
+                                </li>
+                              </ul>
+                            </blockquote>
+                          </li>
+                          <li>
+                            <hr />
+                            <a
+                              name="users-getunreadmessagecount"
+                              id="users-getunreadmessagecount"
+                            ></a>
+                            <h3>Get the count of messages for user</h3>
+                            <pre>GET /users/unread-message-count</pre>
+                            <h4>Returns</h4>
+                            <blockquote>
+                              <ul class="api-vars">
+                                <li>
+                                  <code>(object)</code> - The count of messages
+                                </li>
+                              </ul>
+                            </blockquote>
+                          </li>
+                          <li>
+                            <hr />
+                            <a
+                              name="users-postfollowers"
+                              id="users-postfollowers"
+                            ></a>
+                            <h3>Follow an user</h3>
+                            <pre>POST /users/{$username}/followers</pre>
+                            <p>
+                              Must use the POST method Result will be 404 Not
+                              Found if the user doesn't exist. Result will be
+                              400 Bad Request if the user is trying to follow
+                              itself.
+                            </p>
+                            <h4>Parameters</h4>
+                            <blockquote>
+                              <ul class="api-vars">
+                                <li>
+                                  <code>$username</code> - Required string - The
+                                  username of the user to "follow".
+                                </li>
+                              </ul>
+                            </blockquote>
+                            <h4>Returns</h4>
+                            <blockquote>
+                              <ul class="api-vars">
+                                <li>
+                                  <code>(object)</code> - The "ok" object.
+                                </li>
+                              </ul>
+                            </blockquote>
+                          </li>
+                          <li>
+                            <hr />
+                            <a
+                              name="users-deletefollowers"
+                              id="users-deletefollowers"
+                            ></a>
+                            <h3>Unfollow an user</h3>
+                            <pre>DELETE /users/{$username}/followers</pre>
+                            <p>
+                              Must use the DELETE method Result will be 404 Not
+                              Found if the user doesn't exist.
+                            </p>
+                            <h4>Parameters</h4>
+                            <blockquote>
+                              <ul class="api-vars">
+                                <li>
+                                  <code>$username</code> - Required string - The
+                                  username of the user to "unfollow".
+                                </li>
+                              </ul>
+                            </blockquote>
+                            <h4>Returns</h4>
+                            <blockquote>
+                              <ul class="api-vars">
+                                <li>
+                                  <code>(object)</code> - The "ok" object.
+                                </li>
+                              </ul>
+                            </blockquote>
+                          </li>
+                          <li>
+                            <hr />
+                            <a
+                              name="users-postavatarimage"
+                              id="users-postavatarimage"
+                            ></a>
+                            <h3>Update the avatar image</h3>
+                            <pre>POST /users/{$username}/avatar-image</pre>
+                            <p>Must use the POST method</p>
+                            <h4>Body Parameters</h4>
+                            <blockquote>
+                              <ul class="api-vars">
+                                <li>
+                                  <code>filename</code> - string - Set the name
+                                  of the image to upload.
+                                </li>
+                              </ul>
+                            </blockquote>
+                            <h4>Parameters</h4>
+                            <blockquote>
+                              <ul class="api-vars">
+                                <li>
+                                  <code>$username</code> - Required string - The
+                                  username of the user that will own this file.
+                                </li>
+                              </ul>
+                            </blockquote>
+                            <h4>Returns</h4>
+                            <blockquote>
+                              <ul class="api-vars">
+                                <li>
+                                  <code>(object)</code> - The data needed to
+                                  upload a file via an HTTP POST with
+                                  multipart/form-data encoding.
+                                </li>
+                              </ul>
+                            </blockquote>
+                          </li>
+                          <li>
+                            <hr />
+                            <a
+                              name="users-postcoverimage"
+                              id="users-postcoverimage"
+                            ></a>
+                            <h3>Update the cover image</h3>
+                            <pre>POST /users/{$username}/cover-image</pre>
+                            <p>Must use the POST method</p>
+                            <h4>Body Parameters</h4>
+                            <blockquote>
+                              <ul class="api-vars">
+                                <li>
+                                  <code>filename</code> - string - Set the name
+                                  of the image to upload.
+                                </li>
+                              </ul>
+                            </blockquote>
+                            <h4>Parameters</h4>
+                            <blockquote>
+                              <ul class="api-vars">
+                                <li>
+                                  <code>$username</code> - Required string - The
+                                  username of the user that will own this file.
+                                </li>
+                              </ul>
+                            </blockquote>
+                            <h4>Returns</h4>
+                            <blockquote>
+                              <ul class="api-vars">
+                                <li>
+                                  <code>(object)</code> - The data needed to
+                                  upload a file via an HTTP POST with
+                                  multipart/form-data encoding.
+                                </li>
+                              </ul>
+                            </blockquote>
+                          </li>
+                        </ul>
+                      </div>
+                      <div class="text-right top_content bottom_content">
+                        <a href="#top" class="plain-link">back to top</a>
+                      </div>
+                      <div class="content-box full-width">
+                        <a name="things" id="things"></a>
+                        <h2>Things</h2>
+                        <ul class="api-methods">
+                          <li>
+                            <hr />
+                            <a name="things-get" id="things-get"></a>
+                            <h3>Get thing by id</h3>
+                            <pre>GET /things/{$id}/</pre>
+                            <p>
+                              Attempting to fetch an unpublished thing will
+                              result in a 401 Unauthorized result unless the
+                              call is authenticated. Attempting to fetch an
+                              unpublished thing you do not own will result in a
+                              403 Forbidden. Invalid or deleted things will
+                              result in 404 Not Found.
+                            </p>
+                            <h4>Parameters</h4>
+                            <blockquote>
+                              <ul class="api-vars">
+                                <li>
+                                  <code>$id</code> - Optional integer - The id
+                                  of the thing to get
+                                </li>
+                              </ul>
+                            </blockquote>
+                            <h4>Returns</h4>
+                            <blockquote>
+                              <ul class="api-vars">
+                                <li>
+                                  <code>(object)</code> - An object representing
+                                  the thing requested
+                                </li>
+                              </ul>
+                            </blockquote>
+                          </li>
+                          <li>
+                            <hr />
+                            <a
+                              name="things-getimages"
+                              id="things-getimages"
+                            ></a>
+                            <h3>Get image(s) by thing</h3>
+                            <pre>GET /things/{$id}/images/{$image_id}</pre>
+                            <p>
+                              Gets summary information for all images associated
+                              with a thing or more detailed information about a
+                              specific image.
+                            </p>
+                            <h4>Parameters</h4>
+                            <blockquote>
+                              <ul class="api-vars">
+                                <li>
+                                  <code>$id</code> - Required integer - The id
+                                  of the thing to get images from
+                                </li>
+                                <li>
+                                  <code>$image_id</code> - Optional integer -
+                                  Optional id of image to get details for
+                                </li>
+                              </ul>
+                            </blockquote>
+                            <h4>Globals</h4>
+                            <blockquote>
+                              <ul class="api-vars">
+                                <li>
+                                  <code>_GET</code> - string - ['type'] Optional
+                                  type of image to get. Required if $size is
+                                  specified
+                                </li>
+                                <li>
+                                  <code>_GET</code> - string - ['size'] Optional
+                                  size of image to get
+                                </li>
+                              </ul>
+                            </blockquote>
+                            <h4>Returns</h4>
+                            <blockquote>
+                              <ul class="api-vars">
+                                <li>
+                                  <code>(array|object)</code> - An array of
+                                  images associated with a thing or detailed
+                                  info about a specific image.
+                                </li>
+                              </ul>
+                            </blockquote>
+                          </li>
+                          <li>
+                            <hr />
+                            <a
+                              name="things-patchimages"
+                              id="things-patchimages"
+                            ></a>
+                            <h3>Update an existing image</h3>
+                            <pre>PATCH /things/{$id}/images/{$image_id}</pre>
+                            <p>Must use the PATCH method.</p>
+                            <h4>Body Parameters</h4>
+                            <blockquote>
+                              <ul class="api-vars">
+                                <li><code>rank</code> - integer - Optional.</li>
+                                <li>
+                                  <code>featured</code> - boolean - Optional.
+                                </li>
+                              </ul>
+                            </blockquote>
+                            <h4>Parameters</h4>
+                            <blockquote>
+                              <ul class="api-vars">
+                                <li><code>$id</code> - Required -</li>
+                                <li><code>$image_id</code> - Required -</li>
+                              </ul>
+                            </blockquote>
+                            <h4>Returns</h4>
+                            <blockquote>
+                              <ul class="api-vars">
+                                <li><code>(object)</code> - The "ok" object</li>
+                              </ul>
+                            </blockquote>
+                          </li>
+                          <li>
+                            <hr />
+                            <a
+                              name="things-deleteimages"
+                              id="things-deleteimages"
+                            ></a>
+                            <h3>Delete an image from a thing</h3>
+                            <pre>DELETE /things/{$id}/images/{$image_id}</pre>
+                            <p>
+                              Must use the DELETE method. This cannot be undone.
+                            </p>
+                            <h4>Parameters</h4>
+                            <blockquote>
+                              <ul class="api-vars">
+                                <li>
+                                  <code>$id</code> - Required integer - The id
+                                  of the Thing the image belongs to
+                                </li>
+                                <li>
+                                  <code>$image_id</code> - Required integer -
+                                  The id of the image to delete.
+                                </li>
+                              </ul>
+                            </blockquote>
+                            <h4>Returns</h4>
+                            <blockquote>
+                              <ul class="api-vars">
+                                <li><code>(object)</code> - The "ok" object</li>
+                              </ul>
+                            </blockquote>
+                          </li>
+                          <li>
+                            <hr />
+                            <a name="things-getfiles" id="things-getfiles"></a>
+                            <h3>Get file(s) by thing</h3>
+                            <pre>GET /things/{$id}/files/{$file_id}</pre>
+                            <p>
+                              Get a list of files associated with a thing or,
+                              given a numeric id, gets more detailed info about
+                              a specific file belonging to this thing.
+                            </p>
+                            <h4>Parameters</h4>
+                            <blockquote>
+                              <ul class="api-vars">
+                                <li>
+                                  <code>$id</code> - Required integer - The id
+                                  of the thing to get files from
+                                </li>
+                                <li>
+                                  <code>$file_id</code> - Optional integer -
+                                  Optional id of the file to get more details
+                                  for
+                                </li>
+                              </ul>
+                            </blockquote>
+                            <h4>Returns</h4>
+                            <blockquote>
+                              <ul class="api-vars">
+                                <li>
+                                  <code>(array|object)</code> - An array of
+                                  files associated with a thing or detail about
+                                  a specific file
+                                </li>
+                              </ul>
+                            </blockquote>
+                          </li>
+                          <li>
+                            <hr />
+                            <a
+                              name="things-deletefiles"
+                              id="things-deletefiles"
+                            ></a>
+                            <h3>Delete a file from a thing</h3>
+                            <pre>DELETE /things/{$id}/files/{$file_id}</pre>
+                            <p>
+                              Must use the DELETE method. This cannot be undone.
+                            </p>
+                            <h4>Parameters</h4>
+                            <blockquote>
+                              <ul class="api-vars">
+                                <li>
+                                  <code>$id</code> - Required integer - The id
+                                  of the Thing the file belongs to
+                                </li>
+                                <li>
+                                  <code>$file_id</code> - Required integer - The
+                                  id of the file to delete.
+                                </li>
+                              </ul>
+                            </blockquote>
+                            <h4>Returns</h4>
+                            <blockquote>
+                              <ul class="api-vars">
+                                <li><code>(object)</code> - The "ok" object</li>
+                              </ul>
+                            </blockquote>
+                          </li>
+                          <li>
+                            <hr />
+                            <a name="things-getlikes" id="things-getlikes"></a>
+                            <h3>Get users who liked this thing</h3>
+                            <pre>GET /things/{$id}/likes</pre>
+                            <h4>Parameters</h4>
+                            <blockquote>
+                              <ul class="api-vars">
+                                <li>
+                                  <code>$id</code> - Required integer - The id
+                                  of the thing to get likes from
+                                </li>
+                              </ul>
+                            </blockquote>
+                            <h4>Returns</h4>
+                            <blockquote>
+                              <ul class="api-vars">
+                                <li>
+                                  <code>(array)</code> - An array of users who
+                                  liked this thing
+                                </li>
+                              </ul>
+                            </blockquote>
+                          </li>
+                          <li>
+                            <hr />
+                            <a
+                              name="things-getancestors"
+                              id="things-getancestors"
+                            ></a>
+                            <h3>Get a list of thing ancestors</h3>
+                            <pre>GET /things/{$id}/ancestors</pre>
+                            <h4>Parameters</h4>
+                            <blockquote>
+                              <ul class="api-vars">
+                                <li>
+                                  <code>$id</code> - Required integer - The id
+                                  of the thing to get ancestors of
+                                </li>
+                              </ul>
+                            </blockquote>
+                            <h4>Returns</h4>
+                            <blockquote>
+                              <ul class="api-vars">
+                                <li>
+                                  <code>(array)</code> - An array containing a
+                                  list of things this thing is derived from
+                                </li>
+                              </ul>
+                            </blockquote>
+                          </li>
+                          <li>
+                            <hr />
+                            <a
+                              name="things-getderivatives"
+                              id="things-getderivatives"
+                            ></a>
+                            <h3>Get a list of thing derivatives</h3>
+                            <pre>GET /things/{$id}/derivatives</pre>
+                            <h4>Parameters</h4>
+                            <blockquote>
+                              <ul class="api-vars">
+                                <li>
+                                  <code>$id</code> - Required integer - The id
+                                  of the thing to get derivatives for
+                                </li>
+                              </ul>
+                            </blockquote>
+                            <h4>Returns</h4>
+                            <blockquote>
+                              <ul class="api-vars">
+                                <li>
+                                  <code>(array)</code> - An array containing a
+                                  list of things that derive from this thing
+                                </li>
+                              </ul>
+                            </blockquote>
+                          </li>
+                          <li>
+                            <hr />
+                            <a name="things-gettags" id="things-gettags"></a>
+                            <h3>Get tags on this thing</h3>
+                            <pre>GET /things/{$id}/tags</pre>
+                            <h4>Parameters</h4>
+                            <blockquote>
+                              <ul class="api-vars">
+                                <li>
+                                  <code>$id</code> - Required integer - The id
+                                  of the thing for which to list tags
+                                </li>
+                              </ul>
+                            </blockquote>
+                            <h4>Returns</h4>
+                            <blockquote>
+                              <ul class="api-vars">
+                                <li>
+                                  <code>(array)</code> - An array containing a
+                                  list of things that derive from this thing
+                                </li>
+                              </ul>
+                            </blockquote>
+                          </li>
+                          <li>
+                            <hr />
+                            <a
+                              name="things-getcategories"
+                              id="things-getcategories"
+                            ></a>
+                            <h3>Get thing category</h3>
+                            <pre>GET /things/{$id}/categories</pre>
+                            <h4>Parameters</h4>
+                            <blockquote>
+                              <ul class="api-vars">
+                                <li>
+                                  <code>$id</code> - Required integer - The id
+                                  of the thing for which to list it's categories
+                                </li>
+                              </ul>
+                            </blockquote>
+                            <h4>Returns</h4>
+                            <blockquote>
+                              <ul class="api-vars">
+                                <li>
+                                  <code>(array)</code> - An array containing a
+                                  list of categories this thing is in
+                                </li>
+                              </ul>
+                            </blockquote>
+                          </li>
+                          <li>
+                            <hr />
+                            <a name="things-patch" id="things-patch"></a>
+                            <h3>Update an existing thing</h3>
+                            <pre>PATCH /things/{$id}/</pre>
+                            <p>Must use the PATCH method.</p>
+                            <h4>Body Parameters</h4>
+                            <blockquote>
+                              <ul class="api-vars">
+                                <li>
+                                  <code>name</code> - string - Optional. Replace
+                                  the name of the thing
+                                </li>
+                                <li>
+                                  <code>license</code> - string - Optional. One
+                                  of cc, cc-sa, cc-nd, cc-nc-sa, cc-nc-nd, pd0,
+                                  gpl, lgpl, bsd. Replace license.
+                                </li>
+                                <li>
+                                  <code>category</code> - string - Optional.
+                                  Replace the category of the thing. Uses full
+                                  category name (eg: "3D Printer Parts")
+                                </li>
+                                <li>
+                                  <code>description</code> - string - Optional.
+                                  Replace the description.
+                                </li>
+                                <li>
+                                  <code>instructions</code> - string - Optional.
+                                  Replace the instructions.
+                                </li>
+                                <li>
+                                  <code>is_wip</code> - boolean - Optional.
+                                  Toggle whether this thing is a work in
+                                  progress.
+                                </li>
+                                <li>
+                                  <code>tags</code> - array - Optional. An array
+                                  of strings containing tag names. Replaces all
+                                  current tags.
+                                </li>
+                              </ul>
+                            </blockquote>
+                            <h4>Parameters</h4>
+                            <blockquote>
+                              <ul class="api-vars">
+                                <li>
+                                  <code>$id</code> - Required integer - The id
+                                  of the thing to update
+                                </li>
+                              </ul>
+                            </blockquote>
+                            <h4>Returns</h4>
+                            <blockquote>
+                              <ul class="api-vars">
+                                <li>
+                                  <code>(object)</code> - The updated thing.
+                                </li>
+                              </ul>
+                            </blockquote>
+                          </li>
+                          <li>
+                            <hr />
+                            <a name="things-post" id="things-post"></a>
+                            <h3>Create a new thing</h3>
+                            <pre>POST /things/</pre>
+                            <p>Must use the POST method</p>
+                            <h4>Body Parameters</h4>
+                            <blockquote>
+                              <ul class="api-vars">
+                                <li>
+                                  <code>name</code> - string - Set the name of
+                                  the thing
+                                </li>
+                                <li>
+                                  <code>license</code> - string - One of cc,
+                                  cc-sa, cc-nd, cc-nc-sa, cc-nc-nd, pd0, gpl,
+                                  lgpl, bsd. Set license.
+                                </li>
+                                <li>
+                                  <code>category</code> - string - Set the
+                                  category of the thing. Uses full category name
+                                  (eg: "3D Printer Parts")
+                                </li>
+                                <li>
+                                  <code>description</code> - string - Optional.
+                                  Set the description.
+                                </li>
+                                <li>
+                                  <code>instructions</code> - string - Optional.
+                                  Set the instructions.
+                                </li>
+                                <li>
+                                  <code>is_wip</code> - boolean - Optional.
+                                  Toggle whether this thing is a work in
+                                  progress. Default is false.
+                                </li>
+                                <li>
+                                  <code>tags</code> - array - Optional. An array
+                                  of strings containing tag names. Sets all
+                                  current tags.
+                                </li>
+                                <li>
+                                  <code>ancestors</code> - array - Optional. An
+                                  array of thing ids that this thing is derived
+                                  from.
+                                </li>
+                              </ul>
+                            </blockquote>
+                            <h4>Returns</h4>
+                            <blockquote>
+                              <ul class="api-vars">
+                                <li>
+                                  <code>(object)</code> - The newly created
+                                  thing.
+                                </li>
+                              </ul>
+                            </blockquote>
+                          </li>
+                          <li>
+                            <hr />
+                            <a name="things-delete" id="things-delete"></a>
+                            <h3>Delete a thing</h3>
+                            <pre>DELETE /things/{$id}/</pre>
+                            <p>
+                              Must use the DELETE method. This cannot be undone.
+                            </p>
+                            <h4>Parameters</h4>
+                            <blockquote>
+                              <ul class="api-vars">
+                                <li>
+                                  <code>$id</code> - Required integer - The id
+                                  of the thing to delete.
+                                </li>
+                              </ul>
+                            </blockquote>
+                            <h4>Returns</h4>
+                            <blockquote>
+                              <ul class="api-vars">
+                                <li><code>(object)</code> - The "ok" object</li>
+                              </ul>
+                            </blockquote>
+                          </li>
+                          <li>
+                            <hr />
+                            <a
+                              name="things-postfiles"
+                              id="things-postfiles"
+                            ></a>
+                            <h3>Upload a file to the given thing</h3>
+                            <pre>POST /things/{$id}/files</pre>
+                            <p>Must use the POST method</p>
+                            <h4>Body Parameters</h4>
+                            <blockquote>
+                              <ul class="api-vars">
+                                <li>
+                                  <code>filename</code> - string - Set the name
+                                  of the file to upload.
+                                </li>
+                              </ul>
+                            </blockquote>
+                            <h4>Parameters</h4>
+                            <blockquote>
+                              <ul class="api-vars">
+                                <li>
+                                  <code>$id</code> - Required integer - The id
+                                  of the thing that will own this file.
+                                </li>
+                              </ul>
+                            </blockquote>
+                            <h4>Returns</h4>
+                            <blockquote>
+                              <ul class="api-vars">
+                                <li>
+                                  <code>(object)</code> - The data needed to
+                                  upload a file via an HTTP POST with
+                                  multipart/form-data encoding.
+                                </li>
+                              </ul>
+                            </blockquote>
+                          </li>
+                          <li>
+                            <hr />
+                            <a
+                              name="things-postpublish"
+                              id="things-postpublish"
+                            ></a>
+                            <h3>Publish a thing</h3>
+                            <pre>POST /things/{$id}/publish</pre>
+                            <p>
+                              If the Thing cannot be published (for example,
+                              because the Thing's name or description is blank),
+                              returns an HTTP status of 400 Bad Request and a
+                              body containing a JSON object of the form:
+                              {"errors":["<%= reason %>", ...]} Must use the
+                              POST method
+                            </p>
+                            <h4>Parameters</h4>
+                            <blockquote>
+                              <ul class="api-vars">
+                                <li>
+                                  <code>$id</code> - Required integer - The id
+                                  of the thing to publish.
+                                </li>
+                              </ul>
+                            </blockquote>
+                            <h4>Returns</h4>
+                            <blockquote>
+                              <ul class="api-vars">
+                                <li>
+                                  <code>(object)</code> - The published Thing or
+                                  an object containing an array named "errors".
+                                </li>
+                              </ul>
+                            </blockquote>
+                          </li>
+                          <li>
+                            <hr />
+                            <a
+                              name="things-getcopies"
+                              id="things-getcopies"
+                            ></a>
+                            <h3>Get copies/makes of a thing</h3>
+                            <pre>GET /things/{$id}/copies</pre>
+                            <h4>Parameters</h4>
+                            <blockquote>
+                              <ul class="api-vars">
+                                <li>
+                                  <code>$id</code> - Required integer - The id
+                                  of the thing to get copies from
+                                </li>
+                              </ul>
+                            </blockquote>
+                            <h4>Returns</h4>
+                            <blockquote>
+                              <ul class="api-vars">
+                                <li>
+                                  <code>(array)</code> - An array of copies (and
+                                  their images) associated with a thing
+                                </li>
+                              </ul>
+                            </blockquote>
+                          </li>
+                          <li>
+                            <hr />
+                            <a
+                              name="things-postcopies"
+                              id="things-postcopies"
+                            ></a>
+                            <h3>Upload image for new copy</h3>
+                            <pre>POST /things/{$id}/copies</pre>
+                            <p>Must use the POST method</p>
+                            <h4>Body Parameters</h4>
+                            <blockquote>
+                              <ul class="api-vars">
+                                <li>
+                                  <code>filename</code> - string - The name of
+                                  the image file to upload.
+                                </li>
+                              </ul>
+                            </blockquote>
+                            <h4>Parameters</h4>
+                            <blockquote>
+                              <ul class="api-vars">
+                                <li>
+                                  <code>$id</code> - Required integer - The id
+                                  of the thing that gets the new copy.
+                                </li>
+                              </ul>
+                            </blockquote>
+                            <h4>Returns</h4>
+                            <blockquote>
+                              <ul class="api-vars">
+                                <li>
+                                  <code>(object)</code> - The data needed to
+                                  upload this copy's image file via an HTTP POST
+                                  with multipart/form-data encoding.
+                                </li>
+                              </ul>
+                            </blockquote>
+                          </li>
+                          <li>
+                            <hr />
+                            <a
+                              name="things-postlikes"
+                              id="things-postlikes"
+                            ></a>
+                            <h3>Like a thing</h3>
+                            <pre>POST /things/{$id}/likes</pre>
+                            <p>
+                              Must use the POST method Result will be 404 Not
+                              Found if the thing doesn't exist. Result will be
+                              400 Bad Request if the user is trying to like
+                              their own thing.
+                            </p>
+                            <h4>Parameters</h4>
+                            <blockquote>
+                              <ul class="api-vars">
+                                <li>
+                                  <code>$id</code> - Required integer - The id
+                                  of the thing to like.
+                                </li>
+                              </ul>
+                            </blockquote>
+                            <h4>Returns</h4>
+                            <blockquote>
+                              <ul class="api-vars">
+                                <li>
+                                  <code>(object)</code> - The "ok" object.
+                                </li>
+                              </ul>
+                            </blockquote>
+                          </li>
+                          <li>
+                            <hr />
+                            <a
+                              name="things-deletelikes"
+                              id="things-deletelikes"
+                            ></a>
+                            <h3>Delete a like</h3>
+                            <pre>DELETE /things/{$id}/likes</pre>
+                            <p>
+                              Must use the DELETE method Result will be 404 Not
+                              Found if the thing doesn't exist. Result will be
+                              400 Bad Request if the user is trying to "unlike"
+                              their own thing.
+                            </p>
+                            <h4>Parameters</h4>
+                            <blockquote>
+                              <ul class="api-vars">
+                                <li>
+                                  <code>$id</code> - Required integer - The id
+                                  of the thing to "unlike".
+                                </li>
+                              </ul>
+                            </blockquote>
+                            <h4>Returns</h4>
+                            <blockquote>
+                              <ul class="api-vars">
+                                <li>
+                                  <code>(object)</code> - The "ok" object.
+                                </li>
+                              </ul>
+                            </blockquote>
+                          </li>
+                          <li>
+                            <hr />
+                            <a
+                              name="things-getprints"
+                              id="things-getprints"
+                            ></a>
+                            <h3>
+                              Get a list of prints associated with a thing
+                            </h3>
+                            <pre>GET /things/{$id}/prints</pre>
+                            <h4>Parameters</h4>
+                            <blockquote>
+                              <ul class="api-vars">
+                                <li>
+                                  <code>$id</code> - Required integer - $id The
+                                  id of the thing to get prints from
+                                </li>
+                              </ul>
+                            </blockquote>
+                            <h4>Returns</h4>
+                            <blockquote>
+                              <ul class="api-vars">
+                                <li>
+                                  <code>(array)</code> - An array of prints
+                                  associated with a thing
+                                </li>
+                              </ul>
+                            </blockquote>
+                          </li>
+                          <li>
+                            <hr />
+                            <a
+                              name="things-getthreadedcomments"
+                              id="things-getthreadedcomments"
+                            ></a>
+                            <h3>
+                              Get all comments for this thing in a quick
+                              pre-threaded view. This is an alternative to GET
+                              /things/id/comments
+                            </h3>
+                            <pre>GET /things/{$id}/threaded-comments</pre>
+                            <h4>Parameters</h4>
+                            <blockquote>
+                              <ul class="api-vars">
+                                <li>
+                                  <code>$id</code> - Required integer - The id
+                                  of the thing to get
+                                </li>
+                              </ul>
+                            </blockquote>
+                            <h4>Returns</h4>
+                            <blockquote>
+                              <ul class="api-vars">
+                                <li>
+                                  <code>(object)</code> - An array containing
+                                  comment threads indexed by comment parent id
+                                  (blank for top level comments) and users
+                                  indexed by user id used in those comments
+                                </li>
+                              </ul>
+                            </blockquote>
+                          </li>
+                          <li>
+                            <hr />
+                            <a
+                              name="things-getcomments"
+                              id="things-getcomments"
+                            ></a>
+                            <h3>
+                              Get an unthreaded paginated list of comment
+                              objects. See also GET /things/id/threaded_comments
+                            </h3>
+                            <pre>GET /things/{$id}/comments</pre>
+                            <h4>Parameters</h4>
+                            <blockquote>
+                              <ul class="api-vars">
+                                <li>
+                                  <code>$id</code> - Required integer - The id
+                                  of the thing to get comments for
+                                </li>
+                              </ul>
+                            </blockquote>
+                            <h4>Returns</h4>
+                            <blockquote>
+                              <ul class="api-vars">
+                                <li>
+                                  <code>(array)</code> - An array containing a
+                                  list of comments on this thing
+                                </li>
+                              </ul>
+                            </blockquote>
+                          </li>
+                          <li>
+                            <hr />
+                            <a
+                              name="things-getrootcomments"
+                              id="things-getrootcomments"
+                            ></a>
+                            <h3>
+                              Get an unthreaded paginated list of root comment
+                              objects
+                            </h3>
+                            <pre>GET /things/{$id}/root-comments</pre>
+                            <h4>Parameters</h4>
+                            <blockquote>
+                              <ul class="api-vars">
+                                <li>
+                                  <code>$id</code> - Required integer - The id
+                                  of the thing to get root comments for
+                                </li>
+                              </ul>
+                            </blockquote>
+                            <h4>Returns</h4>
+                            <blockquote>
+                              <ul class="api-vars">
+                                <li>
+                                  <code>(array)</code> - An array containing a
+                                  list of root comments on this thing
+                                </li>
+                              </ul>
+                            </blockquote>
+                          </li>
+                          <li>
+                            <hr />
+                            <a
+                              name="things-postcomments"
+                              id="things-postcomments"
+                            ></a>
+                            <h3>Post a comment</h3>
+                            <pre>POST /things/{$id}/comments</pre>
+                            <h4>Parameters</h4>
+                            <blockquote>
+                              <ul class="api-vars">
+                                <li>
+                                  <code>$id</code> - Required integer - The id
+                                  of the thing to comment on
+                                </li>
+                              </ul>
+                            </blockquote>
+                            <h4>Returns</h4>
+                            <blockquote>
+                              <ul class="api-vars">
+                                <li>
+                                  <code>(object)</code> - The newly created
+                                  comment
+                                </li>
+                              </ul>
+                            </blockquote>
+                          </li>
+                          <li>
+                            <hr />
+                            <a
+                              name="things-posttogglewatch"
+                              id="things-posttogglewatch"
+                            ></a>
+                            <h3>Watch/unwatch a Thing</h3>
+                            <pre>POST /things/{$id}/toggle-watch</pre>
+                            <p>
+                              If currently watching the specified Thing, the
+                              current user will unwatch the Thing, and vice
+                              versa. Only works in user context.
+                            </p>
+                            <h4>Parameters</h4>
+                            <blockquote>
+                              <ul class="api-vars">
+                                <li>
+                                  <code>$id</code> - Required integer - The
+                                  Thing to watch or unwatch
+                                </li>
+                              </ul>
+                            </blockquote>
+                            <h4>Returns</h4>
+                            <blockquote>
+                              <ul class="api-vars">
+                                <li>
+                                  <code>(object)</code> - { "watching": boolean
+                                  }
+                                </li>
+                              </ul>
+                            </blockquote>
+                          </li>
+                        </ul>
+                      </div>
+                      <div class="text-right top_content bottom_content">
+                        <a href="#top" class="plain-link">back to top</a>
+                      </div>
+                      <div class="content-box full-width">
+                        <a name="files" id="files"></a>
+                        <h2>Files</h2>
+                        <ul class="api-methods">
+                          <li>
+                            <hr />
+                            <a name="files-get" id="files-get"></a>
+                            <h3>Get info about a file by id</h3>
+                            <pre>GET /files/{$id}/</pre>
+                            <p>
+                              Get basic information about how to access a file.
+                              For relevant files, a thumbnail image or three.js
+                              json file may be available.
+                            </p>
+                            <h4>Parameters</h4>
+                            <blockquote>
+                              <ul class="api-vars">
+                                <li>
+                                  <code>$id</code> - Required integer - The id
+                                  of the file
+                                </li>
+                              </ul>
+                            </blockquote>
+                            <h4>Returns</h4>
+                            <blockquote>
+                              <ul class="api-vars">
+                                <li>
+                                  <code>(object)</code> - An object with urls of
+                                  the file requested
+                                </li>
+                              </ul>
+                            </blockquote>
+                          </li>
+                          <li>
+                            <hr />
+                            <a
+                              name="files-postfinalize"
+                              id="files-postfinalize"
+                            ></a>
+                            <h3>Finalize an uploaded file</h3>
+                            <pre>POST /files/{$id}/finalize</pre>
+                            <p>Must use the POST method</p>
+                            <h4>Parameters</h4>
+                            <blockquote>
+                              <ul class="api-vars">
+                                <li>
+                                  <code>$id</code> - Required integer - The id
+                                  of the PendingUpload for this file
+                                </li>
+                              </ul>
+                            </blockquote>
+                            <h4>Returns</h4>
+                            <blockquote>
+                              <ul class="api-vars">
+                                <li>
+                                  <code>(object)</code> - Summary of the
+                                  ObjectFile or Image that was created, or
+                                  error.
+                                </li>
+                              </ul>
+                            </blockquote>
+                          </li>
+                          <li>
+                            <hr />
+                            <a
+                              name="files-getfinalize"
+                              id="files-getfinalize"
+                            ></a>
+                            <pre>GET /files/{$id}/finalize</pre>
+                            <h4>Parameters</h4>
+                            <blockquote>
+                              <ul class="api-vars">
+                                <li><code>$id</code> - Required -</li>
+                              </ul>
+                            </blockquote>
+                            <h4>Returns</h4>
+                            <blockquote>
+                              <ul class="api-vars">
+                                <li>NONE</li>
+                              </ul>
+                            </blockquote>
+                          </li>
+                          <li>
+                            <hr />
+                            <a
+                              name="files-getdownload"
+                              id="files-getdownload"
+                            ></a>
+                            <h3>Get tracked download URL</h3>
+                            <pre>GET /files/{$id}/download</pre>
+                            <p>
+                              Redirects to the requested file and adds an entry
+                              to the user's download history for use with the
+                              GET /users/{$username}/downloads endpoint, as
+                              opposed to the public url which is anonymous.
+                            </p>
+                            <h4>Parameters</h4>
+                            <blockquote>
+                              <ul class="api-vars">
+                                <li>
+                                  <code>$id</code> - Required integer - The id
+                                  of the file
+                                </li>
+                              </ul>
+                            </blockquote>
+                            <h4>Returns</h4>
+                            <blockquote>
+                              <ul class="api-vars">
+                                <li>NONE</li>
+                              </ul>
+                            </blockquote>
+                          </li>
+                        </ul>
+                      </div>
+                      <div class="text-right top_content bottom_content">
+                        <a href="#top" class="plain-link">back to top</a>
+                      </div>
+                      <div class="content-box full-width">
+                        <a name="copies" id="copies"></a>
+                        <h2>Copies</h2>
+                        <ul class="api-methods">
+                          <li>
+                            <hr />
+                            <a name="copies-get" id="copies-get"></a>
+                            <h3>Get copy by id</h3>
+                            <pre>GET /copies/{$id}/</pre>
+                            <p>
+                              If no id is given, gets the list of latest copies.
+                            </p>
+                            <h4>Parameters</h4>
+                            <blockquote>
+                              <ul class="api-vars">
+                                <li>
+                                  <code>$id</code> - Optional integer - The id
+                                  of the copy to get. Omit this to get the list
+                                  of the latest copies.
+                                </li>
+                              </ul>
+                            </blockquote>
+                            <h4>Returns</h4>
+                            <blockquote>
+                              <ul class="api-vars">
+                                <li>
+                                  <code>(object|array)</code> - An object
+                                  representing the copy requested, or an array
+                                  of copy objects.
+                                </li>
+                              </ul>
+                            </blockquote>
+                          </li>
+                          <li>
+                            <hr />
+                            <a
+                              name="copies-getimages"
+                              id="copies-getimages"
+                            ></a>
+                            <h3>Get images for a copy</h3>
+                            <pre>GET /copies/{$id}/images</pre>
+                            <h4>Parameters</h4>
+                            <blockquote>
+                              <ul class="api-vars">
+                                <li>
+                                  <code>$id</code> - Required integer - The id
+                                  of the copy to get images from
+                                </li>
+                              </ul>
+                            </blockquote>
+                            <h4>Returns</h4>
+                            <blockquote>
+                              <ul class="api-vars">
+                                <li>
+                                  <code>(array)</code> - An array of images
+                                  associated with the copy
+                                </li>
+                              </ul>
+                            </blockquote>
+                          </li>
+                          <li>
+                            <hr />
+                            <a
+                              name="copies-postimages"
+                              id="copies-postimages"
+                            ></a>
+                            <h3>Upload image to a copy</h3>
+                            <pre>POST /copies/{$id}/images</pre>
+                            <p>Must use the POST method</p>
+                            <h4>Body Parameters</h4>
+                            <blockquote>
+                              <ul class="api-vars">
+                                <li>
+                                  <code>filename</code> - string - The name of
+                                  the image file to upload.
+                                </li>
+                              </ul>
+                            </blockquote>
+                            <h4>Parameters</h4>
+                            <blockquote>
+                              <ul class="api-vars">
+                                <li>
+                                  <code>$id</code> - Required integer - The id
+                                  of the copy.
+                                </li>
+                              </ul>
+                            </blockquote>
+                            <h4>Returns</h4>
+                            <blockquote>
+                              <ul class="api-vars">
+                                <li>
+                                  <code>(object)</code> - The data needed to
+                                  upload this copy's image file via an HTTP POST
+                                  with multipart/form-data encoding.
+                                </li>
+                              </ul>
+                            </blockquote>
+                          </li>
+                          <li>
+                            <hr />
+                            <a
+                              name="copies-patchimages"
+                              id="copies-patchimages"
+                            ></a>
+                            <h3>Update an existing image</h3>
+                            <pre>PATCH /copies/{$id}/images/{$image_id}</pre>
+                            <p>Must use the PATCH method.</p>
+                            <h4>Body Parameters</h4>
+                            <blockquote>
+                              <ul class="api-vars">
+                                <li><code>rank</code> - integer - Optional.</li>
+                                <li>
+                                  <code>featured</code> - boolean - Optional.
+                                </li>
+                              </ul>
+                            </blockquote>
+                            <h4>Parameters</h4>
+                            <blockquote>
+                              <ul class="api-vars">
+                                <li><code>$id</code> - Required -</li>
+                                <li><code>$image_id</code> - Required -</li>
+                              </ul>
+                            </blockquote>
+                            <h4>Returns</h4>
+                            <blockquote>
+                              <ul class="api-vars">
+                                <li><code>(object)</code> - The "ok" object</li>
+                              </ul>
+                            </blockquote>
+                          </li>
+                          <li>
+                            <hr />
+                            <a
+                              name="copies-deleteimages"
+                              id="copies-deleteimages"
+                            ></a>
+                            <h3>Delete an image from a copy</h3>
+                            <pre>DELETE /copies/{$id}/images/{$image_id}</pre>
+                            <p>
+                              Must use the DELETE method. This cannot be undone.
+                            </p>
+                            <h4>Parameters</h4>
+                            <blockquote>
+                              <ul class="api-vars">
+                                <li>
+                                  <code>$id</code> - Required integer - The id
+                                  of the Copy the image belongs to
+                                </li>
+                                <li>
+                                  <code>$image_id</code> - Required integer -
+                                  The id of the image to delete.
+                                </li>
+                              </ul>
+                            </blockquote>
+                            <h4>Returns</h4>
+                            <blockquote>
+                              <ul class="api-vars">
+                                <li><code>(object)</code> - The "ok" object</li>
+                              </ul>
+                            </blockquote>
+                          </li>
+                          <li>
+                            <hr />
+                            <a name="copies-patch" id="copies-patch"></a>
+                            <h3>Update an existing copy</h3>
+                            <pre>PATCH /copies/{$id}/</pre>
+                            <p>Must use the PATCH method.</p>
+                            <h4>Body Parameters</h4>
+                            <blockquote>
+                              <ul class="api-vars">
+                                <li>
+                                  <code>description</code> - string - Optional.
+                                  Replace the description.
+                                </li>
+                              </ul>
+                            </blockquote>
+                            <h4>Parameters</h4>
+                            <blockquote>
+                              <ul class="api-vars">
+                                <li>
+                                  <code>$id</code> - Required integer - The id
+                                  of the copy to update
+                                </li>
+                              </ul>
+                            </blockquote>
+                            <h4>Returns</h4>
+                            <blockquote>
+                              <ul class="api-vars">
+                                <li>
+                                  <code>(object)</code> - The updated thing.
+                                </li>
+                              </ul>
+                            </blockquote>
+                          </li>
+                          <li>
+                            <hr />
+                            <a name="copies-delete" id="copies-delete"></a>
+                            <h3>Delete a copy</h3>
+                            <pre>DELETE /copies/{$id}/</pre>
+                            <h4>Parameters</h4>
+                            <blockquote>
+                              <ul class="api-vars">
+                                <li>
+                                  <code>$id</code> - Required integer - The id
+                                  of the copy.
+                                </li>
+                              </ul>
+                            </blockquote>
+                            <h4>Returns</h4>
+                            <blockquote>
+                              <ul class="api-vars">
+                                <li>NONE</li>
+                              </ul>
+                            </blockquote>
+                          </li>
+                          <li>
+                            <hr />
+                            <a
+                              name="copies-postlikes"
+                              id="copies-postlikes"
+                            ></a>
+                            <h3>Like a copy</h3>
+                            <pre>POST /copies/{$id}/likes</pre>
+                            <p>
+                              Must use the POST method Result will be 404 Not
+                              Found if the copy doesn't exist. Result will be
+                              400 Bad Request if the user is trying to like
+                              their own copy.
+                            </p>
+                            <h4>Parameters</h4>
+                            <blockquote>
+                              <ul class="api-vars">
+                                <li>
+                                  <code>$id</code> - Required integer - The id
+                                  of the copy to like.
+                                </li>
+                              </ul>
+                            </blockquote>
+                            <h4>Returns</h4>
+                            <blockquote>
+                              <ul class="api-vars">
+                                <li>
+                                  <code>(object)</code> - The "ok" object.
+                                </li>
+                              </ul>
+                            </blockquote>
+                          </li>
+                          <li>
+                            <hr />
+                            <a
+                              name="copies-deletelikes"
+                              id="copies-deletelikes"
+                            ></a>
+                            <h3>Delete a like</h3>
+                            <pre>DELETE /copies/{$id}/likes</pre>
+                            <p>
+                              Must use the DELETE method Result will be 404 Not
+                              Found if the copy doesn't exist. Result will be
+                              400 Bad Request if the user is trying to "unlike"
+                              their own copy.
+                            </p>
+                            <h4>Parameters</h4>
+                            <blockquote>
+                              <ul class="api-vars">
+                                <li>
+                                  <code>$id</code> - Required integer - The id
+                                  of the copy to "unlike".
+                                </li>
+                              </ul>
+                            </blockquote>
+                            <h4>Returns</h4>
+                            <blockquote>
+                              <ul class="api-vars">
+                                <li>
+                                  <code>(object)</code> - The "ok" object.
+                                </li>
+                              </ul>
+                            </blockquote>
+                          </li>
+                          <li>
+                            <hr />
+                            <a
+                              name="copies-getthreadedcomments"
+                              id="copies-getthreadedcomments"
+                            ></a>
+                            <h3>
+                              Get all comments for this copy in a quick
+                              pre-threaded view. This is an alternative to GET
+                              /copies/id/comments
+                            </h3>
+                            <pre>GET /copies/{$id}/threaded-comments</pre>
+                            <h4>Parameters</h4>
+                            <blockquote>
+                              <ul class="api-vars">
+                                <li>
+                                  <code>$id</code> - Required integer - The id
+                                  of the thing to get
+                                </li>
+                              </ul>
+                            </blockquote>
+                            <h4>Returns</h4>
+                            <blockquote>
+                              <ul class="api-vars">
+                                <li>
+                                  <code>(object)</code> - An array containing
+                                  comment threads indexed by comment parent id
+                                  (blank for top level comments) and users
+                                  indexed by user id used in those comments
+                                </li>
+                              </ul>
+                            </blockquote>
+                          </li>
+                          <li>
+                            <hr />
+                            <a
+                              name="copies-getrootcomments"
+                              id="copies-getrootcomments"
+                            ></a>
+                            <h3>
+                              Get an unthreaded paginated list of root comment
+                              objects
+                            </h3>
+                            <pre>GET /copies/{$id}/root-comments</pre>
+                            <h4>Parameters</h4>
+                            <blockquote>
+                              <ul class="api-vars">
+                                <li>
+                                  <code>$id</code> - Required integer - The id
+                                  of the copy to get root comments for
+                                </li>
+                              </ul>
+                            </blockquote>
+                            <h4>Returns</h4>
+                            <blockquote>
+                              <ul class="api-vars">
+                                <li>
+                                  <code>(array)</code> - An array containing a
+                                  list of root comments on this copy
+                                </li>
+                              </ul>
+                            </blockquote>
+                          </li>
+                          <li>
+                            <hr />
+                            <a
+                              name="copies-getcomments"
+                              id="copies-getcomments"
+                            ></a>
+                            <h3>
+                              Get an unthreaded paginated list of comment
+                              objects. See also GET /copies/id/threaded_comments
+                            </h3>
+                            <pre>GET /copies/{$id}/comments</pre>
+                            <h4>Parameters</h4>
+                            <blockquote>
+                              <ul class="api-vars">
+                                <li>
+                                  <code>$id</code> - Required integer - The id
+                                  of the copy to get comments for
+                                </li>
+                              </ul>
+                            </blockquote>
+                            <h4>Returns</h4>
+                            <blockquote>
+                              <ul class="api-vars">
+                                <li>
+                                  <code>(array)</code> - An array containing a
+                                  list of comments on this copy
+                                </li>
+                              </ul>
+                            </blockquote>
+                          </li>
+                          <li>
+                            <hr />
+                            <a
+                              name="copies-postcomments"
+                              id="copies-postcomments"
+                            ></a>
+                            <h3>Post a comment</h3>
+                            <pre>POST /copies/{$id}/comments</pre>
+                            <h4>Parameters</h4>
+                            <blockquote>
+                              <ul class="api-vars">
+                                <li>
+                                  <code>$id</code> - Required integer - The id
+                                  of the copy to comment on
+                                </li>
+                              </ul>
+                            </blockquote>
+                            <h4>Returns</h4>
+                            <blockquote>
+                              <ul class="api-vars">
+                                <li>
+                                  <code>(object)</code> - The newly created
+                                  comment
+                                </li>
+                              </ul>
+                            </blockquote>
+                          </li>
+                        </ul>
+                      </div>
+                      <div class="text-right top_content bottom_content">
+                        <a href="#top" class="plain-link">back to top</a>
+                      </div>
+                      <div class="content-box full-width">
+                        <a name="collections" id="collections"></a>
+                        <h2>Collections</h2>
+                        <ul class="api-methods">
+                          <li>
+                            <hr />
+                            <a name="collections-get" id="collections-get"></a>
+                            <h3>Get a collection by id</h3>
+                            <pre>GET /collections/{$id}/</pre>
+                            <p>
+                              If no id is given, gets the list of the latest
+                              collections.
+                            </p>
+                            <h4>Parameters</h4>
+                            <blockquote>
+                              <ul class="api-vars">
+                                <li>
+                                  <code>$id</code> - Optional integer - The id
+                                  of the collection to get. Omit to get the
+                                  latest collections.
+                                </li>
+                              </ul>
+                            </blockquote>
+                            <h4>Returns</h4>
+                            <blockquote>
+                              <ul class="api-vars">
+                                <li>
+                                  <code>(object|array)</code> - An array of
+                                  objects, or a single object
+                                </li>
+                              </ul>
+                            </blockquote>
+                          </li>
+                          <li>
+                            <hr />
+                            <a
+                              name="collections-getthings"
+                              id="collections-getthings"
+                            ></a>
+                            <h3>Get Things in a collection</h3>
+                            <pre>GET /collections/{$id}/things</pre>
+                            <h4>Parameters</h4>
+                            <blockquote>
+                              <ul class="api-vars">
+                                <li>
+                                  <code>$id</code> - Required integer - The id
+                                  of the collection to get Things from
+                                </li>
+                              </ul>
+                            </blockquote>
+                            <h4>Globals</h4>
+                            <blockquote>
+                              <ul class="api-vars">
+                                <li>
+                                  <code>_GET</code> - string - ['sort'] Optional
+                                  sort: name Order by Thing name date Date added
+                                  to Collection
+                                </li>
+                                <li>
+                                  <code>_GET</code> - string - ['order']
+                                  Optional order asc or desc to apply to $sort
+                                </li>
+                              </ul>
+                            </blockquote>
+                            <h4>Returns</h4>
+                            <blockquote>
+                              <ul class="api-vars">
+                                <li>
+                                  <code>(array)</code> - An array of Things in
+                                  this collection
+                                </li>
+                              </ul>
+                            </blockquote>
+                          </li>
+                          <li>
+                            <hr />
+                            <a
+                              name="collections-post"
+                              id="collections-post"
+                            ></a>
+                            <h3>Create a new collection</h3>
+                            <pre>POST /collections/</pre>
+                            <h4>Body Parameters</h4>
+                            <blockquote>
+                              <ul class="api-vars">
+                                <li>
+                                  <code>name</code> - string - Name of the
+                                  collection
+                                </li>
+                                <li>
+                                  <code>description</code> - string - Optional.
+                                  Description of the collection
+                                </li>
+                              </ul>
+                            </blockquote>
+                            <h4>Returns</h4>
+                            <blockquote>
+                              <ul class="api-vars">
+                                <li>
+                                  <code>(object)</code> - The newly created
+                                  collection.
+                                </li>
+                              </ul>
+                            </blockquote>
+                          </li>
+                          <li>
+                            <hr />
+                            <a
+                              name="collections-postthing"
+                              id="collections-postthing"
+                            ></a>
+                            <h3>Add a thing to a collection</h3>
+                            <pre>
+POST /collections/{$collection_id}/thing/{$thing_id}</pre
+                            >
+                            <p>
+                              Apps can add to any collection the user owns. Do
+                              not abuse or we'll change that. :)
+                            </p>
+                            <h4>Body Parameters</h4>
+                            <blockquote>
+                              <ul class="api-vars">
+                                <li>
+                                  <code>description</code> - string - Optional.
+                                  Reason for adding the Thing
+                                </li>
+                              </ul>
+                            </blockquote>
+                            <h4>Parameters</h4>
+                            <blockquote>
+                              <ul class="api-vars">
+                                <li>
+                                  <code>$collection_id</code> - Required integer
+                                  - Id of the collection to add to
+                                </li>
+                                <li>
+                                  <code>$thing_id</code> - Required integer - Id
+                                  of the Thing to add
+                                </li>
+                              </ul>
+                            </blockquote>
+                            <h4>Returns</h4>
+                            <blockquote>
+                              <ul class="api-vars">
+                                <li><code>(The)</code> - "ok" object.</li>
+                              </ul>
+                            </blockquote>
+                          </li>
+                          <li>
+                            <hr />
+                            <a
+                              name="collections-deletething"
+                              id="collections-deletething"
+                            ></a>
+                            <h3>Removes a thing from a collection</h3>
+                            <pre>
+DELETE /collections/{$collection_id}/thing/{$thing_id}</pre
+                            >
+                            <p>
+                              Apps may only remove things that they've added to
+                              a collection.
+                            </p>
+                            <h4>Parameters</h4>
+                            <blockquote>
+                              <ul class="api-vars">
+                                <li>
+                                  <code>$collection_id</code> - Required -
+                                </li>
+                                <li><code>$thing_id</code> - Required -</li>
+                              </ul>
+                            </blockquote>
+                            <h4>Returns</h4>
+                            <blockquote>
+                              <ul class="api-vars">
+                                <li><code>(The)</code> - "ok" object.</li>
+                              </ul>
+                            </blockquote>
+                          </li>
+                          <li>
+                            <hr />
+                            <a
+                              name="collections-patch"
+                              id="collections-patch"
+                            ></a>
+                            <h3>Update a collection</h3>
+                            <pre>PATCH /collections/{$id}/</pre>
+                            <p>
+                              Apps can only update collections they've created.
+                            </p>
+                            <h4>Body Parameters</h4>
+                            <blockquote>
+                              <ul class="api-vars">
+                                <li>
+                                  <code>name</code> - string - Name of the
+                                  collection
+                                </li>
+                                <li>
+                                  <code>description</code> - string - Optional.
+                                  Description of the collection
+                                </li>
+                              </ul>
+                            </blockquote>
+                            <h4>Parameters</h4>
+                            <blockquote>
+                              <ul class="api-vars">
+                                <li><code>$id</code> - Required -</li>
+                              </ul>
+                            </blockquote>
+                            <h4>Returns</h4>
+                            <blockquote>
+                              <ul class="api-vars">
+                                <li>
+                                  <code>(object)</code> - The newly created
+                                  collection.
+                                </li>
+                              </ul>
+                            </blockquote>
+                          </li>
+                          <li>
+                            <hr />
+                            <a
+                              name="collections-delete"
+                              id="collections-delete"
+                            ></a>
+                            <h3>Delete a collection</h3>
+                            <pre>DELETE /collections/{$id}/</pre>
+                            <p>
+                              Apps can only delete collections they've created.
+                            </p>
+                            <h4>Parameters</h4>
+                            <blockquote>
+                              <ul class="api-vars">
+                                <li>
+                                  <code>$id</code> - Required integer - Id of
+                                  the collection to delete
+                                </li>
+                              </ul>
+                            </blockquote>
+                            <h4>Returns</h4>
+                            <blockquote>
+                              <ul class="api-vars">
+                                <li>NONE</li>
+                              </ul>
+                            </blockquote>
+                          </li>
+                        </ul>
+                      </div>
+                      <div class="text-right top_content bottom_content">
+                        <a href="#top" class="plain-link">back to top</a>
+                      </div>
+                      <div class="content-box full-width">
+                        <a name="comments" id="comments"></a>
+                        <h2>Comments</h2>
+                        <ul class="api-methods">
+                          <li>
+                            <hr />
+                            <a name="comments-get" id="comments-get"></a>
+                            <h3>Get comment by id</h3>
+                            <pre>GET /comments/{$id}/</pre>
+                            <p>
+                              If no id is given, gets the list of the latest
+                              comments.
+                            </p>
+                            <h4>Parameters</h4>
+                            <blockquote>
+                              <ul class="api-vars">
+                                <li>
+                                  <code>$id</code> - Required integer - The id
+                                  of the comment to get
+                                </li>
+                              </ul>
+                            </blockquote>
+                            <h4>Returns</h4>
+                            <blockquote>
+                              <ul class="api-vars">
+                                <li>
+                                  <code>(object)</code> - An object representing
+                                  the comment requested
+                                </li>
+                              </ul>
+                            </blockquote>
+                          </li>
+                          <li>
+                            <hr />
+                            <a
+                              name="comments-getreplies"
+                              id="comments-getreplies"
+                            ></a>
+                            <h3>
+                              Get an unthreaded list of children comment objects
+                            </h3>
+                            <pre>GET /comments/{$parentId}/replies</pre>
+                            <h4>Parameters</h4>
+                            <blockquote>
+                              <ul class="api-vars">
+                                <li>
+                                  <code>$parentId</code> - Required integer -
+                                  The id of the parent comment to get children
+                                  comments for
+                                </li>
+                              </ul>
+                            </blockquote>
+                            <h4>Returns</h4>
+                            <blockquote>
+                              <ul class="api-vars">
+                                <li>
+                                  <code>(array)</code> - An array containing a
+                                  list of children comments on this thing by
+                                  parent_id
+                                </li>
+                              </ul>
+                            </blockquote>
+                          </li>
+                          <li>
+                            <hr />
+                            <a name="comments-post" id="comments-post"></a>
+                            <h3>Create a new comment</h3>
+                            <pre>POST /comments/</pre>
+                            <p>Must use the POST method</p>
+                            <h4>Body Parameters</h4>
+                            <blockquote>
+                              <ul class="api-vars">
+                                <li>
+                                  <code>body</code> - string - Set the body of
+                                  the comment
+                                </li>
+                                <li>
+                                  <code>target_type</code> - string - Either
+                                  thing or make
+                                </li>
+                                <li>
+                                  <code>target_id</code> - integer - The id of
+                                  the target (thing_id or make_id)
+                                </li>
+                              </ul>
+                            </blockquote>
+                            <h4>Returns</h4>
+                            <blockquote>
+                              <ul class="api-vars">
+                                <li>
+                                  <code>(object)</code> - The newly created
+                                  comment.
+                                </li>
+                              </ul>
+                            </blockquote>
+                          </li>
+                          <li>
+                            <hr />
+                            <a
+                              name="comments-postreply"
+                              id="comments-postreply"
+                            ></a>
+                            <h3>Create a reply to an existing comment</h3>
+                            <pre>POST /comments/{$id}/reply</pre>
+                            <p>Must use the POST method</p>
+                            <h4>Body Parameters</h4>
+                            <blockquote>
+                              <ul class="api-vars">
+                                <li>
+                                  <code>body</code> - string - Set the body of
+                                  the reply comment
+                                </li>
+                              </ul>
+                            </blockquote>
+                            <h4>Parameters</h4>
+                            <blockquote>
+                              <ul class="api-vars">
+                                <li>
+                                  <code>$id</code> - Required integer - The id
+                                  of the comment to reply to
+                                </li>
+                              </ul>
+                            </blockquote>
+                            <h4>Returns</h4>
+                            <blockquote>
+                              <ul class="api-vars">
+                                <li>
+                                  <code>(object)</code> - The newly created
+                                  reply comment.
+                                </li>
+                              </ul>
+                            </blockquote>
+                          </li>
+                          <li>
+                            <hr />
+                            <a name="comments-patch" id="comments-patch"></a>
+                            <h3>Update an existing comment</h3>
+                            <pre>PATCH /comments/{$id}/</pre>
+                            <p>Must use the PATCH method.</p>
+                            <h4>Body Parameters</h4>
+                            <blockquote>
+                              <ul class="api-vars">
+                                <li>
+                                  <code>body</code> - string - Replace the body
+                                  of the thing
+                                </li>
+                              </ul>
+                            </blockquote>
+                            <h4>Parameters</h4>
+                            <blockquote>
+                              <ul class="api-vars">
+                                <li>
+                                  <code>$id</code> - Required integer - The id
+                                  of the comment to update
+                                </li>
+                              </ul>
+                            </blockquote>
+                            <h4>Returns</h4>
+                            <blockquote>
+                              <ul class="api-vars">
+                                <li>
+                                  <code>(object)</code> - The updated comment.
+                                </li>
+                              </ul>
+                            </blockquote>
+                          </li>
+                          <li>
+                            <hr />
+                            <a name="comments-delete" id="comments-delete"></a>
+                            <h3>Delete a comment</h3>
+                            <pre>DELETE /comments/{$id}/</pre>
+                            <p>
+                              Must use the DELETE method. This cannot be undone.
+                            </p>
+                            <h4>Parameters</h4>
+                            <blockquote>
+                              <ul class="api-vars">
+                                <li>
+                                  <code>$id</code> - Required integer - The id
+                                  of the comment to delete.
+                                </li>
+                              </ul>
+                            </blockquote>
+                            <h4>Returns</h4>
+                            <blockquote>
+                              <ul class="api-vars">
+                                <li><code>(object)</code> - The "ok" object</li>
+                              </ul>
+                            </blockquote>
+                          </li>
+                        </ul>
+                      </div>
+                      <div class="text-right top_content bottom_content">
+                        <a href="#top" class="plain-link">back to top</a>
+                      </div>
+                      <div class="content-box full-width">
+                        <a name="newest" id="newest"></a>
+                        <h2>Newest</h2>
+                        <ul class="api-methods">
+                          <li>
+                            <hr />
+                            <a name="newest-get" id="newest-get"></a>
+                            <h3>Get the latest things published</h3>
+                            <pre>GET /newest/</pre>
+                            <p>
+                              Deprecated - You can use `GET /search` with the
+                              `sort=newest` parameter now.
+                            </p>
+                            <h4>Returns</h4>
+                            <blockquote>
+                              <ul class="api-vars">
+                                <li><code>(array)</code> - Thing objects</li>
+                              </ul>
+                            </blockquote>
+                          </li>
+                        </ul>
+                      </div>
+                      <div class="text-right top_content bottom_content">
+                        <a href="#top" class="plain-link">back to top</a>
+                      </div>
+                      <div class="content-box full-width">
+                        <a name="popular" id="popular"></a>
+                        <h2>Popular</h2>
+                        <ul class="api-methods">
+                          <li>
+                            <hr />
+                            <a name="popular-get" id="popular-get"></a>
+                            <h3>Get the most popular things</h3>
+                            <pre>GET /popular/</pre>
+                            <p>
+                              Deprecated - You can use `GET /search` with the
+                              `sort=popular` parameter now.
+                            </p>
+                            <h4>Returns</h4>
+                            <blockquote>
+                              <ul class="api-vars">
+                                <li>NONE</li>
+                              </ul>
+                            </blockquote>
+                          </li>
+                        </ul>
+                      </div>
+                      <div class="text-right top_content bottom_content">
+                        <a href="#top" class="plain-link">back to top</a>
+                      </div>
+                      <div class="content-box full-width">
+                        <a name="featured" id="featured"></a>
+                        <h2>Featured</h2>
+                        <ul class="api-methods">
+                          <li>
+                            <hr />
+                            <a name="featured-get" id="featured-get"></a>
+                            <h3>Get the latest featured things</h3>
+                            <pre>GET /featured/</pre>
+                            <p>
+                              Deprecated - You can use `GET /search` with the
+                              `is_featured=1` parameter now.
+                            </p>
+                            <h4>Returns</h4>
+                            <blockquote>
+                              <ul class="api-vars">
+                                <li>NONE</li>
+                              </ul>
+                            </blockquote>
+                          </li>
+                        </ul>
+                      </div>
+                      <div class="text-right top_content bottom_content">
+                        <a href="#top" class="plain-link">back to top</a>
+                      </div>
+                      <div class="content-box full-width">
+                        <a name="verified" id="verified"></a>
+                        <h2>Verified</h2>
+                        <ul class="api-methods">
+                          <li>
+                            <hr />
+                            <a name="verified-get" id="verified-get"></a>
+                            <h3>Get the latest things verified</h3>
+                            <pre>GET /verified/</pre>
+                            <h4>Returns</h4>
+                            <blockquote>
+                              <ul class="api-vars">
+                                <li><code>(array)</code> - Thing objects</li>
+                              </ul>
+                            </blockquote>
+                          </li>
+                        </ul>
+                      </div>
+                      <div class="text-right top_content bottom_content">
+                        <a href="#top" class="plain-link">back to top</a>
+                      </div>
+                      <div class="content-box full-width">
+                        <a name="search" id="search"></a>
+                        <h2>Search</h2>
+                        <ul class="api-methods">
+                          <li>
+                            <hr />
+                            <a name="search-get" id="search-get"></a>
+                            <h3>
+                              Search for Things, Makes, Users, or Collections
+                            </h3>
+                            <pre>GET /search/{$term}/</pre>
+                            <p>
+                              Results in 404 Not Found if no things match the
+                              search. Body parameters are query string here. See
+                              <a
+                                href="https://www.notion.so/makerbot/Thingiverse-Search-API-f7ce7608d54d44f7a2b902a83194a8b2"
+                                target="_blank"
+                                >this page</a
+                              >
+                              for complete documentation and all possible
+                              parameters.
+                            </p>
+                            <h4>Parameters</h4>
+                            <blockquote>
+                              <ul class="api-vars">
+                                <li>
+                                  <code>$term</code> - Optional string - The
+                                  search query to perform
+                                </li>
+                              </ul>
+                            </blockquote>
+                            <h4>Returns</h4>
+                            <blockquote>
+                              <ul class="api-vars">
+                                <li>
+                                  <code>(array)</code> - A list of items
+                                  matching the search
+                                </li>
+                              </ul>
+                            </blockquote>
+                          </li>
+                          <li>
+                            <hr />
+                            <a
+                              name="search-getlibrary"
+                              id="search-getlibrary"
+                            ></a>
+                            <pre>GET /search/{$term}/library</pre>
+                            <h4>Parameters</h4>
+                            <blockquote>
+                              <ul class="api-vars">
+                                <li><code>$term</code> - Optional -</li>
+                              </ul>
+                            </blockquote>
+                            <h4>Returns</h4>
+                            <blockquote>
+                              <ul class="api-vars">
+                                <li>NONE</li>
+                              </ul>
+                            </blockquote>
+                          </li>
+                          <li>
+                            <hr />
+                            <a name="search-gettag" id="search-gettag"></a>
+                            <pre>GET /search/{$tag}/tag</pre>
+                            <h4>Parameters</h4>
+                            <blockquote>
+                              <ul class="api-vars">
+                                <li><code>$tag</code> - Optional -</li>
+                              </ul>
+                            </blockquote>
+                            <h4>Returns</h4>
+                            <blockquote>
+                              <ul class="api-vars">
+                                <li>NONE</li>
+                              </ul>
+                            </blockquote>
+                          </li>
+                          <li>
+                            <hr />
+                            <a
+                              name="search-getautocomplete"
+                              id="search-getautocomplete"
+                            ></a>
+                            <pre>GET /search/{$term}/autocomplete</pre>
+                            <p>
+                              Search data by term for autocomplete API args:
+                              $term: string return: array of objects
+                            </p>
+                            <h4>Parameters</h4>
+                            <blockquote>
+                              <ul class="api-vars">
+                                <li><code>$term</code> - Required -</li>
+                              </ul>
+                            </blockquote>
+                            <h4>Returns</h4>
+                            <blockquote>
+                              <ul class="api-vars">
+                                <li>NONE</li>
+                              </ul>
+                            </blockquote>
+                          </li>
+                        </ul>
+                      </div>
+                      <div class="text-right top_content bottom_content">
+                        <a href="#top" class="plain-link">back to top</a>
+                      </div>
+                      <div class="content-box full-width">
+                        <a name="categories" id="categories"></a>
+                        <h2>Categories</h2>
+                        <ul class="api-methods">
+                          <li>
+                            <hr />
+                            <a name="categories-get" id="categories-get"></a>
+                            <h3>Get category or categories</h3>
+                            <pre>GET /categories/{$category_slug}/</pre>
+                            <p>
+                              Get details about one category or a list of all
+                              categories. Category ids are normalized "slugs".
+                              For example, the id for the "Automotive"
+                              category's id would be "automotive". The
+                              "Replacement Parts" category would have an id of
+                              "replacement-parts", etc. If no id is specified,
+                              returns paginated list of categories.
+                            </p>
+                            <h4>Parameters</h4>
+                            <blockquote>
+                              <ul class="api-vars">
+                                <li>
+                                  <code>$category_slug</code> - Optional string
+                                  - The id of the category to fetch. Omit for
+                                  list of categories.
+                                </li>
+                              </ul>
+                            </blockquote>
+                            <h4>Returns</h4>
+                            <blockquote>
+                              <ul class="api-vars">
+                                <li>
+                                  <code>(object|array)</code> - The category (if
+                                  specified) or list of categories
+                                </li>
+                              </ul>
+                            </blockquote>
+                          </li>
+                          <li>
+                            <hr />
+                            <a
+                              name="categories-getthings"
+                              id="categories-getthings"
+                            ></a>
+                            <h3>Get latest things in a category</h3>
+                            <pre>GET /categories/{$category_slug}/things</pre>
+                            <p>
+                              If the category doesn't exist, result is 404 Not
+                              Found. Category ids are normalized "slugs". For
+                              example, the id for the "Automotive" category's id
+                              would be "automotive". The "Replacement Parts"
+                              category would have an id of "replacement-parts",
+                              etc.
+                            </p>
+                            <h4>Parameters</h4>
+                            <blockquote>
+                              <ul class="api-vars">
+                                <li>
+                                  <code>$category_slug</code> - Required string
+                                  - The id of the category for which to fetch
+                                  things
+                                </li>
+                              </ul>
+                            </blockquote>
+                            <h4>Returns</h4>
+                            <blockquote>
+                              <ul class="api-vars">
+                                <li><code>(array)</code> - Thing objects</li>
+                              </ul>
+                            </blockquote>
+                          </li>
+                        </ul>
+                      </div>
+                      <div class="text-right top_content bottom_content">
+                        <a href="#top" class="plain-link">back to top</a>
+                      </div>
+                      <div class="content-box full-width">
+                        <a name="tags" id="tags"></a>
+                        <h2>Tags</h2>
+                        <ul class="api-methods">
+                          <li>
+                            <hr />
+                            <a name="tags-getthings" id="tags-getthings"></a>
+                            <h3>
+                              Get the latest things with the specified tag
+                            </h3>
+                            <pre>GET /tags/{$tag}/things</pre>
+                            <p>
+                              If the tag doesn't exist, result is 404 Not Found.
+                              Tags are normalized before searching by converting
+                              whitespace to underscores and stripping out all
+                              characters except alphanumerics, underscores, and
+                              dashes ('-').
+                            </p>
+                            <h4>Parameters</h4>
+                            <blockquote>
+                              <ul class="api-vars">
+                                <li>
+                                  <code>$tag</code> - Required string - The tag
+                                  for which to fetch things
+                                </li>
+                              </ul>
+                            </blockquote>
+                            <h4>Returns</h4>
+                            <blockquote>
+                              <ul class="api-vars">
+                                <li><code>(array)</code> - Thing objects</li>
+                              </ul>
+                            </blockquote>
+                          </li>
+                          <li>
+                            <hr />
+                            <a name="tags-get" id="tags-get"></a>
+                            <h3>Return a representation of the given tag</h3>
+                            <pre>GET /tags/{$tag}/</pre>
+                            <p>
+                              Tags are normalized before searching by converting
+                              whitespace to underscores and stripping out all
+                              characters except alphanumerics, underscores, and
+                              dashes ('-'). If no tag is specified, returns a
+                              list of all tags in alphabetical order.
+                            </p>
+                            <h4>Parameters</h4>
+                            <blockquote>
+                              <ul class="api-vars">
+                                <li>
+                                  <code>$tag</code> - Optional string - The tag
+                                  for which to fetch things. Omit this to get
+                                  the list of tags.
+                                </li>
+                              </ul>
+                            </blockquote>
+                            <h4>Returns</h4>
+                            <blockquote>
+                              <ul class="api-vars">
+                                <li>
+                                  <code>(object|array)</code> - The tag or an
+                                  array of tags.
+                                </li>
+                              </ul>
+                            </blockquote>
+                          </li>
+                        </ul>
+                      </div>
+                      <div class="text-right top_content bottom_content">
+                        <a href="#top" class="plain-link">back to top</a>
+                      </div>
+                      <div class="content-box full-width">
+                        <a name="groups" id="groups"></a>
+                        <h2>Groups</h2>
+                        <ul class="api-methods">
+                          <li>
+                            <hr />
+                            <a name="groups-get" id="groups-get"></a>
+                            <h3>Get Group(s)</h3>
+                            <pre>GET /groups/{$id}/</pre>
+                            <p>If no id is given, returns all groups</p>
+                            <h4>Parameters</h4>
+                            <blockquote>
+                              <ul class="api-vars">
+                                <li>
+                                  <code>$id</code> - Optional integer - The id
+                                  of the group to get
+                                </li>
+                              </ul>
+                            </blockquote>
+                            <h4>Globals</h4>
+                            <blockquote>
+                              <ul class="api-vars">
+                                <li>
+                                  <code>_GET</code> - string - ['filter']
+                                  Optional filter. Supports: my-groups. Default
+                                  is all
+                                </li>
+                                <li>
+                                  <code>_GET</code> - string - ['sort'] Optional
+                                  sort. Supports: members, topics, activity,
+                                  newest. Returns in DESC order. Default is
+                                  members.
+                                </li>
+                                <li>
+                                  <code>_GET</code> - string - ['search']
+                                  Optional search
+                                </li>
+                              </ul>
+                            </blockquote>
+                            <h4>Returns</h4>
+                            <blockquote>
+                              <ul class="api-vars">
+                                <li>
+                                  <code>(object|array)</code> - An object or
+                                  array of objects
+                                </li>
+                              </ul>
+                            </blockquote>
+                          </li>
+                          <li>
+                            <hr />
+                            <a name="groups-post" id="groups-post"></a>
+                            <h3>Create a new Group</h3>
+                            <pre>POST /groups/</pre>
+                            <p>Must use the POST method</p>
+                            <h4>Body Parameters</h4>
+                            <blockquote>
+                              <ul class="api-vars">
+                                <li>
+                                  <code>name</code> - string - Name of Group
+                                </li>
+                                <li>
+                                  <code>description</code> - string -
+                                  Description of Group
+                                </li>
+                                <li>
+                                  <code>slug</code> - string - Slug for Group
+                                </li>
+                              </ul>
+                            </blockquote>
+                            <h4>Returns</h4>
+                            <blockquote>
+                              <ul class="api-vars">
+                                <li>
+                                  <code>(object)</code> - Newly created Group
+                                </li>
+                              </ul>
+                            </blockquote>
+                          </li>
+                          <li>
+                            <hr />
+                            <a
+                              name="groups-postimage"
+                              id="groups-postimage"
+                            ></a>
+                            <h3>Update the Group Image</h3>
+                            <pre>POST /groups/{$id}/image</pre>
+                            <p>Must use the POST method</p>
+                            <h4>Body Parameters</h4>
+                            <blockquote>
+                              <ul class="api-vars">
+                                <li>
+                                  <code>filename</code> - string - Image
+                                  filename
+                                </li>
+                              </ul>
+                            </blockquote>
+                            <h4>Parameters</h4>
+                            <blockquote>
+                              <ul class="api-vars">
+                                <li>
+                                  <code>$id</code> - Required integer - The id
+                                  of the Group
+                                </li>
+                              </ul>
+                            </blockquote>
+                            <h4>Returns</h4>
+                            <blockquote>
+                              <ul class="api-vars">
+                                <li>
+                                  <code>(object)</code> - The data needed to
+                                  upload a file via an HTTP POST with
+                                  multipart/form-data encoding
+                                </li>
+                              </ul>
+                            </blockquote>
+                          </li>
+                          <li>
+                            <hr />
+                            <a name="groups-patch" id="groups-patch"></a>
+                            <h3>Update Group</h3>
+                            <pre>PATCH /groups/{$id}/</pre>
+                            <p>Must use the PATCH method.</p>
+                            <h4>Body Parameters</h4>
+                            <blockquote>
+                              <ul class="api-vars">
+                                <li>
+                                  <code>name</code> - string - Optional. Update
+                                  Group name
+                                </li>
+                                <li>
+                                  <code>description</code> - string - Optional.
+                                  Update Group description
+                                </li>
+                              </ul>
+                            </blockquote>
+                            <h4>Parameters</h4>
+                            <blockquote>
+                              <ul class="api-vars">
+                                <li>
+                                  <code>$id</code> - Required integer - The
+                                  Group to update
+                                </li>
+                              </ul>
+                            </blockquote>
+                            <h4>Returns</h4>
+                            <blockquote>
+                              <ul class="api-vars">
+                                <li>
+                                  <code>(object)</code> - The updated Group
+                                </li>
+                              </ul>
+                            </blockquote>
+                          </li>
+                          <li>
+                            <hr />
+                            <a name="groups-delete" id="groups-delete"></a>
+                            <h3>Delete Group</h3>
+                            <pre>DELETE /groups/{$id}/</pre>
+                            <p>Must use the DELETE method.</p>
+                            <h4>Parameters</h4>
+                            <blockquote>
+                              <ul class="api-vars">
+                                <li>
+                                  <code>$id</code> - Required integer - The
+                                  Group to delete
+                                </li>
+                              </ul>
+                            </blockquote>
+                            <h4>Returns</h4>
+                            <blockquote>
+                              <ul class="api-vars">
+                                <li>
+                                  <code>(integer)</code> - id of the deleted
+                                  Group
+                                </li>
+                              </ul>
+                            </blockquote>
+                          </li>
+                          <li>
+                            <hr />
+                            <a
+                              name="groups-getgrouptopics"
+                              id="groups-getgrouptopics"
+                            ></a>
+                            <h3>Get Group Topics</h3>
+                            <pre>GET /groups/{$id}/group-topics</pre>
+                            <p>Returns all topics for the group</p>
+                            <h4>Parameters</h4>
+                            <blockquote>
+                              <ul class="api-vars">
+                                <li><code>$id</code> - Required -</li>
+                              </ul>
+                            </blockquote>
+                            <h4>Returns</h4>
+                            <blockquote>
+                              <ul class="api-vars">
+                                <li>
+                                  <code>(array)</code> - An array of objects
+                                </li>
+                              </ul>
+                            </blockquote>
+                          </li>
+                          <li>
+                            <hr />
+                            <a
+                              name="groups-getgrouptopicscomments"
+                              id="groups-getgrouptopicscomments"
+                            ></a>
+                            <h3>Search Group Topics and Comments</h3>
+                            <pre>GET /groups/{$id}/group-topics-comments</pre>
+                            <p>
+                              Returns all topics and comments according to the
+                              search
+                            </p>
+                            <h4>Parameters</h4>
+                            <blockquote>
+                              <ul class="api-vars">
+                                <li>
+                                  <code>$id</code> - Required integer - The id
+                                  of the group
+                                </li>
+                              </ul>
+                            </blockquote>
+                            <h4>Returns</h4>
+                            <blockquote>
+                              <ul class="api-vars">
+                                <li>
+                                  <code>(array)</code> - An array of objects
+                                </li>
+                              </ul>
+                            </blockquote>
+                          </li>
+                          <li>
+                            <hr />
+                            <a
+                              name="groups-postgrouptopics"
+                              id="groups-postgrouptopics"
+                            ></a>
+                            <h3>Create a new Group Topic</h3>
+                            <pre>POST /groups/{$id}/group-topics</pre>
+                            <p>
+                              Must use the POST method. Must be a member of the
+                              group to create a topic.
+                            </p>
+                            <h4>Body Parameters</h4>
+                            <blockquote>
+                              <ul class="api-vars">
+                                <li>
+                                  <code>name</code> - string - Name of Topic
+                                </li>
+                                <li>
+                                  <code>body</code> - string - Body text of
+                                  Topic
+                                </li>
+                              </ul>
+                            </blockquote>
+                            <h4>Parameters</h4>
+                            <blockquote>
+                              <ul class="api-vars">
+                                <li>
+                                  <code>$id</code> - Required integer - The id
+                                  of the group to create a topic for
+                                </li>
+                              </ul>
+                            </blockquote>
+                            <h4>Returns</h4>
+                            <blockquote>
+                              <ul class="api-vars">
+                                <li>
+                                  <code>(object)</code> - The newly created
+                                  topic
+                                </li>
+                              </ul>
+                            </blockquote>
+                          </li>
+                          <li>
+                            <hr />
+                            <a
+                              name="groups-getthings"
+                              id="groups-getthings"
+                            ></a>
+                            <h3>Get Things in a Group</h3>
+                            <pre>GET /groups/{$id}/things</pre>
+                            <p>Sort or search Things in a Group.</p>
+                            <h4>Parameters</h4>
+                            <blockquote>
+                              <ul class="api-vars">
+                                <li>
+                                  <code>$id</code> - Required integer - The id
+                                  of Group to get Things
+                                </li>
+                              </ul>
+                            </blockquote>
+                            <h4>Globals</h4>
+                            <blockquote>
+                              <ul class="api-vars">
+                                <li>
+                                  <code>_GET</code> - string - ['sort'] Optional
+                                  sort. Supports: newest, popular. Returns in
+                                  DESC order. Default is newest. Not supported
+                                  for search.
+                                </li>
+                                <li>
+                                  <code>_GET</code> - string - ['search']
+                                  Optional search. Sort returns in relevant
+                                  order.
+                                </li>
+                              </ul>
+                            </blockquote>
+                            <h4>Returns</h4>
+                            <blockquote>
+                              <ul class="api-vars">
+                                <li>
+                                  <code>(array)</code> - Things in a Group
+                                </li>
+                              </ul>
+                            </blockquote>
+                          </li>
+                          <li>
+                            <hr />
+                            <a
+                              name="groups-postthings"
+                              id="groups-postthings"
+                            ></a>
+                            <h3>Add Thing to Group</h3>
+                            <pre>POST /groups/{$id}/things/{$thing_id}</pre>
+                            <p>
+                              Must use the POST method. Returns ok even if Thing
+                              is already in Group
+                            </p>
+                            <h4>Parameters</h4>
+                            <blockquote>
+                              <ul class="api-vars">
+                                <li>
+                                  <code>$id</code> - Required integer - Group id
+                                  to add Thing to
+                                </li>
+                                <li>
+                                  <code>$thing_id</code> - Required integer -
+                                  Thing id to add to Group
+                                </li>
+                              </ul>
+                            </blockquote>
+                            <h4>Returns</h4>
+                            <blockquote>
+                              <ul class="api-vars">
+                                <li><code>(object)</code> - "ok"</li>
+                              </ul>
+                            </blockquote>
+                          </li>
+                          <li>
+                            <hr />
+                            <a
+                              name="groups-deletethings"
+                              id="groups-deletethings"
+                            ></a>
+                            <h3>Remove Thing from Group</h3>
+                            <pre>DELETE /groups/{$id}/things/{$thing_id}</pre>
+                            <p>
+                              Must use the DELETE method. Returns 400 if trying
+                              to delete something that doesn't exist
+                            </p>
+                            <h4>Parameters</h4>
+                            <blockquote>
+                              <ul class="api-vars">
+                                <li>
+                                  <code>$id</code> - Required integer - Group id
+                                  to remove Thing from
+                                </li>
+                                <li>
+                                  <code>$thing_id</code> - Required integer -
+                                  Thing id to remove from Group
+                                </li>
+                              </ul>
+                            </blockquote>
+                            <h4>Returns</h4>
+                            <blockquote>
+                              <ul class="api-vars">
+                                <li><code>(object)</code> - "ok"</li>
+                              </ul>
+                            </blockquote>
+                          </li>
+                          <li>
+                            <hr />
+                            <a
+                              name="groups-patchthings"
+                              id="groups-patchthings"
+                            ></a>
+                            <h3>Update a Group Thing</h3>
+                            <pre>PATCH /groups/{$id}/things/{$thing_id}</pre>
+                            <p>
+                              Mark a Group Thing as featured or remove it from
+                              being featured Trying to add a rank to something
+                              that is already featured results in 400 You must
+                              remove it first by sending rank equal to 0 Trying
+                              to remove something that isn't featured results in
+                              400
+                            </p>
+                            <h4>Body Parameters</h4>
+                            <blockquote>
+                              <ul class="api-vars">
+                                <li>
+                                  <code>rank</code> - integer - The ranking
+                                  order for this featured Thing. Send 0 to
+                                  remove. Supports 0-3
+                                </li>
+                              </ul>
+                            </blockquote>
+                            <h4>Parameters</h4>
+                            <blockquote>
+                              <ul class="api-vars">
+                                <li>
+                                  <code>$id</code> - Required integer - The
+                                  Group id of the Thing
+                                </li>
+                                <li>
+                                  <code>$thing_id</code> - Required integer -
+                                  The Thing id to update
+                                </li>
+                              </ul>
+                            </blockquote>
+                            <h4>Returns</h4>
+                            <blockquote>
+                              <ul class="api-vars">
+                                <li><code>(object)</code> - "ok"</li>
+                              </ul>
+                            </blockquote>
+                          </li>
+                          <li>
+                            <hr />
+                            <a
+                              name="groups-getmembers"
+                              id="groups-getmembers"
+                            ></a>
+                            <h3>Get Group Members</h3>
+                            <pre>GET /groups/{$id}/members</pre>
+                            <p>
+                              Returned with Group Owner first, then by date
+                              joined, ascending
+                            </p>
+                            <h4>Parameters</h4>
+                            <blockquote>
+                              <ul class="api-vars">
+                                <li>
+                                  <code>$id</code> - Required integer - The id
+                                  of the Group to get Members for
+                                </li>
+                              </ul>
+                            </blockquote>
+                            <h4>Returns</h4>
+                            <blockquote>
+                              <ul class="api-vars">
+                                <li>
+                                  <code>(array)</code> - List of Group members
+                                </li>
+                              </ul>
+                            </blockquote>
+                          </li>
+                          <li>
+                            <hr />
+                            <a
+                              name="groups-postmembers"
+                              id="groups-postmembers"
+                            ></a>
+                            <h3>Join a Group</h3>
+                            <pre>POST /groups/{$group_id}/members</pre>
+                            <h4>Parameters</h4>
+                            <blockquote>
+                              <ul class="api-vars">
+                                <li>
+                                  <code>$group_id</code> - Required integer -
+                                  The id of the Group to join
+                                </li>
+                              </ul>
+                            </blockquote>
+                            <h4>Returns</h4>
+                            <blockquote>
+                              <ul class="api-vars">
+                                <li><code>(object)</code> - "ok"</li>
+                              </ul>
+                            </blockquote>
+                          </li>
+                          <li>
+                            <hr />
+                            <a
+                              name="groups-deletemembers"
+                              id="groups-deletemembers"
+                            ></a>
+                            <h3>Leave a Group</h3>
+                            <pre>
+DELETE /groups/{$group_id}/members/{$user_id}</pre
+                            >
+                            <h4>Parameters</h4>
+                            <blockquote>
+                              <ul class="api-vars">
+                                <li>
+                                  <code>$group_id</code> - Required integer -
+                                  The id of the Group to leave
+                                </li>
+                                <li>
+                                  <code>$user_id</code> - Optional integer -
+                                  Optional user_id to delete (for Owners).
+                                  Defaults to current user
+                                </li>
+                              </ul>
+                            </blockquote>
+                            <h4>Returns</h4>
+                            <blockquote>
+                              <ul class="api-vars">
+                                <li><code>(object)</code> - "ok"</li>
+                              </ul>
+                            </blockquote>
+                          </li>
+                          <li>
+                            <hr />
+                            <a
+                              name="groups-getgroupforums"
+                              id="groups-getgroupforums"
+                            ></a>
+                            <pre>GET /groups/{$id}/group-forums</pre>
+                            <h4>Parameters</h4>
+                            <blockquote>
+                              <ul class="api-vars">
+                                <li><code>$id</code> - Required -</li>
+                              </ul>
+                            </blockquote>
+                            <h4>Returns</h4>
+                            <blockquote>
+                              <ul class="api-vars">
+                                <li>NONE</li>
+                              </ul>
+                            </blockquote>
+                          </li>
+                          <li>
+                            <hr />
+                            <a
+                              name="groups-postgroupforums"
+                              id="groups-postgroupforums"
+                            ></a>
+                            <pre>POST /groups/{$id}/group-forums</pre>
+                            <h4>Parameters</h4>
+                            <blockquote>
+                              <ul class="api-vars">
+                                <li><code>$id</code> - Required -</li>
+                              </ul>
+                            </blockquote>
+                            <h4>Returns</h4>
+                            <blockquote>
+                              <ul class="api-vars">
+                                <li>NONE</li>
+                              </ul>
+                            </blockquote>
+                          </li>
+                          <li>
+                            <hr />
+                            <a
+                              name="groups-getuseringroup"
+                              id="groups-getuseringroup"
+                            ></a>
+                            <pre>
+GET /groups/{$slug}/user-in-group/{$userId}</pre
+                            >
+                            <h4>Parameters</h4>
+                            <blockquote>
+                              <ul class="api-vars">
+                                <li><code>$slug</code> - Required -</li>
+                                <li><code>$userId</code> - Required -</li>
+                              </ul>
+                            </blockquote>
+                            <h4>Returns</h4>
+                            <blockquote>
+                              <ul class="api-vars">
+                                <li>NONE</li>
+                              </ul>
+                            </blockquote>
+                          </li>
+                          <li>
+                            <hr />
+                            <a
+                              name="groups-getisslugunique"
+                              id="groups-getisslugunique"
+                            ></a>
+                            <pre>GET /groups/{$slug}/is-slug-unique</pre>
+                            <h4>Parameters</h4>
+                            <blockquote>
+                              <ul class="api-vars">
+                                <li><code>$slug</code> - Required -</li>
+                              </ul>
+                            </blockquote>
+                            <h4>Returns</h4>
+                            <blockquote>
+                              <ul class="api-vars">
+                                <li>NONE</li>
+                              </ul>
+                            </blockquote>
+                          </li>
+                        </ul>
+                      </div>
+                      <div class="text-right top_content bottom_content">
+                        <a href="#top" class="plain-link">back to top</a>
+                      </div>
+                      <div class="content-box full-width">
+                        <a name="grouptopics" id="grouptopics"></a>
+                        <h2>GroupTopics</h2>
+                        <ul class="api-methods">
+                          <li>
+                            <hr />
+                            <a name="grouptopics-get" id="grouptopics-get"></a>
+                            <h3>Get Group Topic</h3>
+                            <pre>GET /group-topics/{$id}/</pre>
+                            <h4>Parameters</h4>
+                            <blockquote>
+                              <ul class="api-vars">
+                                <li>
+                                  <code>$id</code> - Required integer - The id
+                                  of the Group Topic to get
+                                </li>
+                              </ul>
+                            </blockquote>
+                            <h4>Returns</h4>
+                            <blockquote>
+                              <ul class="api-vars">
+                                <li>
+                                  <code>(object)</code> - A Group Topic summary
+                                  object
+                                </li>
+                              </ul>
+                            </blockquote>
+                          </li>
+                          <li>
+                            <hr />
+                            <a
+                              name="grouptopics-patch"
+                              id="grouptopics-patch"
+                            ></a>
+                            <h3>Update Group Topic</h3>
+                            <pre>PATCH /group-topics/{$id}/</pre>
+                            <p>Must use the PATCH method.</p>
+                            <h4>Body Parameters</h4>
+                            <blockquote>
+                              <ul class="api-vars">
+                                <li>
+                                  <code>name</code> - string - Optional. Update
+                                  Topic name
+                                </li>
+                                <li>
+                                  <code>body</code> - string - Optional. Update
+                                  Topic body
+                                </li>
+                              </ul>
+                            </blockquote>
+                            <h4>Parameters</h4>
+                            <blockquote>
+                              <ul class="api-vars">
+                                <li>
+                                  <code>$id</code> - Required integer - The
+                                  Group Topic to update
+                                </li>
+                              </ul>
+                            </blockquote>
+                            <h4>Returns</h4>
+                            <blockquote>
+                              <ul class="api-vars">
+                                <li>
+                                  <code>(object)</code> - The updated Group
+                                  Topic
+                                </li>
+                              </ul>
+                            </blockquote>
+                          </li>
+                          <li>
+                            <hr />
+                            <a
+                              name="grouptopics-postpin"
+                              id="grouptopics-postpin"
+                            ></a>
+                            <h3>Pin Group Topic</h3>
+                            <pre>POST /group-topics/{$id}/pin</pre>
+                            <p>
+                              Must use the POST method. Only for Group Owner
+                            </p>
+                            <h4>Parameters</h4>
+                            <blockquote>
+                              <ul class="api-vars">
+                                <li>
+                                  <code>$id</code> - Required integer - The
+                                  Group Topic to pin
+                                </li>
+                              </ul>
+                            </blockquote>
+                            <h4>Returns</h4>
+                            <blockquote>
+                              <ul class="api-vars">
+                                <li>
+                                  <code>(object)</code> - The pinned Group Topic
+                                </li>
+                              </ul>
+                            </blockquote>
+                          </li>
+                          <li>
+                            <hr />
+                            <a
+                              name="grouptopics-deletepin"
+                              id="grouptopics-deletepin"
+                            ></a>
+                            <h3>Unpin Group Topic</h3>
+                            <pre>DELETE /group-topics/{$id}/pin</pre>
+                            <p>
+                              Must use the DELETE method. Only for Group Owner
+                            </p>
+                            <h4>Parameters</h4>
+                            <blockquote>
+                              <ul class="api-vars">
+                                <li>
+                                  <code>$id</code> - Required integer - The
+                                  Group Topic to unpin
+                                </li>
+                              </ul>
+                            </blockquote>
+                            <h4>Returns</h4>
+                            <blockquote>
+                              <ul class="api-vars">
+                                <li>
+                                  <code>(object)</code> - The unpinned Group
+                                  Topic
+                                </li>
+                              </ul>
+                            </blockquote>
+                          </li>
+                          <li>
+                            <hr />
+                            <a
+                              name="grouptopics-getthreadedcomments"
+                              id="grouptopics-getthreadedcomments"
+                            ></a>
+                            <h3>
+                              Get all comments for this topic in a quick
+                              pre-threaded view. This is an alternative to GET
+                              /grouptopics/id/comments
+                            </h3>
+                            <pre>GET /group-topics/{$id}/threaded-comments</pre>
+                            <h4>Parameters</h4>
+                            <blockquote>
+                              <ul class="api-vars">
+                                <li>
+                                  <code>$id</code> - Required integer - The id
+                                  of the Group Topic to get comments for
+                                </li>
+                              </ul>
+                            </blockquote>
+                            <h4>Returns</h4>
+                            <blockquote>
+                              <ul class="api-vars">
+                                <li>
+                                  <code>(object)</code> - An array containing
+                                  comment threads indexed by comment parent id
+                                  (blank for top level comments) and users
+                                  indexed by user id used in those comments
+                                </li>
+                              </ul>
+                            </blockquote>
+                          </li>
+                          <li>
+                            <hr />
+                            <a
+                              name="grouptopics-getcomments"
+                              id="grouptopics-getcomments"
+                            ></a>
+                            <h3>
+                              Get an unthreaded paginated list of comment
+                              objects. See also GET
+                              /grouptopics/id/threaded_comments
+                            </h3>
+                            <pre>GET /group-topics/{$id}/comments</pre>
+                            <h4>Parameters</h4>
+                            <blockquote>
+                              <ul class="api-vars">
+                                <li>
+                                  <code>$id</code> - Required integer - The id
+                                  of the Group Topic to get comments for
+                                </li>
+                              </ul>
+                            </blockquote>
+                            <h4>Returns</h4>
+                            <blockquote>
+                              <ul class="api-vars">
+                                <li>
+                                  <code>(array)</code> - An array containing a
+                                  list of comments on this thing
+                                </li>
+                              </ul>
+                            </blockquote>
+                          </li>
+                          <li>
+                            <hr />
+                            <a
+                              name="grouptopics-postcomments"
+                              id="grouptopics-postcomments"
+                            ></a>
+                            <h3>Post a comment</h3>
+                            <pre>POST /group-topics/{$id}/comments</pre>
+                            <h4>Body Parameters</h4>
+                            <blockquote>
+                              <ul class="api-vars">
+                                <li>
+                                  <code>body</code> - string - Body text of the
+                                  comment
+                                </li>
+                              </ul>
+                            </blockquote>
+                            <h4>Parameters</h4>
+                            <blockquote>
+                              <ul class="api-vars">
+                                <li>
+                                  <code>$id</code> - Required integer - The id
+                                  of the Group Topic to comment on
+                                </li>
+                              </ul>
+                            </blockquote>
+                            <h4>Returns</h4>
+                            <blockquote>
+                              <ul class="api-vars">
+                                <li>
+                                  <code>(object)</code> - The newly created
+                                  comment
+                                </li>
+                              </ul>
+                            </blockquote>
+                          </li>
+                        </ul>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>
