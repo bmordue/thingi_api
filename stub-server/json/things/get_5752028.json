@@ -1,0 +1,312 @@
+{
+  "id": 5752028,
+  "name": "Wednesday - Hand",
+  "thumbnail": "https://cdn.thingiverse.com/assets/04/2f/ef/25/de/eb1801ea-6cc1-46aa-b254-26afefbf0a77.jpeg",
+  "url": "https://api.thingiverse.com/things/5752028",
+  "public_url": "https://www.thingiverse.com/thing:5752028",
+  "creator": {
+    "id": 5778920,
+    "name": "Emre1601",
+    "first_name": "Emre",
+    "last_name": "Akyol",
+    "url": "https://api.thingiverse.com/users/Emre1601",
+    "public_url": "https://www.thingiverse.com/Emre1601",
+    "thumbnail": "https://cdn.thingiverse.com/assets/a8/25/e5/6b/65/2d2db143-285e-4296-9530-a493a50cddac.jpg",
+    "count_of_followers": 16,
+    "count_of_following": 2,
+    "count_of_designs": 5,
+    "accepts_tips": false,
+    "is_following": false,
+    "location": "",
+    "cover": "https://cdn.thingiverse.com/assets/55/40/cf/2b/6c/a3202252-3737-4dd4-b40c-7fe386602b52.jpg",
+    "is_admin": 0
+  },
+  "added": "2022-12-29T19:35:34+00:00",
+  "modified": "2022-12-29T19:35:34+00:00",
+  "is_published": 1,
+  "is_wip": 0,
+  "is_featured": null,
+  "is_nsfw": false,
+  "like_count": 3344,
+  "is_liked": false,
+  "collect_count": 4536,
+  "is_collected": false,
+  "comment_count": 46,
+  "is_watched": false,
+  "default_image": {
+    "id": 18507601,
+    "url": "https://cdn.thingiverse.com/assets/04/2f/ef/25/de/eb1801ea-6cc1-46aa-b254-26afefbf0a77.jpeg",
+    "name": "eb1801ea-6cc1-46aa-b254-26afefbf0a77.jpeg",
+    "sizes": [
+      {
+        "type": "thumb",
+        "size": "large",
+        "url": "https://cdn.thingiverse.com/assets/04/2f/ef/25/de/eb1801ea-6cc1-46aa-b254-26afefbf0a77.jpeg"
+      },
+      {
+        "type": "thumb",
+        "size": "medium",
+        "url": "https://cdn.thingiverse.com/assets/04/2f/ef/25/de/eb1801ea-6cc1-46aa-b254-26afefbf0a77.jpeg"
+      },
+      {
+        "type": "thumb",
+        "size": "small",
+        "url": "https://cdn.thingiverse.com/assets/04/2f/ef/25/de/eb1801ea-6cc1-46aa-b254-26afefbf0a77.jpeg"
+      },
+      {
+        "type": "thumb",
+        "size": "tiny",
+        "url": "https://cdn.thingiverse.com/assets/04/2f/ef/25/de/eb1801ea-6cc1-46aa-b254-26afefbf0a77.jpeg"
+      },
+      {
+        "type": "preview",
+        "size": "featured",
+        "url": "https://cdn.thingiverse.com/assets/04/2f/ef/25/de/eb1801ea-6cc1-46aa-b254-26afefbf0a77.jpeg"
+      },
+      {
+        "type": "preview",
+        "size": "card",
+        "url": "https://cdn.thingiverse.com/assets/04/2f/ef/25/de/eb1801ea-6cc1-46aa-b254-26afefbf0a77.jpeg"
+      },
+      {
+        "type": "preview",
+        "size": "large",
+        "url": "https://cdn.thingiverse.com/assets/04/2f/ef/25/de/eb1801ea-6cc1-46aa-b254-26afefbf0a77.jpeg"
+      },
+      {
+        "type": "preview",
+        "size": "medium",
+        "url": "https://cdn.thingiverse.com/assets/04/2f/ef/25/de/eb1801ea-6cc1-46aa-b254-26afefbf0a77.jpeg"
+      },
+      {
+        "type": "preview",
+        "size": "small",
+        "url": "https://cdn.thingiverse.com/assets/04/2f/ef/25/de/eb1801ea-6cc1-46aa-b254-26afefbf0a77.jpeg"
+      },
+      {
+        "type": "preview",
+        "size": "birdwing",
+        "url": "https://cdn.thingiverse.com/assets/04/2f/ef/25/de/eb1801ea-6cc1-46aa-b254-26afefbf0a77.jpeg"
+      },
+      {
+        "type": "preview",
+        "size": "tiny",
+        "url": "https://cdn.thingiverse.com/assets/04/2f/ef/25/de/eb1801ea-6cc1-46aa-b254-26afefbf0a77.jpeg"
+      },
+      {
+        "type": "preview",
+        "size": "tinycard",
+        "url": "https://cdn.thingiverse.com/assets/04/2f/ef/25/de/eb1801ea-6cc1-46aa-b254-26afefbf0a77.jpeg"
+      },
+      {
+        "type": "display",
+        "size": "large",
+        "url": "https://cdn.thingiverse.com/assets/04/2f/ef/25/de/eb1801ea-6cc1-46aa-b254-26afefbf0a77.jpeg"
+      },
+      {
+        "type": "display",
+        "size": "medium",
+        "url": "https://cdn.thingiverse.com/assets/04/2f/ef/25/de/eb1801ea-6cc1-46aa-b254-26afefbf0a77.jpeg"
+      },
+      {
+        "type": "display",
+        "size": "small",
+        "url": "https://cdn.thingiverse.com/assets/04/2f/ef/25/de/eb1801ea-6cc1-46aa-b254-26afefbf0a77.jpeg"
+      }
+    ],
+    "added": "2022-12-29T19:35:23+00:00"
+  },
+  "description": "Model Prepared By Marius Avasiloaie\r\nhttps://www.printables.com/social/373067-marius-avasiloaie/about\r\n\r\nOrijinal Hand Model Prepared By JS-studio\r\nhttps://www.printables.com/model/7804\r\n\r\nModel of the 'thing' hand limb from the Wednesday TV series.\r\n\r\nUpdate 1:\r\nThe original hand model has been added so that you can make more adjustments.",
+  "instructions": "",
+  "description_html": "<div><p>Model Prepared By Marius Avasiloaie<br><a rel=\"ugc nofollow\" href=\"https://www.printables.com/social/373067-marius-avasiloaie/about\">https://www.printables.com/social/373067-marius-avasiloaie/about</a></p>\n<p>Orijinal Hand Model Prepared By JS-studio<br><a rel=\"ugc nofollow\" href=\"https://www.printables.com/model/7804\">https://www.printables.com/model/7804</a></p>\n<p>Model of the 'thing' hand limb from the Wednesday TV series.</p>\n<p>Update 1:<br>\nThe original hand model has been added so that you can make more adjustments.</p></div>\n",
+  "instructions_html": "<div></div>\n",
+  "details": "<div><h1 class=\"thing-component-header summary summary\">Summary</h1>\n<div><p>Model Prepared By Marius Avasiloaie<br><a rel=\"ugc nofollow\" href=\"https://www.printables.com/social/373067-marius-avasiloaie/about\">https://www.printables.com/social/373067-marius-avasiloaie/about</a></p>\n<p>Orijinal Hand Model Prepared By JS-studio<br><a rel=\"ugc nofollow\" href=\"https://www.printables.com/model/7804\">https://www.printables.com/model/7804</a></p>\n<p>Model of the 'thing' hand limb from the Wednesday TV series.</p>\n<p>Update 1:<br>\nThe original hand model has been added so that you can make more adjustments.</p></div></div>\n",
+  "details_parts": [
+    {
+      "type": "summary",
+      "name": "Summary",
+      "required": "required",
+      "data": [
+        {
+          "content": "<div><p>Model Prepared By Marius Avasiloaie<br><a rel=\"ugc nofollow\" href=\"https://www.printables.com/social/373067-marius-avasiloaie/about\">https://www.printables.com/social/373067-marius-avasiloaie/about</a></p>\n<p>Orijinal Hand Model Prepared By JS-studio<br><a rel=\"ugc nofollow\" href=\"https://www.printables.com/model/7804\">https://www.printables.com/model/7804</a></p>\n<p>Model of the 'thing' hand limb from the Wednesday TV series.</p>\n<p>Update 1:<br>\nThe original hand model has been added so that you can make more adjustments.</p></div>\n"
+        }
+      ]
+    },
+    { "type": "settings", "name": "Print Settings" },
+    { "type": "tips", "name": "Post-Printing" },
+    { "type": "design", "name": "How I Designed This" },
+    { "type": "custom", "name": "Custom Section" }
+  ],
+  "edu_details": "",
+  "edu_details_parts": [
+    {
+      "type": "grades",
+      "name": "Grade",
+      "required": "recommended",
+      "save_as_component": false,
+      "template": "taglist_select",
+      "fieldname": "grades",
+      "default": "Choose a range, help teachers see if this is a fit for their class",
+      "opts": {
+        "15": "Kindergarten",
+        "16": "1st Grade",
+        "17": "2nd Grade",
+        "18": "3rd Grade",
+        "19": "4th Grade",
+        "20": "5th Grade",
+        "21": "6th Grade",
+        "22": "7th Grade",
+        "23": "8th Grade",
+        "24": "9th Grade",
+        "25": "10th Grade",
+        "26": "11th Grade",
+        "27": "12th Grade",
+        "28": "Higher Education"
+      }
+    },
+    {
+      "type": "subjects",
+      "name": "Subject",
+      "required": "recommended",
+      "save_as_component": false,
+      "template": "taglist_select",
+      "fieldname": "subjects",
+      "default": "Choose a Subject, Make your project more findable",
+      "opts": {
+        "11": "Science",
+        "12": "Math",
+        "13": "Engineering",
+        "14": "History",
+        "15": "Geography",
+        "16": "Art",
+        "17": "Languages",
+        "18": "Music",
+        "19": "Technology",
+        "20": "Special Ed"
+      }
+    },
+    {
+      "type": "standards",
+      "name": "Standards",
+      "required": "recommended",
+      "save_as_component": false,
+      "template": "taglist_select",
+      "fieldname": "standards",
+      "default": "Choose a Requirement this lesson meets",
+      "opts": { "3": "NGSS", "4": "CCSS" }
+    },
+    {
+      "type": "overview",
+      "name": "Overview and Background",
+      "required": "required"
+    },
+    {
+      "type": "plan",
+      "name": "Lesson Plan and Activity",
+      "required": "required"
+    },
+    {
+      "type": "materials",
+      "name": "Materials Needed",
+      "required": "recommended"
+    },
+    {
+      "type": "skills",
+      "name": "Skills Learned",
+      "label": "Enter each skill and press enter to add it as a tagged skill",
+      "required": false,
+      "template": "taglist",
+      "fieldname": "skills",
+      "default": "Choose Skills",
+      "opts": []
+    },
+    {
+      "type": "duration",
+      "name": "Duration of Lesson",
+      "template": "textfield"
+    },
+    { "type": "prep", "name": "Preparation" },
+    {
+      "type": "assets",
+      "name": "Handouts and Assets",
+      "save_as_component": false,
+      "label": "Upload any files, docs, etc. They will be found under the Files tab on the Thing Page.",
+      "template": "upload"
+    },
+    { "type": "assessment", "name": "Rubric and Assessment" },
+    { "type": "references", "name": "References" }
+  ],
+  "license": "Creative Commons - Attribution",
+  "allows_derivatives": true,
+  "files_url": "https://api.thingiverse.com/things/5752028/files",
+  "images_url": "https://api.thingiverse.com/things/5752028/images",
+  "likes_url": "https://api.thingiverse.com/things/5752028/likes",
+  "ancestors_url": "https://api.thingiverse.com/things/5752028/ancestors",
+  "derivatives_url": "https://api.thingiverse.com/things/5752028/derivatives",
+  "tags_url": "https://api.thingiverse.com/things/5752028/tags",
+  "tags": [
+    {
+      "name": "addams family",
+      "tag": "addams_family",
+      "url": "https://api.thingiverse.com/tags/addams_family",
+      "count": 26,
+      "things_url": "https://api.thingiverse.com/tags/addams_family/things",
+      "absolute_url": "https://www.thingiverse.com/tag:addams_family"
+    },
+    {
+      "name": "wednesday",
+      "tag": "wednesday",
+      "url": "https://api.thingiverse.com/tags/wednesday",
+      "count": 38,
+      "things_url": "https://api.thingiverse.com/tags/wednesday/things",
+      "absolute_url": "https://www.thingiverse.com/tag:wednesday"
+    },
+    {
+      "name": "Wednesday addams",
+      "tag": "wednesday_addams",
+      "url": "https://api.thingiverse.com/tags/wednesday_addams",
+      "count": 12,
+      "things_url": "https://api.thingiverse.com/tags/wednesday_addams/things",
+      "absolute_url": "https://www.thingiverse.com/tag:Wednesday_addams"
+    },
+    {
+      "name": "wednesday hand",
+      "tag": "wednesday_hand",
+      "url": "https://api.thingiverse.com/tags/wednesday_hand",
+      "count": 2,
+      "things_url": "https://api.thingiverse.com/tags/wednesday_hand/things",
+      "absolute_url": "https://www.thingiverse.com/tag:wednesday_hand"
+    },
+    {
+      "name": "wednesday Thing",
+      "tag": "wednesday_thing",
+      "url": "https://api.thingiverse.com/tags/wednesday_thing",
+      "count": 1,
+      "things_url": "https://api.thingiverse.com/tags/wednesday_thing/things",
+      "absolute_url": "https://www.thingiverse.com/tag:wednesday_Thing"
+    }
+  ],
+  "categories_url": "https://api.thingiverse.com/things/5752028/categories",
+  "file_count": 3,
+  "layout_count": 0,
+  "layouts_url": "https://api.thingiverse.com/layouts/5752028",
+  "is_private": 0,
+  "is_purchased": 0,
+  "in_library": false,
+  "print_history_count": 0,
+  "app_id": null,
+  "download_count": 46002,
+  "view_count": 0,
+  "education": { "grades": [], "subjects": [] },
+  "remix_count": 2,
+  "make_count": 48,
+  "app_count": 7,
+  "root_comment_count": 24,
+  "moderation": "",
+  "is_derivative": false,
+  "ancestors": [],
+  "can_comment": true,
+  "type_name": "Thing",
+  "is_banned": false,
+  "needs_moderation": 0
+}

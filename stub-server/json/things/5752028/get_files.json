@@ -1,0 +1,296 @@
+[
+  {
+    "id": 12536452,
+    "name": "Wednesday_Thing.stl",
+    "size": 244625597,
+    "url": "https://api.thingiverse.com/files/12536452",
+    "public_url": "https://www.thingiverse.com/download:12536452",
+    "download_url": "https://api.thingiverse.com/files/12536452/download",
+    "threejs_url": "https://cdn.thingiverse.com/threejs_json/f0/56/e5/43/7b/Wednesday_Thing.js",
+    "thumbnail": "https://cdn.thingiverse.com/assets/c1/82/50/72/58/medium_thumb_58051ed4-f81a-4aa9-965a-dceb53962bc3.png",
+    "default_image": {
+      "id": 18507603,
+      "url": "https://cdn.thingiverse.com/assets/72/af/af/81/77/58051ed4-f81a-4aa9-965a-dceb53962bc3.stl",
+      "name": "58051ed4-f81a-4aa9-965a-dceb53962bc3.png",
+      "sizes": [
+        {
+          "type": "thumb",
+          "size": "large",
+          "url": "https://cdn.thingiverse.com/assets/44/19/d7/9e/fd/large_thumb_58051ed4-f81a-4aa9-965a-dceb53962bc3.png"
+        },
+        {
+          "type": "thumb",
+          "size": "medium",
+          "url": "https://cdn.thingiverse.com/assets/c1/82/50/72/58/medium_thumb_58051ed4-f81a-4aa9-965a-dceb53962bc3.png"
+        },
+        {
+          "type": "thumb",
+          "size": "small",
+          "url": "https://cdn.thingiverse.com/assets/7b/d0/e8/ee/4f/small_thumb_58051ed4-f81a-4aa9-965a-dceb53962bc3.png"
+        },
+        {
+          "type": "thumb",
+          "size": "tiny",
+          "url": "https://cdn.thingiverse.com/assets/19/9f/a7/60/82/tiny_thumb_58051ed4-f81a-4aa9-965a-dceb53962bc3.png"
+        },
+        {
+          "type": "preview",
+          "size": "featured",
+          "url": "https://cdn.thingiverse.com/assets/b8/ec/51/ef/37/featured_preview_58051ed4-f81a-4aa9-965a-dceb53962bc3.png"
+        },
+        {
+          "type": "preview",
+          "size": "card",
+          "url": "https://cdn.thingiverse.com/assets/83/42/2d/f3/7d/card_preview_58051ed4-f81a-4aa9-965a-dceb53962bc3.png"
+        },
+        {
+          "type": "preview",
+          "size": "large",
+          "url": "https://cdn.thingiverse.com/assets/57/0c/bd/4c/8a/large_preview_58051ed4-f81a-4aa9-965a-dceb53962bc3.png"
+        },
+        {
+          "type": "preview",
+          "size": "medium",
+          "url": "https://cdn.thingiverse.com/assets/f0/f0/8c/b0/9d/medium_preview_58051ed4-f81a-4aa9-965a-dceb53962bc3.png"
+        },
+        {
+          "type": "preview",
+          "size": "small",
+          "url": "https://cdn.thingiverse.com/assets/e6/b8/0d/64/39/small_preview_58051ed4-f81a-4aa9-965a-dceb53962bc3.png"
+        },
+        {
+          "type": "preview",
+          "size": "birdwing",
+          "url": "https://cdn.thingiverse.com/assets/b5/33/b2/8b/40/birdwing_preview_58051ed4-f81a-4aa9-965a-dceb53962bc3.png"
+        },
+        {
+          "type": "preview",
+          "size": "tiny",
+          "url": "https://cdn.thingiverse.com/assets/7b/73/e7/8e/d2/tiny_preview_58051ed4-f81a-4aa9-965a-dceb53962bc3.png"
+        },
+        {
+          "type": "preview",
+          "size": "tinycard",
+          "url": "https://cdn.thingiverse.com/assets/c9/3d/e4/94/db/tinycard_preview_58051ed4-f81a-4aa9-965a-dceb53962bc3.png"
+        },
+        {
+          "type": "display",
+          "size": "large",
+          "url": "https://cdn.thingiverse.com/assets/04/a4/29/8c/04/large_display_58051ed4-f81a-4aa9-965a-dceb53962bc3.png"
+        },
+        {
+          "type": "display",
+          "size": "medium",
+          "url": "https://cdn.thingiverse.com/assets/cc/b4/a0/9b/01/medium_display_58051ed4-f81a-4aa9-965a-dceb53962bc3.png"
+        },
+        {
+          "type": "display",
+          "size": "small",
+          "url": "https://cdn.thingiverse.com/assets/af/2b/a3/ca/fe/small_display_58051ed4-f81a-4aa9-965a-dceb53962bc3.png"
+        }
+      ],
+      "added": "2022-12-29T19:36:40+00:00"
+    },
+    "date": "2022-12-29 19:35:28",
+    "formatted_size": "233 mb",
+    "meta_data": [],
+    "download_count": 29790,
+    "direct_url": "https://cdn.thingiverse.com/assets/72/af/af/81/77/58051ed4-f81a-4aa9-965a-dceb53962bc3.stl"
+  },
+  {
+    "id": 12536453,
+    "name": "Spoiler_thing_final.stl",
+    "size": 244221612,
+    "url": "https://api.thingiverse.com/files/12536453",
+    "public_url": "https://www.thingiverse.com/download:12536453",
+    "download_url": "https://api.thingiverse.com/files/12536453/download",
+    "threejs_url": "https://cdn.thingiverse.com/threejs_json/cd/a3/c1/37/70/Spoiler_thing_final.js",
+    "thumbnail": "https://cdn.thingiverse.com/assets/cf/53/d5/12/1b/medium_thumb_9496d02d-4f95-4967-8254-0574d924d3c4.png",
+    "default_image": {
+      "id": 18507602,
+      "url": "https://cdn.thingiverse.com/assets/71/ae/84/87/6d/9496d02d-4f95-4967-8254-0574d924d3c4.stl",
+      "name": "9496d02d-4f95-4967-8254-0574d924d3c4.png",
+      "sizes": [
+        {
+          "type": "thumb",
+          "size": "large",
+          "url": "https://cdn.thingiverse.com/assets/73/18/db/91/53/large_thumb_9496d02d-4f95-4967-8254-0574d924d3c4.png"
+        },
+        {
+          "type": "thumb",
+          "size": "medium",
+          "url": "https://cdn.thingiverse.com/assets/cf/53/d5/12/1b/medium_thumb_9496d02d-4f95-4967-8254-0574d924d3c4.png"
+        },
+        {
+          "type": "thumb",
+          "size": "small",
+          "url": "https://cdn.thingiverse.com/assets/8c/71/12/44/fb/small_thumb_9496d02d-4f95-4967-8254-0574d924d3c4.png"
+        },
+        {
+          "type": "thumb",
+          "size": "tiny",
+          "url": "https://cdn.thingiverse.com/assets/c5/54/71/7e/ce/tiny_thumb_9496d02d-4f95-4967-8254-0574d924d3c4.png"
+        },
+        {
+          "type": "preview",
+          "size": "featured",
+          "url": "https://cdn.thingiverse.com/assets/dc/a1/f7/fb/65/featured_preview_9496d02d-4f95-4967-8254-0574d924d3c4.png"
+        },
+        {
+          "type": "preview",
+          "size": "card",
+          "url": "https://cdn.thingiverse.com/assets/13/a1/a7/1f/ef/card_preview_9496d02d-4f95-4967-8254-0574d924d3c4.png"
+        },
+        {
+          "type": "preview",
+          "size": "large",
+          "url": "https://cdn.thingiverse.com/assets/9b/1c/6e/64/02/large_preview_9496d02d-4f95-4967-8254-0574d924d3c4.png"
+        },
+        {
+          "type": "preview",
+          "size": "medium",
+          "url": "https://cdn.thingiverse.com/assets/92/7c/60/50/2b/medium_preview_9496d02d-4f95-4967-8254-0574d924d3c4.png"
+        },
+        {
+          "type": "preview",
+          "size": "small",
+          "url": "https://cdn.thingiverse.com/assets/4e/f1/90/8f/4b/small_preview_9496d02d-4f95-4967-8254-0574d924d3c4.png"
+        },
+        {
+          "type": "preview",
+          "size": "birdwing",
+          "url": "https://cdn.thingiverse.com/assets/c9/8b/72/1e/a9/birdwing_preview_9496d02d-4f95-4967-8254-0574d924d3c4.png"
+        },
+        {
+          "type": "preview",
+          "size": "tiny",
+          "url": "https://cdn.thingiverse.com/assets/ce/40/25/5c/0a/tiny_preview_9496d02d-4f95-4967-8254-0574d924d3c4.png"
+        },
+        {
+          "type": "preview",
+          "size": "tinycard",
+          "url": "https://cdn.thingiverse.com/assets/60/c5/2e/67/33/tinycard_preview_9496d02d-4f95-4967-8254-0574d924d3c4.png"
+        },
+        {
+          "type": "display",
+          "size": "large",
+          "url": "https://cdn.thingiverse.com/assets/f2/c0/fb/a0/33/large_display_9496d02d-4f95-4967-8254-0574d924d3c4.png"
+        },
+        {
+          "type": "display",
+          "size": "medium",
+          "url": "https://cdn.thingiverse.com/assets/a9/8e/1c/cc/11/medium_display_9496d02d-4f95-4967-8254-0574d924d3c4.png"
+        },
+        {
+          "type": "display",
+          "size": "small",
+          "url": "https://cdn.thingiverse.com/assets/fd/83/6d/0e/a2/small_display_9496d02d-4f95-4967-8254-0574d924d3c4.png"
+        }
+      ],
+      "added": "2022-12-29T19:36:38+00:00"
+    },
+    "date": "2022-12-29 19:35:32",
+    "formatted_size": "232 mb",
+    "meta_data": [],
+    "download_count": 21618,
+    "direct_url": "https://cdn.thingiverse.com/assets/71/ae/84/87/6d/9496d02d-4f95-4967-8254-0574d924d3c4.stl"
+  },
+  {
+    "id": 12554630,
+    "name": "Wednesday_Original_Hand.stl",
+    "size": 24158684,
+    "url": "https://api.thingiverse.com/files/12554630",
+    "public_url": "https://www.thingiverse.com/download:12554630",
+    "download_url": "https://api.thingiverse.com/files/12554630/download",
+    "threejs_url": "https://cdn.thingiverse.com/threejs_json/24/bf/9a/64/fe/Wednesday_Original_Hand.js",
+    "thumbnail": "https://cdn.thingiverse.com/assets/f1/09/cd/3d/3e/medium_thumb_a6303408-c146-491a-991f-a68774063cf1.png",
+    "default_image": {
+      "id": 18532876,
+      "url": "https://cdn.thingiverse.com/assets/e8/16/8d/dc/63/a6303408-c146-491a-991f-a68774063cf1.stl",
+      "name": "a6303408-c146-491a-991f-a68774063cf1.png",
+      "sizes": [
+        {
+          "type": "thumb",
+          "size": "large",
+          "url": "https://cdn.thingiverse.com/assets/82/50/fd/4e/cc/large_thumb_a6303408-c146-491a-991f-a68774063cf1.png"
+        },
+        {
+          "type": "thumb",
+          "size": "medium",
+          "url": "https://cdn.thingiverse.com/assets/f1/09/cd/3d/3e/medium_thumb_a6303408-c146-491a-991f-a68774063cf1.png"
+        },
+        {
+          "type": "thumb",
+          "size": "small",
+          "url": "https://cdn.thingiverse.com/assets/1b/0d/39/63/17/small_thumb_a6303408-c146-491a-991f-a68774063cf1.png"
+        },
+        {
+          "type": "thumb",
+          "size": "tiny",
+          "url": "https://cdn.thingiverse.com/assets/1b/6f/30/4c/31/tiny_thumb_a6303408-c146-491a-991f-a68774063cf1.png"
+        },
+        {
+          "type": "preview",
+          "size": "featured",
+          "url": "https://cdn.thingiverse.com/assets/b8/2f/a5/ba/03/featured_preview_a6303408-c146-491a-991f-a68774063cf1.png"
+        },
+        {
+          "type": "preview",
+          "size": "card",
+          "url": "https://cdn.thingiverse.com/assets/cd/8b/52/5d/e4/card_preview_a6303408-c146-491a-991f-a68774063cf1.png"
+        },
+        {
+          "type": "preview",
+          "size": "large",
+          "url": "https://cdn.thingiverse.com/assets/a1/7f/a6/86/de/large_preview_a6303408-c146-491a-991f-a68774063cf1.png"
+        },
+        {
+          "type": "preview",
+          "size": "medium",
+          "url": "https://cdn.thingiverse.com/assets/1a/d9/f9/14/48/medium_preview_a6303408-c146-491a-991f-a68774063cf1.png"
+        },
+        {
+          "type": "preview",
+          "size": "small",
+          "url": "https://cdn.thingiverse.com/assets/30/f7/59/e1/a2/small_preview_a6303408-c146-491a-991f-a68774063cf1.png"
+        },
+        {
+          "type": "preview",
+          "size": "birdwing",
+          "url": "https://cdn.thingiverse.com/assets/17/d4/ac/89/b7/birdwing_preview_a6303408-c146-491a-991f-a68774063cf1.png"
+        },
+        {
+          "type": "preview",
+          "size": "tiny",
+          "url": "https://cdn.thingiverse.com/assets/39/61/a4/a1/b5/tiny_preview_a6303408-c146-491a-991f-a68774063cf1.png"
+        },
+        {
+          "type": "preview",
+          "size": "tinycard",
+          "url": "https://cdn.thingiverse.com/assets/e9/22/86/9e/f0/tinycard_preview_a6303408-c146-491a-991f-a68774063cf1.png"
+        },
+        {
+          "type": "display",
+          "size": "large",
+          "url": "https://cdn.thingiverse.com/assets/4c/80/83/48/e5/large_display_a6303408-c146-491a-991f-a68774063cf1.png"
+        },
+        {
+          "type": "display",
+          "size": "medium",
+          "url": "https://cdn.thingiverse.com/assets/ad/45/62/ab/7c/medium_display_a6303408-c146-491a-991f-a68774063cf1.png"
+        },
+        {
+          "type": "display",
+          "size": "small",
+          "url": "https://cdn.thingiverse.com/assets/7b/79/85/2b/5d/small_display_a6303408-c146-491a-991f-a68774063cf1.png"
+        }
+      ],
+      "added": "2023-01-02T20:54:08+00:00"
+    },
+    "date": "2023-01-02 20:53:09",
+    "formatted_size": "23 mb",
+    "meta_data": [],
+    "download_count": 18708,
+    "direct_url": "https://cdn.thingiverse.com/assets/e8/16/8d/dc/63/a6303408-c146-491a-991f-a68774063cf1.stl"
+  }
+]
