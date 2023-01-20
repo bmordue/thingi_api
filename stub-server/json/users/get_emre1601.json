@@ -1,0 +1,49 @@
+{
+  "id": 5778920,
+  "name": "Emre1601",
+  "first_name": "Emre",
+  "last_name": "Akyol",
+  "full_name": "Emre Akyol",
+  "url": "https://api.thingiverse.com/users/Emre1601",
+  "public_url": "https://www.thingiverse.com/Emre1601",
+  "thumbnail": "https://cdn.thingiverse.com/assets/a8/25/e5/6b/65/2d2db143-285e-4296-9530-a493a50cddac.jpg",
+  "bio": "Someone who likes to deal with software, programming and electronics.\r\n\r\nSUPPORT ME: https://www.bynogame.com/destekle/emre1601",
+  "bio_html": "<div><p>Someone who likes to deal with software, programming and electronics.</p>\n<p>SUPPORT ME: <a rel=\"ugc nofollow\" href=\"https://www.bynogame.com/destekle/emre1601\">https://www.bynogame.com/destekle/emre1601</a></p></div>\n",
+  "location": "",
+  "country": "Turkey",
+  "industry": "Maker/Consumer",
+  "subindustry": null,
+  "registered": "2022-04-24T19:46:58+00:00",
+  "last_active": "2023-01-19T23:07:44+00:00",
+  "cover_image": "https://cdn.thingiverse.com/assets/55/40/cf/2b/6c/a3202252-3737-4dd4-b40c-7fe386602b52.jpg",
+  "things_url": "https://api.thingiverse.com/users/Emre1601/things",
+  "copies_url": "https://api.thingiverse.com/users/Emre1601/copies",
+  "likes_url": "https://api.thingiverse.com/users/Emre1601/likes",
+  "printers": [
+    { "id": 34728, "name": "Ender 3", "public_url": "Ender 3" },
+    { "id": 34492, "name": "Ender 2", "public_url": "Ender 2" }
+  ],
+  "programs": [
+    { "id": 42, "name": "Tinkercad" },
+    { "id": 26, "name": "Blender" }
+  ],
+  "types": [
+    { "id": 8, "name": "Student" },
+    { "id": 7, "name": "Maker" }
+  ],
+  "skill_level": "Intermediate",
+  "accepts_tips": false,
+  "groups": [],
+  "website": "",
+  "twitter": null,
+  "count_of_followers": 16,
+  "count_of_following": 2,
+  "count_of_designs": 5,
+  "collection_count": 2,
+  "make_count": 1,
+  "like_count": 3,
+  "has_favorite": false,
+  "favorite_count": 0,
+  "is_admin": false,
+  "is_following": true
+}
