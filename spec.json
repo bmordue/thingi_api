@@ -4,6 +4,7 @@
         "title": "thingiverse API",
         "version": "v0"
     },
+    "servers": [{"url": "https://api.thingiverse.com"}],
     "paths": {
         "/users/{username}/": {
             "get": {
