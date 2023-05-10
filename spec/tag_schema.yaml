@@ -1,0 +1,11 @@
+type: object
+properties:
+  name:
+    type: string
+  url:
+    type: string
+  count:
+    type: integer
+    format: int
+  things_url:
+    type: string

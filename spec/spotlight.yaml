@@ -1,0 +1,22 @@
+SpotlightPath:
+  get:
+    tags: 
+      - Spotlight
+    summary: Get a list of spotlights
+    security:
+      - BearerAuth: []
+    responses:
+      '200':
+        description: An array of spotlights
+        content:
+          application/json:
+            schema:
+              type: array
+              items:
+                $ref: '../schemas/spotlight_schema.yaml'   
+      '401':
+        $ref : "../responses/unauthorized.yaml"
+      '403':
+        $ref : "../responses/forbidden.yaml"
+      '404':
+        $ref : "../responses/not_found.yaml"

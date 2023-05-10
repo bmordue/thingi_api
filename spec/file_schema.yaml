@@ -1,0 +1,48 @@
+type: object
+properties:
+  id:
+    type: integer
+    format: int
+  name:
+    type: string
+  size:
+    type: string
+  url:
+    type: string
+  public_url:
+    type: string
+  download_url:
+    type: string
+  threejs_url:
+    type: string
+  thumbnail:
+    type: string
+  default_image:
+    description: image information
+    type: object
+    properties:
+      id:
+        type: integer
+        format: int
+      url:
+        type: string
+      name:
+        type: string
+      sizes:
+        type: string
+      added:
+        type: string
+        format: date
+  date:
+    type: string
+    format: date
+  formatted_size:
+    description: a formatted string of a filesize
+    type: string
+  meta_data:
+    type: object
+  download_count:
+    type: integer
+    format: int
+  direct_url:
+    type: string

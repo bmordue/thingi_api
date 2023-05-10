@@ -1,0 +1,69 @@
+FeaturedPath:
+  get:
+    tags: 
+      - Deprecated
+    summary: Get the list of featured things
+    description: You can use `GET /search` with the `is_featured=1` parameter now.
+    security:
+      - BearerAuth: []
+    responses:
+      '200':
+        description: An array of featured things
+        content:
+          application/json:
+            schema:
+              type: array
+              items:
+                $ref: '../schemas/featured_schema.yaml'   
+      '401':
+        $ref : "../responses/unauthorized.yaml"
+      '403':
+        $ref : "../responses/forbidden.yaml"
+      '404':
+        $ref : "../responses/not_found.yaml"
+NewestPath:
+  get:
+    tags: 
+      - Deprecated
+    summary: Get a list of the latest things
+    description: You can use `GET /search` with the `sort=newest` parameter now.
+    security:
+      - BearerAuth: []
+    responses:
+      '200':
+        description: An array of the latest things
+        content:
+          application/json:
+            schema:
+              type: array
+              items:
+                $ref: '../schemas/short_thing_schema.yaml'   
+      '401':
+        $ref : "../responses/unauthorized.yaml"
+      '403':
+        $ref : "../responses/forbidden.yaml"
+      '404':
+        $ref : "../responses/not_found.yaml"
+PopularPath:
+  get:
+    tags:
+      - Deprecated
+    summary: Get the most popular things
+    description: You can use `GET /search` with the `sort=popular` parameter now.
+    security:
+      - BearerAuth: []
+    responses:
+      '200':
+        description: An array of popular things
+        content:
+          application/json:
+            schema:
+              type: array
+              items:
+                $ref: '../schemas/short_thing_schema.yaml'
+      '401':
+        $ref : "../responses/unauthorized.yaml"
+      '403':
+        $ref : "../responses/forbidden.yaml"
+      '404':
+        $ref : "../responses/not_found.yaml"

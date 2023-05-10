@@ -1,0 +1,113 @@
+type: object
+required:
+  - name
+properties:
+  id:
+    type: integer
+    format: int
+  name:
+    type: string
+  first_name:
+    type: string
+  last_name:
+    type: string
+  full_name:
+    type: string
+  url:
+    type: string
+  public_url:
+    type: string
+  thumbnail:
+    type: string
+  bio:
+    type: string
+  bio_html:
+    type: string
+  location:
+    type: string
+  country:
+    type: string
+  industry:
+    type: string
+  subindustry:
+    type: string
+  registered:
+    type: string
+    format: date-time
+  last_active:
+    type: string
+    format: date-time
+  cover_image:
+    type: object
+  things_url:
+    type: string
+    format: date-time
+  copies_url:
+    type: string
+    format: date-time
+  likes_url:
+    type: string
+    format: date-time
+  printers:
+    oneOf:
+        - type: object
+          properties:
+            name:
+              type: string
+            printer_id:
+              type: string
+            type:
+              type: string
+            image_url:
+              type: string
+        - type: 'null'
+  types:
+    type: object
+  skill_level:
+    type: string
+  accepts_tips:
+    type: boolean
+  default_license:
+    type: string
+  current_app:
+    type: object
+    properties:
+      id:
+        type: integer
+        format: int
+      name:
+        type: string
+      url:
+        type: string
+      public_url:
+        type: string
+      thumbnail:
+        type: string
+      creator:
+        type: object
+        properties:
+          id:
+            type: integer
+            format: int
+          name:
+            type: string
+          first_name:
+            type: string
+          last_name:
+            type: string
+          url:
+            type: string
+          public_url:
+            type: string
+          thumbnail:
+            type: string
+      is_published:
+        type: boolean
+      is_approved:
+        type: boolean
+  email:
+    type: string
+  is_admin:
+    type: boolean
+  has_printer:
+    type: boolean

@@ -1,0 +1,99 @@
+S3ProxyFile:
+  get:
+    tags: 
+      - S3ProxyFileAPI
+    summary: Get proxy file by uuid
+    security:
+      - BearerAuth: []
+    parameters:
+      - in: path
+        name: uuid
+        required: true
+        description: The uuid of the proxy to get
+        schema:
+          type: string
+    responses:
+      '200':
+        description: An object representing the proxy file requested
+        content:
+          application/json:
+            schema:
+              type: array
+              items:
+                $ref: '../schemas/s3proxyfile_schema.yaml'   
+      '401':
+        $ref : "../responses/unauthorized.yaml"
+      '403':
+        $ref : "../responses/forbidden.yaml"
+      '404':
+        $ref : "../responses/not_found.yaml"
+S3ProxyFileById:
+  post:
+    tags:
+      - S3ProxyFileAPI
+    summary: Create a new proxy file
+    security:
+      - BearerAuth: []
+    requestBody:
+      content:
+        application/json:
+          schema:
+            type: object
+            required:
+              - uuid
+            properties:
+              uuid:
+                description: The uuid of the new proxy file.
+                type: string
+    responses:
+      '200':
+        description: The newly created proxy file.
+        content:
+            application/json:
+              schema:
+                $ref: '../schemas/s3proxyfile_schema.yaml'
+      '401':
+        $ref : "../responses/unauthorized.yaml"
+      '403':
+        $ref : "../responses/forbidden.yaml"
+      '404':
+        $ref : "../responses/not_found.yaml"
+S3ProxyFilesById:
+  post:
+    tags:
+      - S3ProxyFileAPI
+    summary: Upload a file to the proxy file
+    security:
+      - BearerAuth: []
+    parameters:
+      - in: path
+        name: uuid
+        required: true
+        description: The uuid of the proxy file
+        schema:
+          type: string
+    requestBody:
+      content:
+        application/json:
+          schema:
+            type: object
+            required:
+              - filename
+            properties:
+              filename:
+                description: The name of the file to upload.
+                type: string
+    responses:
+      '200':
+        description: The data needed to upload a file via an HTTP POST with multipart/form-data encoding.
+        content:
+            application/json:
+              schema:
+                $ref: '../schemas/pending_upload_form_data_schema.yaml'
+      '401':
+        $ref : "../responses/unauthorized.yaml"
+      '403':
+        $ref : "../responses/forbidden.yaml"
+      '404':
+        $ref : "../responses/not_found.yaml"
+

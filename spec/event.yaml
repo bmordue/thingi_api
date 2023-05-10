@@ -1,0 +1,50 @@
+EventPath:
+  get:
+    tags: 
+      - Event
+    summary: List of events
+    security:
+      - BearerAuth: []
+    responses:
+      '200':
+        description: The list of events
+        content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '../schemas/event_schema.yaml'   
+      '401':
+        $ref : "../responses/unauthorized.yaml"
+      '403':
+        $ref : "../responses/forbidden.yaml"
+      '404':
+        $ref : "../responses/not_found.yaml"
+EventPathById:
+  get:
+    tags:
+      - Event
+    summary: Get event by id
+    security:
+      - BearerAuth: []
+    parameters:
+      - in: path
+        name: id
+        required: true
+        description: The id of the event to get
+        schema:
+          type: number
+          example: 99
+    responses:
+      '200':
+        description: An object representing the event requested
+        content:
+            application/json:
+              schema:
+                $ref: '../schemas/event_schema.yaml'
+      '401':
+        $ref : "../responses/unauthorized.yaml"
+      '403':
+        $ref : "../responses/forbidden.yaml"
+      '404':
+        $ref : "../responses/not_found.yaml"

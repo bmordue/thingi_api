@@ -1,0 +1,7 @@
+type: object
+properties:
+  uuid:
+    type: string
+  s3_file_id:
+    type: integer
+    format: int

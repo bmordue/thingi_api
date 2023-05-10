@@ -1,0 +1,335 @@
+CollectionPathById:
+  get:
+    tags:
+      - Collection
+    summary: Get a collection by id
+    security:
+      - BearerAuth: []
+    parameters:
+      - in: path
+        name: id
+        required: true
+        description: The id of the collection to get.
+        schema:
+          type: number
+          example: 1
+    responses:
+      '200':
+        content:
+          application/json:
+            schema:
+              $ref: '../schemas/collection_schema.yaml'
+      '401':
+        $ref : "../responses/unauthorized.yaml"
+      '403':
+        $ref : "../responses/forbidden.yaml"
+      '404':
+        $ref : "../responses/not_found.yaml"
+  patch:
+    tags:
+      - Collection
+    summary: Update a collection
+    description: Apps can only update collections they've created.
+    security:
+      - BearerAuth: []
+    parameters:
+      - in: path
+        name: id
+        required: true
+        description: Id of the collection to update
+        schema:
+          type: number
+          example: 1
+    requestBody:
+      content:
+        application/json:
+          schema:
+            type: object
+            properties:
+              name:
+                required: true
+                description: Name of the collection
+                schema:
+                  type: string
+              description:
+                required: false
+                description: Description of the collection
+                schema:
+                  type: string
+              featured_thing_id:
+                required: false
+                description: Featured Thing id from the collection
+                schema:
+                  type: number
+    responses:
+      '200':
+        description: The updated collection.
+        content:
+            application/json:
+              schema:
+                $ref: '../schemas/collection_schema.yaml'
+      '401':
+        $ref : "../responses/unauthorized.yaml"
+      '403':
+        $ref : "../responses/forbidden.yaml"
+      '404':
+        $ref : "../responses/not_found.yaml"
+  delete:
+    tags:
+      - Collection
+    summary: Delete a collection
+    description: Apps can only delete collections they've created.
+    security:
+      - BearerAuth: []
+    parameters:
+      - in: path
+        name: id
+        required: true
+        description: Id of the collection to delete
+        schema:
+          type: number
+          example: 1
+    responses:
+      '200':
+        $ref : "../responses/ok.yaml"
+      '401':
+        $ref : "../responses/unauthorized.yaml"
+      '403':
+        $ref : "../responses/forbidden.yaml"
+      '404':
+        $ref : "../responses/not_found.yaml"
+CollectionPathThings:
+  get:
+    tags:
+      - Collection
+    summary: Get Things in a collection
+    security:
+      - BearerAuth: []
+    parameters:
+      - in: path
+        name: id
+        required: true
+        description: The id of the collection to get Things from
+        schema:
+          type: number
+          example: 1
+      - in: query
+        name: sort
+        required: false
+        description: Supports newest, popular. Returns in DESC order. Default is newest. Not supported for search.
+        schema:
+          type: string
+      - in: query
+        name: search
+        required: false
+        description: Sort returns in relevant order.
+        schema:
+          type: string
+    responses:
+      '200':
+        description: An array of Things in this collection
+        content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '../schemas/short_thing_schema.yaml'
+      '401':
+        $ref : "../responses/unauthorized.yaml"
+      '403':
+        $ref : "../responses/forbidden.yaml"
+      '404':
+        $ref : "../responses/not_found.yaml"
+CollectionPathLike:
+  post:
+    tags:
+      - Collection
+    summary: Like/unlike Collection
+    security:
+      - BearerAuth: []
+    parameters:
+      - in: path
+        name: id
+        required: true
+        description: The id of the collection to like/unlike
+        schema:
+          type: number
+          example: 1
+    responses:
+      '200':
+        description: Was collection liked or unliked
+        content:
+            application/json:
+              schema:
+                type: object
+                example: { "liking": boolean }
+      '401':
+        $ref : "../responses/unauthorized.yaml"
+      '403':
+        $ref : "../responses/forbidden.yaml"
+      '404':
+        $ref : "../responses/not_found.yaml"
+CollectionPathWatch:
+  post:
+    tags:
+      - Collection
+    summary: Watch/unwatch Collection
+    security:
+      - BearerAuth: []
+    parameters:
+      - in: path
+        name: id
+        required: true
+        description: The id of the collection to watch/unwatch
+        schema:
+          type: number
+          example: 1
+    responses:
+      '200':
+        description: Was collection watched or unwatched
+        content:
+            application/json:
+              schema:
+                type: object
+                example: { "watching": boolean }
+      '401':
+        $ref : "../responses/unauthorized.yaml"
+      '403':
+        $ref : "../responses/forbidden.yaml"
+      '404':
+        $ref : "../responses/not_found.yaml"
+CollectionPath:
+  get:
+    tags:
+      - Collection
+    summary: Get list of the latest collections
+    security:
+      - BearerAuth: []
+    responses:
+      '200':
+        description: An array of collections
+        content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '../schemas/collection_schema.yaml'
+      '401':
+        $ref : "../responses/unauthorized.yaml"
+      '403':
+        $ref : "../responses/forbidden.yaml"
+      '404':
+        $ref : "../responses/not_found.yaml"
+  post:
+    tags:
+      - Collection
+    summary: Create a new collection
+    security:
+      - BearerAuth: []
+    requestBody:
+      content:
+        application/json:
+          schema:
+            type: object
+            properties:
+              name:
+                required: true
+                description: Name of the collection
+                schema:
+                  type: string
+              description:
+                required: false
+                description: Description of the collection
+                schema:
+                  type: string
+    responses:
+      '200':
+        description: The newly created collection.
+        content:
+          application/json:
+            schema:
+              $ref: '../schemas/collection_schema.yaml'
+      '401':
+        $ref : "../responses/unauthorized.yaml"
+      '403':
+        $ref : "../responses/forbidden.yaml"
+      '404':
+        $ref : "../responses/not_found.yaml"
+CollectionPathAddThing:
+  post:
+    tags:
+      - Collection
+    summary: Add a thing to a collection
+    description: Apps can add to any collection the user owns. Do not abuse or we'll change that.
+    security:
+      - BearerAuth: []
+    parameters:
+      - in: path
+        name: $collection_id
+        required: true
+        description: Id of the collection to add to
+        schema:
+          type: number
+          example: 1
+      - in: path
+        name: $thing_id
+        required: true
+        description: Id of the Thing to add
+        schema:
+          type: number
+          example: 1
+    requestBody:
+      content:
+        application/json:
+          schema:
+            type: object
+            properties:
+              description:
+                required: false
+                description: Description of the collection
+                schema:
+                  type: string
+    responses:
+      '200':
+        $ref : "../responses/ok.yaml"
+      '401':
+        $ref : "../responses/unauthorized.yaml"
+      '403':
+        $ref : "../responses/forbidden.yaml"
+      '404':
+        $ref : "../responses/not_found.yaml"
+  delete:
+    tags:
+      - Collection
+    summary: Removes a thing from a collection
+    description: Apps may only remove things that they've added to a collection.
+    security:
+      - BearerAuth: []
+    parameters:
+      - in: path
+        name: $collection_id
+        required: true
+        description: Id of the collection
+        schema:
+          type: number
+          example: 1
+      - in: path
+        name: $thing_id
+        required: true
+        description: Id of the Thing
+        schema:
+          type: number
+          example: 1
+    responses:
+      '200':
+        description: The id of thing that was deleted
+        content:
+          application/json:
+            schema:
+              type: number
+      '401':
+        $ref : "../responses/unauthorized.yaml"
+      '403':
+        $ref : "../responses/forbidden.yaml"
+      '404':
+        $ref : "../responses/not_found.yaml"

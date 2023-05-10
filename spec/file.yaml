@@ -1,0 +1,105 @@
+FilePathById:
+  get:
+    tags:
+      - File
+    summary: Get info about a file by id
+    description: Get basic information about how to access a file. For relevant files, a thumbnail image or three.js json file may be available.
+    security:
+      - BearerAuth: []
+    parameters:
+      - in: path
+        name: id
+        required: true
+        description: The id of the file
+        schema:
+          type: number
+          example: 1
+    responses:
+      '200':
+        description: An object with urls of the file requested
+        content:
+            application/json:
+              schema:
+                $ref: '../schemas/file_schema.yaml'
+      '401':
+        $ref : "../responses/unauthorized.yaml"
+      '403':
+        $ref : "../responses/forbidden.yaml"
+      '404':
+        $ref : "../responses/not_found.yaml"
+FilePathFinalize:
+  get:
+    tags:
+      - File
+    summary: Finalize an uploaded file
+    security:
+      - BearerAuth: []
+    parameters:
+      - in: path
+        name: id
+        required: true
+        description: The id of the PendingUpload for this file
+        schema:
+          type: number
+          example: 1
+    responses:
+      '200':
+        description: None
+      '401':
+        $ref : "../responses/unauthorized.yaml"
+      '403':
+        $ref : "../responses/forbidden.yaml"
+      '404':
+        $ref : "../responses/not_found.yaml"
+  post:
+    tags:
+      - File
+    summary: Finalize an uploaded file
+    security:
+      - BearerAuth: []
+    parameters:
+      - in: path
+        name: id
+        required: true
+        description: The id of the PendingUpload for this file
+        schema:
+          type: number
+          example: 1
+    responses:
+      '200':
+        description: Summary of the ObjectFile or Image that was created
+        content:
+            application/json:
+              schema:
+                $ref: '../schemas/file_schema.yaml'
+      '401':
+        $ref : "../responses/unauthorized.yaml"
+      '403':
+        $ref : "../responses/forbidden.yaml"
+      '404':
+        $ref : "../responses/not_found.yaml"
+FilePathDownload:
+  get:
+    tags:
+      - File
+    summary: Get tracked download URL
+    description: Redirects to the requested file and adds an entry to the user's download history for use with the GET /users/{$username}/downloads endpoint, as opposed to the public url which is anonymous.
+    security:
+      - BearerAuth: []
+    parameters:
+      - in: path
+        name: id
+        required: true
+        description: The id of the file
+        schema:
+          type: number
+          example: 1
+    responses:
+      '200':
+        description: None
+      '401':
+        $ref : "../responses/unauthorized.yaml"
+      '403':
+        $ref : "../responses/forbidden.yaml"
+      '404':
+        $ref : "../responses/not_found.yaml"

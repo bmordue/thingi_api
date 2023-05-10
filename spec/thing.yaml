@@ -1,0 +1,850 @@
+ThingPath:
+  post:
+    tags:
+      - Thing
+    summary: Create a new thing
+    security:
+      - BearerAuth: []
+    requestBody:
+      content:
+        application/json:
+          schema:
+            type: object
+            required:
+              - name
+              - license
+              - category
+            properties:
+              name:
+                description: Set the name of the thing
+                type: string
+              license:
+                description: One of cc, cc-sa, cc-nd, cc-nc-sa, cc-nc-nd, pd0, gpl, lgpl, bsd. Set license.
+                type: string
+              category:
+                description: Set the category of the thing. Uses full category name (eg. "3D Printer Parts")
+                type: string
+              description:
+                description: Set the description.
+                type: string
+              instructions:
+                description: Set the instructions.
+                type: string
+              is_wip:
+                description: Toggle whether this thing is a work in progress. Default is false.
+                type: boolean
+              tags:
+                description: An array of strings containing tag names. Sets all current tags.
+                type: array
+                example: []
+              ancestors:
+                description: An array of thing ids that this thing is derived from.
+                type: array
+                example: []
+    responses:
+      '200':
+        description: The newly created thing.
+        content:
+            application/json:
+              schema:
+                $ref: '../schemas/thing_schema.yaml'
+      '401':
+        $ref : "../responses/unauthorized.yaml"
+      '403':
+        $ref : "../responses/forbidden.yaml"
+      '404':
+        $ref : "../responses/not_found.yaml"
+ThingPathById:
+  get:
+    tags:
+      - Thing
+    summary: Get thing by id
+    security:
+      - BearerAuth: []
+    parameters:
+      - in: path
+        name: id
+        required: false
+        description: The id of the thing to get
+        schema:
+          type: number
+          example: 1004996
+    responses:
+      '200':
+        description: An object representing the thing requested
+        content:
+            application/json:
+              schema:
+                type: object
+      '401':
+        $ref : "../responses/unauthorized.yaml"
+      '403':
+        $ref : "../responses/forbidden.yaml"
+      '404':
+        $ref : "../responses/not_found.yaml"
+  patch:
+    tags:
+      - Thing
+    summary: Update an existing thing
+    security:
+      - BearerAuth: []
+    parameters:
+      - in: path
+        name: id
+        required: true
+        description: The id of the thing to update
+        schema:
+          type: number
+          example: 1004996
+    requestBody:
+      content:
+        application/json:
+          schema:
+            type: object
+            properties:
+              name:
+                description: Replace the name of the thing
+                type: string
+              license:
+                description: One of cc, cc-sa, cc-nd, cc-nc-sa, cc-nc-nd, pd0, gpl, lgpl, bsd. Replace license
+                type: string
+              category:
+                description: Replace the category of the thing. Uses full category name (eg. "3D Printer Parts")
+                type: string
+              description:
+                description: Replace the description.
+                type: string
+              instructions:
+                description: Replace the instructions.
+                type: string
+              is_wip:
+                description: Toggle whether this thing is a work in progress.
+                type: boolean
+              tags :
+                description: An array of strings containing tag names. Replaces all current tags.
+                type: array
+                example: []
+    responses:
+      '200':
+        description: The updated thing
+        content:
+            application/json:
+              schema:
+                type: object
+      '401':
+        $ref : "../responses/unauthorized.yaml"
+      '403':
+        $ref : "../responses/forbidden.yaml"
+      '404':
+        $ref : "../responses/not_found.yaml"
+  delete:
+    tags:
+      - Thing
+    summary: Delete a thing
+    description: This cannot be undone.
+    security:
+      - BearerAuth: []
+    parameters:
+      - in: path
+        name: id
+        required: false
+        description: The id of the thing to delete.
+        schema:
+          type: number
+          example: 1004996
+    responses:
+      '200':
+        $ref : "../responses/ok.yaml"
+ThingPathImagesByThing:
+  get:
+    tags:
+      - Thing
+    summary: Get image(s) by thing
+    description: Gets summary information for all images associated with a thing or more detailed information about a specific image.
+    security:
+      - BearerAuth: []
+    parameters:
+      - in: path
+        name: id
+        required: true
+        description: The id of the thing to get images from
+        schema:
+          type: number
+          example: 1004996
+      - in: path
+        name: image_id
+        required: false
+        description: Optional id of image to get details for
+        schema:
+          type: number
+      - in: path
+        name: size
+        required: false
+        description: Optional size of image to get
+        schema:
+          type: string
+      - in: path
+        name: type
+        required: false
+        description: Optional type of image to get. Required if `size` is specified
+        schema:
+          type: string
+    responses:
+      '200':
+        description: An array of images associated with a thing or detailed info about a specific image
+        content:
+            application/json:
+              schema:
+                oneOf:
+                  - type: object
+                  - type: array
+      '401':
+        $ref : "../responses/unauthorized.yaml"
+      '403':
+        $ref : "../responses/forbidden.yaml"
+      '404':
+        $ref : "../responses/not_found.yaml"
+  patch:
+    tags:
+      - Thing
+    summary: Update an existing image
+    security:
+      - BearerAuth: []
+    parameters:
+      - in: path
+        name: id
+        required: true
+        description: The id of the Thing the image belongs to
+        schema:
+          type: number
+          example: 1004996
+      - in: path
+        name: image_id
+        required: true
+        description: The id of the image to update
+        schema:
+          type: number
+    requestBody:
+      content:
+        application/json:
+          schema:
+            type: object
+            required:
+              - rank
+              - featured
+            properties:
+              rank:
+                type: integer
+              featured:
+                type: boolean
+    responses:
+      '200':
+        $ref : "../responses/ok.yaml"
+  delete:
+    tags:
+      - Thing
+    summary: Delete an image from a thing
+    description: This cannot be undone.
+    security:
+      - BearerAuth: []
+    parameters:
+      - in: path
+        name: id
+        required: true
+        description: The id of the Thing the image belongs to
+        schema:
+          type: number
+          example: 1004996
+      - in: path
+        name: image_id
+        required: true
+        description: The id of the image to delete
+        schema:
+          type: number
+    responses:
+      '200':
+        $ref : "../responses/ok.yaml"
+ThingPathFilesByThing:
+  post:
+    tags:
+      - Thing
+    summary: Upload a file to the given thing
+    description: The data needed to upload a file via an HTTP POST with multipart/form-data encoding
+    security:
+      - BearerAuth: []
+    parameters:
+      - in: path
+        name: id
+        required: true
+        description: The id of the thing that will own this file
+        schema:
+          type: number
+          example: 1004996
+    requestBody:
+      content:
+        application/json:
+          schema:
+            type: object
+            required:
+              - filename
+            properties:
+              filename:
+                description: Set the name of the file to upload.
+                type: string
+    responses:
+      '200':
+        $ref : "../responses/ok.yaml"
+      '401':
+        $ref : "../responses/unauthorized.yaml"
+      '403':
+        $ref : "../responses/forbidden.yaml"
+      '404':
+        $ref : "../responses/not_found.yaml"
+ThingPathFilesByIdByThing:
+  get:
+    tags:
+      - Thing
+    summary: Get file(s) by thing
+    description: Get a list of files associated with a thing or, given a numeric id, gets more detailed info about a specific file belonging to this thing.
+    security:
+      - BearerAuth: []
+    parameters:
+      - in: path
+        name: id
+        required: true
+        description: The id of the thing to get files from
+        schema:
+          type: number
+          example: 1004996
+      - in: path
+        name: file_id
+        required: false
+        description: Optional id of the file to get more details for
+        schema:
+          type: number
+    responses:
+      '200':
+        description: An array of files associated with a thing or detail about a specific file
+        content:
+            application/json:
+              schema:
+                oneOf:
+                  - type: object
+                  - type: array
+      '401':
+        $ref : "../responses/unauthorized.yaml"
+      '403':
+        $ref : "../responses/forbidden.yaml"
+      '404':
+        $ref : "../responses/not_found.yaml"
+  delete:
+    tags:
+      - Thing
+    summary: Delete a file from a thing
+    description: This cannot be undone.
+    security:
+      - BearerAuth: []
+    parameters:
+      - in: path
+        name: id
+        required: true
+        description: The id of the Thing the file belongs to
+        schema:
+          type: number
+          example: 1004996
+      - in: path
+        name: file_id
+        required: true
+        description: The id of the file to delete
+        schema:
+          type: number
+    responses:
+      '200':
+        $ref : "../responses/ok.yaml"
+ThingPathLikes:
+  get:
+    tags:
+      - Thing
+    summary: Get users who liked this thing
+    security:
+      - BearerAuth: []
+    parameters:
+      - in: path
+        name: id
+        required: true
+        description: The id of the thing to get likes from
+        schema:
+          type: number
+          example: 1004996
+    responses:
+      '200':
+        description: An array of users who liked this thing
+        content:
+            application/json:
+              schema:
+                type: array
+      '401':
+        $ref : "../responses/unauthorized.yaml"
+      '403':
+        $ref : "../responses/forbidden.yaml"
+      '404':
+        $ref : "../responses/not_found.yaml"
+  post:
+    tags:
+      - Thing
+    summary: Like a thing
+    security:
+      - BearerAuth: []
+    parameters:
+      - in: path
+        name: id
+        required: true
+        description: The id of the thing to like.
+        schema:
+          type: number
+          example: 1004996
+    responses:
+      '200':
+        $ref : "../responses/ok.yaml"
+      '400':
+        description: the user is trying to like their own thing
+      '401':
+        $ref : "../responses/unauthorized.yaml"
+      '403':
+        $ref : "../responses/forbidden.yaml"
+      '404':
+        $ref : "../responses/not_found.yaml"
+  delete:
+    tags:
+      - Thing
+    summary: Delete a like
+    description: This cannot be undone.
+    security:
+      - BearerAuth: []
+    parameters:
+      - in: path
+        name: id
+        required: false
+        description: The id of the thing to "unlike"
+        schema:
+          type: number
+          example: 1004996
+    responses:
+      '200':
+        $ref : "../responses/ok.yaml"
+      '400':
+        description: if the user is trying to "unlike" their own thing
+      '401':
+        $ref : "../responses/unauthorized.yaml"
+      '403':
+        $ref : "../responses/forbidden.yaml"
+      '404':
+        $ref : "../responses/not_found.yaml"
+ThingPathAncestors:
+  get:
+    tags:
+      - Thing
+    summary: Get a list of thing ancestors
+    security:
+      - BearerAuth: []
+    parameters:
+      - in: path
+        name: id
+        required: true
+        description: The id of the thing to get ancestors of
+        schema:
+          type: number
+          example: 1004996
+    responses:
+      '200':
+        description: An array containing a list of things this thing is derived from
+        content:
+            application/json:
+              schema:
+                type: array
+      '401':
+        $ref : "../responses/unauthorized.yaml"
+      '403':
+        $ref : "../responses/forbidden.yaml"
+      '404':
+        $ref : "../responses/not_found.yaml"
+ThingPathDerivatives:
+  get:
+    tags:
+      - Thing
+    summary: Get a list of thing derivatives
+    security:
+      - BearerAuth: []
+    parameters:
+      - in: path
+        name: id
+        required: true
+        description: The id of the thing to get derivatives for
+        schema:
+          type: number
+          example: 1004996
+    responses:
+      '200':
+        description: An array containing a list of things that derive from this thing
+        content:
+            application/json:
+              schema:
+                type: array
+      '401':
+        $ref : "../responses/unauthorized.yaml"
+      '403':
+        $ref : "../responses/forbidden.yaml"
+      '404':
+        $ref : "../responses/not_found.yaml"
+ThingPathTags:
+  get:
+    tags:
+      - Thing
+    summary: Get tags on this thing
+    security:
+      - BearerAuth: []
+    parameters:
+      - in: path
+        name: id
+        required: true
+        description: The id of the thing for which to list tags
+        schema:
+          type: number
+          example: 1004996
+    responses:
+      '200':
+        description: An array containing a list of things that derive from this thing
+        content:
+            application/json:
+              schema:
+                type: array
+      '401':
+        $ref : "../responses/unauthorized.yaml"
+      '403':
+        $ref : "../responses/forbidden.yaml"
+      '404':
+        $ref : "../responses/not_found.yaml"
+ThingPathCategories:
+  get:
+    tags:
+      - Thing
+    summary: Get thing category
+    security:
+      - BearerAuth: []
+    parameters:
+      - in: path
+        name: id
+        required: true
+        description: The id of the thing for which to list it's categories
+        schema:
+          type: number
+          example: 1004996
+    responses:
+      '200':
+        description: An array containing a list of categories this thing is in
+        content:
+            application/json:
+              schema:
+                type: array
+      '401':
+        $ref : "../responses/unauthorized.yaml"
+      '403':
+        $ref : "../responses/forbidden.yaml"
+      '404':
+        $ref : "../responses/not_found.yaml"
+ThingPathPublish:
+  post:
+    tags:
+      - Thing
+    summary: Publish a thing
+    description: >
+      If the Thing cannot be published (for example, because the Thing's name or description is blank), 
+      returns an HTTP status of 400 Bad Request and a body containing a JSON object of the form: {"errors":["<%= reason %>", ...]} 
+    security:
+      - BearerAuth: []
+    parameters:
+      - in: path
+        name: id
+        required: true
+        description: The id of the thing to publish
+        schema:
+          type: number
+          example: 1004996
+    responses:
+      '200':
+        description: The published Thing or an object containing an array named "errors".
+        content:
+            application/json:
+              schema:
+                type: object
+        $ref : "../responses/unauthorized.yaml"
+      '403':
+        $ref : "../responses/forbidden.yaml"
+      '404':
+        $ref : "../responses/not_found.yaml"
+ThingPathCopies:
+  get:
+    tags:
+      - Thing
+    summary: Get copies/makes of a thing
+    security:
+      - BearerAuth: []
+    parameters:
+      - in: path
+        name: id
+        required: true
+        description: The id of the thing to get copies from
+        schema:
+          type: number
+          example: 1004996
+    responses:
+      '200':
+        description: An array of copies (and their images) associated with a thing
+        content:
+            application/json:
+              schema:
+                type: array
+      '401':
+        $ref : "../responses/unauthorized.yaml"
+      '403':
+        $ref : "../responses/forbidden.yaml"
+      '404':
+        $ref : "../responses/not_found.yaml"
+  post:
+    tags:
+      - Thing
+    summary: Upload image for new copy
+    description: The data needed to upload this copy's image file via an HTTP POST with multipart/form-data encoding.
+    security:
+      - BearerAuth: []
+    parameters:
+      - in: path
+        name: id
+        required: true
+        description: The id of the thing that gets the new copy.
+        schema:
+          type: number
+          example: 1004996
+    requestBody:
+      content:
+        application/json:
+          schema:
+            type: object
+            required:
+              - filename
+            properties:
+              filename:
+                description: The name of the image file to upload.
+                type: string
+    responses:
+      '200':
+        description: The published Thing or an object containing an array named "errors".
+        content:
+            application/json:
+              schema:
+                type: object
+        $ref : "../responses/unauthorized.yaml"
+      '403':
+        $ref : "../responses/forbidden.yaml"
+      '404':
+        $ref : "../responses/not_found.yaml"
+ThingPathPackageUrl:
+  get:
+    tags:
+      - Thing
+    summary: Get a ZIP package with all files associated with the thing
+    security:
+      - BearerAuth: []
+    parameters:
+      - in: path
+        name: id
+        required: true
+        description: The id of the Thing the package belongs to
+        schema:
+          type: number
+          example: 1004996
+    responses:
+      '200':
+        description: The "url" object
+        content:
+            application/json:
+              schema:
+                type: string
+      '401':
+        $ref : "../responses/unauthorized.yaml"
+      '403':
+        $ref : "../responses/forbidden.yaml"
+      '404':
+        $ref : "../responses/not_found.yaml"
+ThingPathPrints:
+  get:
+    tags:
+      - Thing
+    summary: Get a list of prints associated with a thing
+    security:
+      - BearerAuth: []
+    parameters:
+      - in: path
+        name: id
+        required: true
+        description: The id of the thing to get prints from
+        schema:
+          type: number
+          example: 1004996
+    responses:
+      '200':
+        description: An array of prints associated with a thing
+        content:
+            application/json:
+              schema:
+                type: array
+      '401':
+        $ref : "../responses/unauthorized.yaml"
+      '403':
+        $ref : "../responses/forbidden.yaml"
+      '404':
+        $ref : "../responses/not_found.yaml"
+ThingPathThreadedComments:
+  get:
+    tags:
+      - Thing
+    summary: Get all comments for this thing in a quick pre-threaded view
+    description: This is an alternative to GET /things/id/comments
+    security:
+      - BearerAuth: []
+    parameters:
+      - in: path
+        name: id
+        required: true
+        description: The id of the thing to get
+        schema:
+          type: number
+          example: 1004996
+    responses:
+      '200':
+        description: An array containing comment threads indexed by comment parent id (blank for top level comments) and users indexed by user id used in those comments
+        content:
+            application/json:
+              schema:
+                type: object
+      '401':
+        $ref : "../responses/unauthorized.yaml"
+      '403':
+        $ref : "../responses/forbidden.yaml"
+      '404':
+        $ref : "../responses/not_found.yaml"
+ThingPathComments:
+  get:
+    tags:
+      - Thing
+    summary: Get an unthreaded paginated list of comment objects
+    description: See also GET /things/id/threaded_comments
+    security:
+      - BearerAuth: []
+    parameters:
+      - in: path
+        name: id
+        required: true
+        description: The id of the thing to get comments for
+        schema:
+          type: number
+          example: 1004996
+    responses:
+      '200':
+        description: An array containing a list of comments on this thing
+        content:
+            application/json:
+              schema:
+                type: array
+                example: []
+      '401':
+        $ref : "../responses/unauthorized.yaml"
+      '403':
+        $ref : "../responses/forbidden.yaml"
+      '404':
+        $ref : "../responses/not_found.yaml"
+  post:
+    tags:
+      - Thing
+    summary: Post a comment
+    security:
+      - BearerAuth: []
+    parameters:
+      - in: path
+        name: id
+        required: true
+        description: The id of the thing to comment on
+        schema:
+          type: number
+          example: 1004996
+    responses:
+      '200':
+        description: The newly created comment
+        content:
+          application/json:
+            schema:
+              type: object
+      '401':
+        $ref : "../responses/unauthorized.yaml"
+      '403':
+        $ref : "../responses/forbidden.yaml"
+      '404':
+        $ref : "../responses/not_found.yaml"
+ThingPathRootComments:
+  get:
+    tags:
+      - Thing
+    summary: Get an unthreaded paginated list of root comment objects
+    security:
+      - BearerAuth: []
+    parameters:
+      - in: path
+        name: id
+        required: true
+        description: The id of the thing to get root comments for
+        schema:
+          type: number
+          example: 1004996
+    responses:
+      '200':
+        description: An array containing a list of root comments on this thing
+        content:
+            application/json:
+              schema:
+                type: array
+                example: []
+      '401':
+        $ref : "../responses/unauthorized.yaml"
+      '403':
+        $ref : "../responses/forbidden.yaml"
+      '404':
+        $ref : "../responses/not_found.yaml"
+ThingPathToggleWatch:
+  post:
+    tags:
+      - Thing
+    summary: Watch/unwatch a Thing
+    description: If currently watching the specified Thing, the current user will unwatch the Thing, and vice versa. Only works in user context.
+    security:
+      - BearerAuth: []
+    parameters:
+      - in: path
+        name: id
+        required: true
+        description: The Thing to watch or unwatch
+        schema:
+          type: number
+          example: 1004996
+    responses:
+      '200':
+        content:
+            application/json:
+              schema:
+                type: object
+                example: { "watching": boolean }
+      '401':
+        $ref : "../responses/unauthorized.yaml"
+      '403':
+        $ref : "../responses/forbidden.yaml"
+      '404':
+        $ref : "../responses/not_found.yaml"

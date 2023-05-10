@@ -1,0 +1,75 @@
+type: object
+properties:
+  id:
+    type: integer
+    format: int
+  name:
+    type: string
+  description:
+    type: string
+  added:
+    type: string
+    format: date-time
+  modified: 
+    type: string
+    format: date-time
+  creator:
+    type: object
+    properties:
+      id:
+        type: integer
+        format: int
+      name:
+        type: string
+      first_name:
+        type: string
+      last_name:
+        type: string
+      url:
+        type: string
+      public_url:
+        type: string
+      thumbnail:
+          ype: string
+      count_of_followers:
+        type: integer
+        format: int
+      count_of_following:
+        type: integer
+        format: int
+      count_of_designs:
+        type: integer
+        format: int
+      accepts_tips:
+        type: boolean
+      is_following:
+        type: boolean
+      location:
+        type: string
+      cover:
+        type: string
+      is_admin:
+        type: boolean
+  url:
+    type: string
+  count:
+    type: integer
+    format: int
+  is_editable:
+    type: boolean
+  is_featured:
+    type: boolean
+  is_liked:
+    type: boolean
+  is_watched:
+    type: boolean
+  featured_thing_id:
+    type: integer
+    format: int
+  preview_image:
+    type: string
+  absolute_url:
+    type: string
+  thumbnail:
+    type: string
+

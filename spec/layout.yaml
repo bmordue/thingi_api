@@ -1,0 +1,432 @@
+LayoutsPath:
+  get:
+    tags:
+      - Layout
+    summary: Get the list of the user's layouts
+    security:
+      - BearerAuth: []
+    responses:
+      '200':
+        description: An array of layouts for the current user
+        content:
+          application/json:
+            schema:
+              type: array
+              items:
+                $ref: '../schemas/layout_schema.yaml'
+      '401':
+        $ref : "../responses/unauthorized.yaml"
+      '403':
+        $ref : "../responses/forbidden.yaml"
+      '404':
+        $ref : "../responses/not_found.yaml"
+  post:
+    tags: 
+      - Layout
+    summary: Create a new layout
+    security:
+      - BearerAuth: []
+    requestBody:
+      content:
+        application/json:
+          schema:
+            type: object
+            required:
+              - thing_id
+              - name
+              - printer_id
+              - printing_time
+            properties:
+              thing_id:
+                description: The id of the thing to which this layout belongs
+                type: integer
+              name:
+                description: The name of the layout
+                type: string
+              printer_id:
+                description: The id of the printer this is for
+                type: integer
+              printing_time:
+                description: The estimated amount of time this layout takes to print, in seconds
+                type: integer
+    responses:
+      '200':
+        description: The newly created layout
+        content:
+            application/json:
+              schema:
+                $ref: '../schemas/layout_schema.yaml'
+      '401':
+        $ref : "../responses/unauthorized.yaml"
+      '403':
+        $ref : "../responses/forbidden.yaml"
+      '404':
+        $ref : "../responses/not_found.yaml"   
+LayoutsPathById:
+  get:
+    tags:
+      - Layout
+    summary: Get layout by id
+    security:
+      - BearerAuth: []
+    parameters:
+      - in: path
+        name: id
+        required: true
+        description: The id of the layout to get
+        schema:
+          type: number
+          example: 1
+    responses:
+      '200':
+        description: An object representing the layout requested.
+        content:
+            application/json:
+              schema:
+                $ref: '../schemas/layout_schema.yaml'
+      '401':
+        $ref : "../responses/unauthorized.yaml"
+      '403':
+        $ref : "../responses/forbidden.yaml"
+      '404':
+        $ref : "../responses/not_found.yaml"
+  patch:
+    tags: 
+      - Layout
+    summary: Update an existing layout
+    security:
+      - BearerAuth: []
+    parameters:
+      - in: path
+        name: id
+        required: true
+        description: The id of the layout to get
+        schema:
+          type: number
+          example: 1
+    requestBody:
+      content:
+        application/json:
+          schema:
+            type: object
+            properties:
+              thing_id:
+                description: The id of the thing to which this layout belongs
+                type: integer
+              name:
+                description: The name of the layout
+                type: string
+              printer_id:
+                description: The id of the printer this is for
+                type: integer
+              printing_time:
+                description: The estimated amount of time this layout takes to print, in seconds
+                type: integer
+    responses:
+      '200':
+        description: The updated layout
+        content:
+            application/json:
+              schema:
+                $ref: '../schemas/layout_schema.yaml'
+      '401':
+        $ref : "../responses/unauthorized.yaml"
+      '403':
+        $ref : "../responses/forbidden.yaml"
+      '404':
+        $ref : "../responses/not_found.yaml"
+  delete:
+    tags:
+      - Layout
+    summary: Delete a layout
+    description: This cannot be undone.
+    security:
+      - BearerAuth: []
+    parameters:
+      - in: path
+        name: id
+        required: true
+        description: The id of the layout to delete
+        schema:
+          type: number
+          example: 1
+    responses:
+      '200':
+        $ref : "../responses/ok.yaml"
+      '401':
+        $ref : "../responses/unauthorized.yaml"
+      '403':
+        $ref : "../responses/forbidden.yaml"
+      '404':
+        $ref : "../responses/not_found.yaml"
+LayoutsPathByIdFiles:
+  get:
+    tags:
+      - Layout
+    summary: Get the files associated with a layout
+    description: If a layout doesn't have a slice file, then it should be cloud sliced on demand
+    security:
+      - BearerAuth: []
+    parameters:
+      - in: path
+        name: id
+        required: true
+        description: The id of the layout to get files from
+        schema:
+          type: number
+          example: 1
+    responses:
+      '200':
+        description: An object of file information
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                s3_slice_file_name:
+                  type: string
+                s3_plating_file_name:
+                  type: string
+                s3_slice_public_url:
+                  type: string
+                s3_plating_public_url:
+                  type: string
+                s3_slice_download_url:
+                  type: string
+                s3_plating_download_url:
+                  type: string
+      '401':
+        $ref : "../responses/unauthorized.yaml"
+      '403':
+        $ref : "../responses/forbidden.yaml"
+      '404':
+        $ref : "../responses/not_found.yaml"
+  post:
+    tags: 
+      - Layout
+    summary: Upload a file to the given layout
+    security:
+      - BearerAuth: []
+    parameters:
+      - in: path
+        name: id
+        required: true
+        description: The id of the layout that will own this file
+        schema:
+          type: number
+          example: 1
+    requestBody:
+      content:
+        multipart/form-data:
+          schema:
+            type: object
+            required:
+              - filename
+              - type
+            properties:
+              filename:
+                description: Set the name of the file to upload.
+                type: string
+              type:
+                description: Set the name type of the file (slice or plating)
+                type: string
+                enum: ['slice', 'plating']
+              uuid:
+                description: The UUID for the file
+                type: string
+    responses:
+      '200':
+        description: The data needed to upload a file via an HTTP POST with multipart/form-data encoding
+        content:
+            application/json:
+              schema:
+                $ref: '../schemas/layout_schema.yaml'
+      '401':
+        $ref : "../responses/unauthorized.yaml"
+      '403':
+        $ref : "../responses/forbidden.yaml"
+      '404':
+        $ref : "../responses/not_found.yaml"
+LayoutsPathByIdByFileId:
+  get:
+    tags:
+      - Layout
+    summary: Download the file
+    description: 
+    security:
+      - BearerAuth: []
+    parameters:
+      - in: path
+        name: id
+        required: true
+        description: The id of the layout to get files from
+        schema:
+          type: number
+          example: 1
+      - in: path
+        name: file_id
+        required: false
+        description: Optional id of the file to get
+        schema:
+          type: number
+          example: 1
+    responses:
+      '200':
+        description: An object of file information
+        content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  name:
+                    type: string
+                  url:
+                    type: string
+                  public_url:
+                    type: string
+      '401':
+        $ref : "../responses/unauthorized.yaml"
+      '403':
+        $ref : "../responses/forbidden.yaml"
+      '404':
+        $ref : "../responses/not_found.yaml"
+  delete:
+    tags:
+      - Layout
+    summary: Delete a layout
+    description: This cannot be undone.
+    security:
+      - BearerAuth: []
+    parameters:
+      - in: path
+        name: id
+        required: true
+        description: The id of the layout to delete
+        schema:
+          type: number
+          example: 1
+    responses:
+      '200':
+        $ref : "../responses/ok.yaml"
+      '401':
+        $ref : "../responses/unauthorized.yaml"
+      '403':
+        $ref : "../responses/forbidden.yaml"
+      '404':
+        $ref : "../responses/not_found.yaml"
+
+LayoutsPathByIdSlice:
+  get:
+    tags:
+      - Layout
+    summary: Get the status of a slice job for the layout
+    security:
+      - BearerAuth: []
+    parameters:
+      - in: path
+        name: id
+        required: true
+        description:  The id of the layout for which to check the status of a slice job
+        schema:
+          type: number
+          example: 1
+    responses:
+      '200':
+        description: Status of the job
+        content:
+          application/json:
+            schema:
+              $ref: '../schemas/status_job_schema.yaml'
+      '401':
+        $ref : "../responses/unauthorized.yaml"
+      '403':
+        $ref : "../responses/forbidden.yaml"
+      '404':
+        $ref : "../responses/not_found.yaml"
+  post:
+    tags: 
+      - Layout
+    summary: Kick off a slice job for the layout
+    security:
+      - BearerAuth: []
+    parameters:
+      - in: path
+        name: id
+        required: true
+        description: The id of the layout for which to start a slice job for
+        schema:
+          type: number
+          example: 25
+    responses:
+      '200':
+        description: Status of the job
+        content:
+          application/json:
+            schema:
+              $ref: '../schemas/status_job_schema.yaml'
+      '401':
+        $ref : "../responses/unauthorized.yaml"
+      '403':
+        $ref : "../responses/forbidden.yaml"
+      '404':
+        $ref : "../responses/not_found.yaml"
+  delete:
+    tags:
+      - Layout
+    summary: Cancel a slice job
+    description: This cannot be undone.
+    security:
+      - BearerAuth: []
+    parameters:
+      - in: path
+        name: id
+        required: true
+        description: The id of the Layout the file belongs to
+        schema:
+          type: number
+          example: 1
+    responses:
+      '200':
+        $ref : "../responses/ok.yaml"
+      '401':
+        $ref : "../responses/unauthorized.yaml"
+      '403':
+        $ref : "../responses/forbidden.yaml"
+      '404':
+        $ref : "../responses/not_found.yaml"
+LayoutsPathByIdToolpath:
+  get:
+    tags:
+      - Layout
+    summary: Get the optimized-for-streaming resources for a layout
+    security:
+      - BearerAuth: []
+    parameters:
+      - in: path
+        name: id
+        required: true
+        description: The id of the layout
+        schema:
+          type: number
+          example: 1
+    responses:
+      '200':
+        description: URLs of the toolpath and other resouces
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                filetype:
+                  type: string
+                toolpath:
+                  type: string
+                meta:
+                  type: string
+                  nullable: true
+      '401':
+        $ref : "../responses/unauthorized.yaml"
+      '403':
+        $ref : "../responses/forbidden.yaml"
+      '404':
+        $ref : "../responses/not_found.yaml"

@@ -1,0 +1,41 @@
+MessagePathShareThing:
+  post:
+    tags:
+      - Message
+    summary: Create a new message to share a thing
+    security:
+      - BearerAuth: []
+    requestBody:
+      content:
+        application/json:
+          schema:
+            type: object
+            required:
+              - to_user
+              - subject
+              - body
+            properties:
+              to_user:
+                description: Set the username to whom the message will be sent.
+                type: string
+              subject:
+                description: Set the subject of message
+                type: string
+              body:
+                description: At this point, you need to set the id of the thing 
+                type: string
+                example: 1250
+    responses:
+      '200':
+        description: The id of newly created message
+        content:
+            application/json:
+              schema:
+                type: integer
+                format: int
+      '401':
+        $ref : "../responses/unauthorized.yaml"
+      '403':
+        $ref : "../responses/forbidden.yaml"
+      '404':
+        $ref : "../responses/not_found.yaml"

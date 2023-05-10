@@ -1,0 +1,201 @@
+type: object
+required:
+  - id
+  - name
+properties:
+  id:
+    type: integer
+    format: int
+  name:
+    type: string
+  thumbnail:
+    type: string
+  url:
+    type: string
+  public_url:
+    type: string
+  creator:
+    type: object
+    properties:
+      id:
+        type: integer
+        format: int
+      name:
+        type: string
+      first_name:
+        type: string
+      last_name:
+        type: string
+      url:
+        type: string
+      public_url:
+        type: string
+      thumbnail:
+        type: string
+      count_of_followers:
+        type: integer
+        format: int
+      count_of_following:
+        type: integer
+        format: int
+      count_of_designs:
+        type: integer
+        format: int
+      accepts_tips:
+        type: boolean
+      is_following:
+        type: boolean
+      location:
+        type: string
+      cover:
+        type: string
+  added: 
+    type: string
+    format: date-time
+  modified: 
+    type: string
+    format: date-time
+  is_published:
+    type: boolean
+  is_wip:
+    type: boolean
+  is_featured:
+    type: boolean
+  is_nsfw:
+    type: boolean
+  like_count:
+    type: integer
+    format: int
+  is_liked:
+    type: boolean
+  collect_count:
+    type: integer
+    format: int
+  is_collected:
+    type: boolean
+  comment_count:
+    type: integer
+    format: int
+  is_watched:
+    type: boolean
+  default_image:
+    type: object
+    properties:
+      id:
+        type: integer
+        format: int
+      url:
+        type: string
+      name:
+        type: string
+      sizes:
+        type: array
+        items:
+          type: object
+          properties:
+            type: 
+              type: string
+            size: 
+              type: string
+            url: 
+              type: string
+      added: 
+        type: string
+        format: date-time
+  description:
+    type: string
+  instructions:
+    type: string
+  description_html:
+    type: string
+  instructions_html:
+    type: string
+  details:
+    type: string
+  details_parts:
+    type: array
+    items:
+      type: object
+  edu_details:
+    type: string
+  edu_details_parts:
+    type: array
+    items:
+      type: object
+  license:
+    type: string
+  allows_derivatives:
+    type: boolean
+  files_url:
+    type: string
+  images_url:
+    type: string
+  likes_url:
+    type: string
+  ancestors_url:
+    type: string
+  derivatives_url:
+    type: string
+  tags_url:
+    type: string
+  tags:
+    type: array
+    items:
+      $ref: './tag_schema.yaml'
+  categories_url:
+    type: string
+  file_count:
+    type: integer
+    format: int
+  layout_count:
+    type: integer
+    format: int
+  layouts_url:
+    type: string
+  is_private:
+    type: boolean
+  is_purchased:
+    type: boolean
+  in_library:
+    type: boolean
+  print_history_count:
+    type: integer
+    format: int
+  app_id:
+    type: integer
+    format: int
+  download_count:
+    type: integer
+    format: int
+  view_count:
+    type: integer
+    format: int
+  education:
+    type: object
+    properties:
+      grades:
+        type: array
+      subjects:
+        type: array
+  remix_count:
+    type: integer
+    format: int
+  make_count:
+    type: integer
+    format: int
+  app_count:
+    type: integer
+    format: int
+  root_comment_count:
+    type: integer
+    format: int
+  moderation:
+    type: string
+  is_derivative:
+    type: boolean
+  ancestors:
+    type: array
+  can_comment:
+    type: boolean
+  type_name:
+    type: string

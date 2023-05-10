@@ -1,0 +1,498 @@
+CopyPath:
+  get:
+    tags:
+      - Make
+    summary: Get the list of latest makes (copies).
+    security:
+      - BearerAuth: []
+    responses:
+      '200':
+        description: List of makes
+        content:
+          application/json:
+            schema:
+              type: array
+              items:
+                $ref: '../schemas/copy_schema.yaml'
+      '401':
+        $ref : "../responses/unauthorized.yaml"
+      '403':
+        $ref : "../responses/forbidden.yaml"
+      '404':
+        $ref : "../responses/not_found.yaml"
+CopyPathById:
+  get:
+    tags:
+      - Make
+    summary: Get make (copy) by id
+    security:
+      - BearerAuth: []
+    parameters:
+      - in: path
+        name: id
+        required: true
+        description: The id of the copy to get.
+        schema:
+          type: number
+          example: 1
+    responses:
+      '200':
+        description: An object representing the copy requested.
+        content:
+            application/json:
+              schema:
+                $ref: '../schemas/copy_schema.yaml'
+      '401':
+        $ref : "../responses/unauthorized.yaml"
+      '403':
+        $ref : "../responses/forbidden.yaml"
+      '404':
+        $ref : "../responses/not_found.yaml"
+  patch :
+    tags:
+      - Make
+    summary: Update an existing copy
+    security:
+      - BearerAuth: []
+    parameters:
+      - in: path
+        name: id
+        required: true
+        description: The id of the copy to update
+        schema:
+          type: number
+          example: 1
+    requestBody:
+      content:
+        application/json:
+          schema:
+            type: object
+            properties:
+              description:
+                required: false
+                description: Replace the description
+                schema:
+                  type: string
+    responses:
+      '200':
+        description: The updated make.
+        content:
+            application/json:
+              schema:
+                $ref: '../schemas/copy_schema.yaml'
+      '401':
+        $ref : "../responses/unauthorized.yaml"
+      '403':
+        $ref : "../responses/forbidden.yaml"
+      '404':
+        $ref : "../responses/not_found.yaml"
+  delete:
+    tags:
+      - Make
+    summary: Delete copy by id
+    security:
+      - BearerAuth: []
+    parameters:
+      - in: path
+        name: id
+        required: true
+        description: The id of the copy.
+        schema:
+          type: number
+          example: 1
+    responses:
+      '200':
+        description: None
+      '401':
+        $ref : "../responses/unauthorized.yaml"
+      '403':
+        $ref : "../responses/forbidden.yaml"
+      '404':
+        $ref : "../responses/not_found.yaml"
+CopyPathImages:
+  get:
+    tags:
+      - Make
+    summary: Get images for a copy
+    security:
+      - BearerAuth: []
+    parameters:
+      - in: path
+        name: id
+        required: true
+        description: The id of the copy to get images from
+        schema:
+          type: number
+          example: 1
+    responses:
+      '200':
+        description: An array of images associated with the copy
+        content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  type: object
+                  properties:
+                    id:
+                      type: integer
+                      format: int
+                    sizes:
+                      type: array
+                      items:
+                        type: object
+                        properties:
+                          type:
+                            type: string
+                          size:
+                            type: string
+                          url:
+                            type: string
+      '401':
+        $ref : "../responses/unauthorized.yaml"
+      '403':
+        $ref : "../responses/forbidden.yaml"
+      '404':
+        $ref : "../responses/not_found.yaml"
+  post:
+    tags:
+      - Make
+    summary: Upload image to a copy
+    security:
+      - BearerAuth: []
+    parameters:
+      - in: path
+        name: id
+        required: true
+        description: The id of the copy.
+        schema:
+          type: number
+          example: 1
+    requestBody:
+      content:
+        application/json:
+          schema:
+            type: object
+            properties:
+              filename:
+                required: true
+                description: The name of the image file to upload.
+                schema:
+                  type: string
+    responses:
+      '200':
+        description: The data needed to upload this copy's image file via an HTTP POST with multipart/form-data encoding.
+        content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  id:
+                    type: integer
+                    format: int
+                  sizes:
+                    type: array
+                    items:
+                      type: object
+                      properties:
+                        type:
+                          type: string
+                        size:
+                          type: string
+                        url:
+                          type: string
+      '401':
+        $ref : "../responses/unauthorized.yaml"
+      '403':
+        $ref : "../responses/forbidden.yaml"
+      '404':
+        $ref : "../responses/not_found.yaml"
+CopyPathImagesById:
+  patch:
+    tags:
+      - Make
+    summary: Update an existing image
+    description: Must use the PATCH method
+    security:
+      - BearerAuth: []
+    parameters:
+      - in: path
+        name: rank 
+        required: true
+        schema:
+          type: number
+          example: 1
+      - in: path
+        name: featured 
+        required: true
+        schema:
+          type: boolean
+      - in: path
+        name: id
+        required: true
+        description: The id of the Copy the image belongs to
+        schema:
+          type: number
+          example: 1
+      - in: path
+        name: image_id
+        required: true
+        description: The id of the image to update.
+        schema:
+          type: number
+          example: 1
+    responses:
+      '200':
+        $ref : "../responses/ok.yaml"
+      '401':
+        $ref : "../responses/unauthorized.yaml"
+      '403':
+        $ref : "../responses/forbidden.yaml"
+      '404':
+        $ref : "../responses/not_found.yaml"
+  delete:
+    tags:
+      - Make
+    summary: Delete an image from a copy
+    description: Must use the DELETE method. This cannot be undone.
+    security:
+      - BearerAuth: []
+    parameters:
+      - in: path
+        name: id
+        required: true
+        description: The id of the Copy the image belongs to
+        schema:
+          type: number
+          example: 1
+      - in: path
+        name: image_id
+        required: true
+        description: The id of the image to delete.
+        schema:
+          type: number
+          example: 1
+    responses:
+      '200':
+        $ref : "../responses/ok.yaml"
+      '401':
+        $ref : "../responses/unauthorized.yaml"
+      '403':
+        $ref : "../responses/forbidden.yaml"
+      '404':
+        $ref : "../responses/not_found.yaml"
+CopyPathLike:
+  post:
+    tags:
+      - Make
+    summary: Like a copy
+    description: Must use the POST method Result will be 404 Not Found if the copy doesn't exist. Result will be 400 Bad Request if the user is trying to like their own copy.
+    security:
+      - BearerAuth: []
+    parameters:
+      - in: path
+        name: id
+        required: true
+        description: The id of the copy to like.
+        schema:
+          type: number
+          example: 1
+    responses:
+      '200':
+        $ref : "../responses/ok.yaml"
+      '400':
+        $ref : "../responses/badrequest.yaml"
+      '401':
+        $ref : "../responses/unauthorized.yaml"
+      '403':
+        $ref : "../responses/forbidden.yaml"
+      '404':
+        $ref : "../responses/not_found.yaml"
+  delete:
+    tags:
+      - Make
+    summary: Delete a like
+    description: Must use the DELETE method Result will be 404 Not Found if the copy doesn't exist. Result will be 400 Bad Request if the user is trying to "unlike" their own copy.
+    security:
+      - BearerAuth: []
+    parameters:
+      - in: path
+        name: id
+        required: true
+        description: The id of the copy to "unlike".
+        schema:
+          type: number
+          example: 1
+    responses:
+      '200':
+        $ref : "../responses/ok.yaml"
+      '400':
+        $ref : "../responses/badrequest.yaml"
+      '401':
+        $ref : "../responses/unauthorized.yaml"
+      '403':
+        $ref : "../responses/forbidden.yaml"
+      '404':
+        $ref : "../responses/not_found.yaml"
+CopyPathThreadedComments:
+  get:
+    tags:
+      - Make
+    summary: Get all comments for this copy in a quick pre-threaded view. 
+    description: This is an alternative to GET /copies/id/comments
+    security:
+      - BearerAuth: []
+    parameters:
+      - in: path
+        name: id
+        required: true
+        description: The id of the thing to get
+        schema:
+          type: number
+          example: 1
+    responses:
+      '200':
+        description: An array containing comment threads indexed by comment parent id (blank for top level comments) and users indexed by user id used in those comments
+        content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  comments:
+                    type: object
+                    additionalProperties:
+                      type: object
+                      properties:
+                        id:
+                          type: number
+                        add_date: 
+                          type: string
+                          format: date-time
+                        modified_date: 
+                          type: string
+                          format: date-time
+                        body:
+                          type: string
+                        user_id:
+                          type: number
+                        is_deleted: 
+                          type: boolean
+                        url:
+                          type: string
+                        needs_moderation:
+                          type: number
+                          enum: [0, 1]
+                        assets:
+                          type: array
+                        parent_id:
+                          type: number
+                        parent_user_name:
+                          type: string
+                        parent_url:
+                          type: string 
+                  users:
+                    type: object
+                    additionalProperties:
+                      type: object
+                      properties:
+                        user_name:
+                          type: string
+                        user_avatar:
+                          type: string
+                        is_admin:
+                          type: number
+                          enum: [0, 1]
+      '401':
+        $ref : "../responses/unauthorized.yaml"
+      '403':
+        $ref : "../responses/forbidden.yaml"
+      '404':
+        $ref : "../responses/not_found.yaml"
+CopyPathRootComments:
+  get:
+    tags:
+      - Make
+    summary: Get an unthreaded paginated list of root comment objects
+    security:
+      - BearerAuth: []
+    parameters:
+      - in: path
+        name: id
+        required: true
+        description: The id of the copy to get root comments for
+        schema:
+          type: number
+          example: 1
+    responses:
+      '200':
+        description: An array containing a list of root comments on this copy
+        content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: "../schemas/make_comment_schema.yaml"
+      '401':
+        $ref : "../responses/unauthorized.yaml"
+      '403':
+        $ref : "../responses/forbidden.yaml"
+      '404':
+        $ref : "../responses/not_found.yaml"
+CopyPathComments:
+  get:
+    tags:
+      - Make
+    summary: Get an unthreaded paginated list of comment objects. 
+    description: See also GET /copies/id/threaded_comments
+    security:
+      - BearerAuth: []
+    parameters:
+      - in: path
+        name: id
+        required: true
+        description: The id of the copy to get comments for
+        schema:
+          type: number
+          example: 1
+    responses:
+      '200':
+        description: An array containing a list of comments on this copy
+        content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: "../schemas/make_comment_schema.yaml"
+      '401':
+        $ref : "../responses/unauthorized.yaml"
+      '403':
+        $ref : "../responses/forbidden.yaml"
+      '404':
+        $ref : "../responses/not_found.yaml"
+  post:
+    tags:
+      - Make
+    summary: Post a comment
+    security:
+      - BearerAuth: []
+    parameters:
+      - in: path
+        name: id
+        required: true
+        description: The id of the copy to comment on
+        schema:
+          type: number
+          example: 1
+    responses:
+      '200':
+        description: The newly created comment
+        content:
+            application/json:
+              schema:
+                $ref: "../schemas/make_comment_schema.yaml"
+      '401':
+        $ref : "../responses/unauthorized.yaml"
+      '403':
+        $ref : "../responses/forbidden.yaml"
+      '404':
+        $ref : "../responses/not_found.yaml"

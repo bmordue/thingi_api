@@ -1,0 +1,734 @@
+GroupPath:
+  get:
+    tags: 
+      - Group
+    summary: List of groups
+    security:
+      - BearerAuth: []
+    responses:
+      '200':
+        description: The list of groups.
+        content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '../schemas/group_schema.yaml'   
+      '401':
+        $ref : "../responses/unauthorized.yaml"
+      '403':
+        $ref : "../responses/forbidden.yaml"
+      '404':
+        $ref : "../responses/not_found.yaml"
+  post:
+    tags:
+      - Group
+    summary: Create a new group
+    security:
+      - BearerAuth: []
+    requestBody:
+      content:
+        multipart/form-data:
+          schema:
+            type: object
+            required:
+              - name
+              - slug
+              - description
+            properties:
+              name:
+                description: Set the name of the group
+                type: string
+              slug:
+                description: Set the slug of the group
+                type: string
+              description:
+                description: Set the description.
+                type: string
+              filename:
+                description: Set the file name.
+                type: string
+              file:
+                description: Set the image. Available formats are jpeg, jpg, gif, png
+                type: string
+                format: binary
+    responses:
+      '200':
+        description: The newly created group.
+        content:
+            application/json:
+              schema:
+                $ref: '../schemas/group_schema.yaml'
+      '401':
+        $ref : "../responses/unauthorized.yaml"
+      '403':
+        $ref : "../responses/forbidden.yaml"
+      '404':
+        $ref : "../responses/not_found.yaml"
+GroupPathById:
+  get:
+    tags:
+      - Group
+    summary: Get group by id
+    security:
+      - BearerAuth: []
+    parameters:
+      - in: path
+        name: id
+        required: false
+        description: The id of the group to get
+        schema:
+          type: number
+          example: 25
+    responses:
+      '200':
+        description: An object representing the group requested
+        content:
+            application/json:
+              schema:
+                type: object
+      '401':
+        $ref : "../responses/unauthorized.yaml"
+      '403':
+        $ref : "../responses/forbidden.yaml"
+      '404':
+        $ref : "../responses/not_found.yaml"
+  patch:
+    tags:
+      - Group
+    summary: Update an existing group
+    security:
+      - BearerAuth: []
+    parameters:
+      - in: path
+        name: id
+        required: true
+        description: The id of the group to update
+        schema:
+          type: number
+          example: 25
+    requestBody:
+      content:
+        application/json:
+          schema:
+            type: object
+            properties:
+              name:
+                description: Replace the name of the group
+                type: string
+              description:
+                description: Replace the description of the group
+                type: string
+              featuredThings:
+                description: Replace the featured things of the group
+                type: array
+                items:
+                  example: {id: 28271, rank: 1}
+    responses:
+      '200':
+        description: The updated thing
+        content:
+            application/json:
+              schema:
+                type: object
+      '401':
+        $ref : "../responses/unauthorized.yaml"
+      '403':
+        $ref : "../responses/forbidden.yaml"
+      '404':
+        $ref : "../responses/not_found.yaml"
+  delete:
+    tags:
+      - Group
+    summary: Delete a group
+    description: This cannot be undone.
+    security:
+      - BearerAuth: []
+    parameters:
+      - in: path
+        name: id
+        required: false
+        description: The id of the group to delete.
+        schema:
+          type: number
+          example: 3
+    responses:
+      '200':
+        $ref : "../responses/ok.yaml"
+      '401':
+        $ref : "../responses/unauthorized.yaml"
+      '403':
+        $ref : "../responses/forbidden.yaml"
+      '404':
+        $ref : "../responses/not_found.yaml"
+GroupPathUploadImage:
+  post:
+    tags:
+      - Group
+    summary: Upload a new image of group
+    security:
+      - BearerAuth: []
+    parameters:
+      - in: path
+        name: id
+        required: true
+        description: The id of the group to upload image
+        schema:
+          type: number
+          example: 25
+    requestBody:
+      content:
+        multipart/form-data:
+          schema:
+            type: object
+            required:
+              - filename
+              - file
+            properties:
+              filename:
+                description: Set the file name.
+                type: string
+              file:
+                description: Set the image. Available formats are jpeg, jpg, gif, png
+                type: string
+                format: binary
+    responses:
+      '200':
+        $ref : "../responses/ok.yaml"
+      '401':
+        $ref : "../responses/unauthorized.yaml"
+      '403':
+        $ref : "../responses/forbidden.yaml"
+      '404':
+        $ref : "../responses/not_found.yaml"
+GroupPathMembers:
+  get:
+    tags: 
+      - Group
+    summary: List of group members
+    security:
+      - BearerAuth: []
+    parameters:
+      - in: path
+        name: id
+        required: true
+        description: The id of the group to get list of members
+        schema:
+          type: number
+          example: 25
+    responses:
+      '200':
+        description: The list of group members.
+        content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '../schemas/group_schemas/member_schema.yaml'   
+      '401':
+        $ref : "../responses/unauthorized.yaml"
+      '403':
+        $ref : "../responses/forbidden.yaml"
+      '404':
+        $ref : "../responses/not_found.yaml"
+  post:
+    tags: 
+      - Group
+    summary: Join to group
+    security:
+      - BearerAuth: []
+    parameters:
+      - in: path
+        name: id
+        required: true
+        description: The id of the group to join to group
+        schema:
+          type: number
+          example: 25
+    responses:
+      '200':
+        $ref : "../responses/ok.yaml"
+      '401':
+        $ref : "../responses/unauthorized.yaml"
+      '403':
+        $ref : "../responses/forbidden.yaml"
+      '404':
+        $ref : "../responses/not_found.yaml"
+  delete:
+    tags: 
+      - Group
+    summary: Leave group
+    security:
+      - BearerAuth: []
+    parameters:
+      - in: path
+        name: id
+        required: true
+        description: The id of the group to leave group
+        schema:
+          type: number
+          example: 25
+    responses:
+      '200':
+        $ref : "../responses/ok.yaml"
+      '401':
+        $ref : "../responses/unauthorized.yaml"
+      '403':
+        $ref : "../responses/forbidden.yaml"
+      '404':
+        $ref : "../responses/not_found.yaml"
+GroupPathForums:
+  get:
+    tags: 
+      - Group
+    summary: List of group forums
+    security:
+      - BearerAuth: []
+    parameters:
+      - in: path
+        name: id
+        required: true
+        description: The id of the group to get list of forums
+        schema:
+          type: number
+          example: 25
+    responses:
+      '200':
+        description: The list of group forums.
+        content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '../schemas/group_schemas/forum_schema.yaml'   
+      '401':
+        $ref : "../responses/unauthorized.yaml"
+      '403':
+        $ref : "../responses/forbidden.yaml"
+      '404':
+        $ref : "../responses/not_found.yaml"
+  post:
+    tags: 
+      - Group
+    summary: Create a new forum
+    security:
+      - BearerAuth: []
+    parameters:
+      - in: path
+        name: id
+        required: true
+        description: The id of the group to create a new forum
+        schema:
+          type: number
+          example: 25
+    requestBody:
+      content:
+        multipart/form-data:
+          schema:
+            type: object
+            required:
+              - name
+              - description
+            properties:
+              name:
+                description: Set the name of the forum
+                type: string
+              description:
+                description: Set the description.
+                type: string
+              filename:
+                description: Set the file name.
+                type: string
+              file:
+                description: Set the image. Available formats are jpeg, jpg, gif, png
+                type: string
+                format: binary
+    responses:
+      '200':
+        description: The newly created forum.
+        content:
+            application/json:
+              schema:
+                $ref: '../schemas/group_schemas/forum_schema.yaml'
+      '401':
+        $ref : "../responses/unauthorized.yaml"
+      '403':
+        $ref : "../responses/forbidden.yaml"
+      '404':
+        $ref : "../responses/not_found.yaml"
+GroupPathForum:
+  delete:
+    tags: 
+      - Group
+    summary: Delete group forum
+    security:
+      - BearerAuth: []
+    parameters:
+      - in: path
+        name: id
+        required: true
+        description: Group id to remove Forum from
+        schema:
+          type: number
+          example: 25
+      - in: path
+        name: forum_id
+        required: true
+        description:  Forum id to delete
+        schema:
+          type: number
+          example: 50
+    responses:
+      '200':
+        description: id of the deleted Forum
+        content:
+            application/json:
+              schema:
+                type: number
+                example: 50
+      '401':
+        $ref : "../responses/unauthorized.yaml"
+      '403':
+        $ref : "../responses/forbidden.yaml"
+      '404':
+        $ref : "../responses/not_found.yaml"
+GroupPathForumTopics:
+  get:
+    tags: 
+      - Group
+    summary: Get all topics for the group forum
+    security:
+      - BearerAuth: []
+    parameters:
+      - in: path
+        name: id
+        required: true
+        description: The id of the group to get topics for
+        schema:
+          type: number
+          example: 25
+      - in: path
+        name: forum_id
+        required: true
+        description: The id of the forum to get topics for
+        schema:
+          type: number
+          example: 50
+      - in: query
+        name: page
+        required: false
+        description: Page for pagination
+        schema:
+          type: integer
+      - in: query
+        name: perpage
+        required: false
+        description: Amount of results to show per page
+        schema:
+          type: integer
+    responses:
+      '200':
+        description: The list of group forum topics.
+        content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '../schemas/group_schemas/topic_schema.yaml'
+      '401':
+        $ref : "../responses/unauthorized.yaml"
+      '403':
+        $ref : "../responses/forbidden.yaml"
+      '404':
+        $ref : "../responses/not_found.yaml"
+GroupPathForumSlug:
+  get:
+    tags: 
+      - Group
+    summary: Get group forum by slug
+    security:
+      - BearerAuth: []
+    parameters:
+      - in: path
+        name: id
+        required: true
+        description: The id of the group to get topics for
+        schema:
+          type: number
+          example: 25
+      - in: path
+        name: forum_slug
+        required: true
+        description: The slug of the forum
+        schema:
+          type: string
+          example: forum-slug
+    responses:
+      '200':
+        description: Forum object with top tags
+        content:
+            application/json:
+              schema:
+                type: object
+                example: { "id": 50, "name": "General", "tags": [ "Help", "filament", "prusa i3" ] }
+      '401':
+        $ref : "../responses/unauthorized.yaml"
+      '403':
+        $ref : "../responses/forbidden.yaml"
+      '404':
+        $ref : "../responses/not_found.yaml"
+GroupPathTopics:
+  get:
+    tags: 
+      - Group
+    summary: List of group topics
+    security:
+      - BearerAuth: []
+    parameters:
+      - in: path
+        name: id
+        required: true
+        description: The id of the group to get list of topics
+        schema:
+          type: number
+          example: 25
+      - in: path
+        name: filter
+        required: false
+        description: Optional filter. Supports my-started-topics, my-topics, pinned. Default is all
+        schema:
+          type: string
+          example: pinned
+      - in: path
+        name: sort
+        required: false
+        description: Supports popular, date (date is by last modified). Returns in DESC order. Default is date
+        schema:
+          type: string
+          example: popular
+    responses:
+      '200':
+        description: The list of group topics.
+        content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '../schemas/group_schemas/topic_schema.yaml'
+      '401':
+        $ref : "../responses/unauthorized.yaml"
+      '403':
+        $ref : "../responses/forbidden.yaml"
+      '404':
+        $ref : "../responses/not_found.yaml"
+  post:
+    tags: 
+      - Group
+    summary: Create a new Group Topic
+    security:
+      - BearerAuth: []
+    parameters:
+      - in: path
+        name: id
+        required: true
+        description: The id of the group to create a topic for
+        schema:
+          type: number
+          example: 25
+      - in: path
+        name: forum_slug
+        required: true
+        description: The slug of the forum
+        schema:
+          type: string
+          example: general
+    requestBody:
+      content:
+        multipart/form-data:
+          schema:
+            type: object
+            required:
+              - name
+              - body
+            properties:
+              name:
+                description: Name of Topic
+                type: string
+              body:
+                description: Body text of Topic
+                type: string
+              tags:
+                description: Array of tags
+                type: array
+                items:
+                  example: 'tag1'
+              filenames:
+                description: Array of filenames to be uploaded
+                type: array
+                items:
+                  example: 'Filename1'
+              files:
+                description: Array of files to be uploaded
+                type: array
+                format: binary
+    responses:
+      '200':
+        description: The newly created topic
+        content:
+            application/json:
+              schema:
+                $ref: '../schemas/group_schemas/topic_schema.yaml'
+      '401':
+        $ref : "../responses/unauthorized.yaml"
+      '403':
+        $ref : "../responses/forbidden.yaml"
+      '404':
+        $ref : "../responses/not_found.yaml"
+GroupPathThings:
+  get:
+    tags: 
+      - Group
+    summary: List of group things
+    security:
+      - BearerAuth: []
+    parameters:
+      - in: path
+        name: id
+        required: true
+        description: The id of the group to get list of things
+        schema:
+          type: number
+          example: 25
+    responses:
+      '200':
+        description: The list of group things.
+        content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '../schemas/group_schemas/thing_schema.yaml'   
+      '401':
+        $ref : "../responses/unauthorized.yaml"
+      '403':
+        $ref : "../responses/forbidden.yaml"
+      '404':
+        $ref : "../responses/not_found.yaml"
+GroupPathThingsActions:
+  post:
+    tags: 
+      - Group
+    summary: Add thing to group
+    security:
+      - BearerAuth: []
+    parameters:
+      - in: path
+        name: id
+        required: true
+        description: The id of the group
+        schema:
+          type: number
+          example: 25
+      - in: path
+        name: thingId
+        required: true
+        description: The id of the thing to add to group
+        schema:
+          type: number
+          example: 84
+    responses:
+      '200':
+        $ref : "../responses/ok.yaml"
+      '401':
+        $ref : "../responses/unauthorized.yaml"
+      '403':
+        $ref : "../responses/forbidden.yaml"
+      '404':
+        $ref : "../responses/not_found.yaml"
+  delete:
+    tags: 
+      - Group
+    summary: Delete thing from group
+    security:
+      - BearerAuth: []
+    parameters:
+      - in: path
+        name: id
+        required: true
+        description: The id of the group
+        schema:
+          type: number
+          example: 25
+      - in: path
+        name: thingId
+        required: true
+        description: The id of the thing to delete from group
+        schema:
+          type: number
+          example: 84
+    responses:
+      '200':
+        $ref : "../responses/ok.yaml"
+      '401':
+        $ref : "../responses/unauthorized.yaml"
+      '403':
+        $ref : "../responses/forbidden.yaml"
+      '404':
+        $ref : "../responses/not_found.yaml"
+GroupPathForumUpdate:
+  post:
+    tags:
+      - Group
+    summary: Update a certain forum of group
+    security:
+      - BearerAuth: []
+    parameters:
+      - in: path
+        name: groupId
+        required: true
+        description: The id of the group
+        schema:
+          type: number
+          example: 25
+      - in: path
+        name: forumId
+        required: true
+        description: The id of the forum
+        schema:
+          type: number
+          example: 15561
+    requestBody:
+      content:
+        multipart/form-data:
+          schema:
+            type: object
+            required:
+              - name
+              - description
+            properties:
+              name:
+                description: Set the name of the forum
+                type: string
+              description:
+                description: Set the description of the forum
+                type: string
+              filename:
+                description: Set the file name
+                type: string
+              file:
+                description: Set the image. Available formats are jpeg, jpg, gif, png
+                type: string
+                format: binary
+    responses:
+      '200':
+        description: Updated forum
+        content:
+          application/json:
+            schema:
+              $ref: '../schemas/groupforum_schema.yaml'
+      '401':
+        $ref : "../responses/unauthorized.yaml"
+      '403':
+        $ref : "../responses/forbidden.yaml"
+      '404':
+        $ref : "../responses/not_found.yaml"
