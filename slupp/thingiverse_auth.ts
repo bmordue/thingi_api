@@ -33,11 +33,17 @@ app.get('/auth/callback', async (req, res) => {
     },
   });
 
-  const accessToken = tokenResponse.data.access_token;
+  const accessToken = tokenResponse.data.split('=')[1].split('&')[0];
+
+  // step 3b: validate token
+  const validateResponse = await axios.post('https://www.thingiverse.com/login/oauth/tokeninfo', null, {
+    params: { access_token: accessToken }
+  });
 
   // Step 4: Use the access token to make authenticated requests to the API
+  // https://api.thingiverse.com/users/following
   try {
-    const response = await axios.get('https://api.thingiverse.com/users/following', {
+    const response = await axios.get('https://api.thingiverse.com/users/me/following', {
       headers: {
         Authorization: `Bearer ${accessToken}`,
       },
