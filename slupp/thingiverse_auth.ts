@@ -50,6 +50,11 @@ app.get('/auth/callback', async (req, res) => {
     });
 
     const followedUsers = response.data;
+
+    followedUsers.forEach(following => {
+      //following
+    });
+
     res.json(followedUsers);
   } catch (error) {
     res.status(500).send('Error fetching followed users.');
