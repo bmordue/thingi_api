@@ -1,5 +1,6 @@
 import { Express } from 'express';
 import * as dotenv from 'dotenv';
+import axios from 'axios';
 
 export function authorize(app: Express) {
     dotenv.config();
