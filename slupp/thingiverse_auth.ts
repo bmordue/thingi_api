@@ -52,7 +52,7 @@ function main() {
 
       const followedUsers = response.data;
 
-      followedUsers.forEach(following => {
+      followedUsers.forEach((following: unknown) => {
         //queue downloads for each of the followed user's objects
       });
 
