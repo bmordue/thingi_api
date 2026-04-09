@@ -1,6 +1,7 @@
 import { Express } from 'express';
 import * as dotenv from 'dotenv';
 import axios from 'axios';
+import { sessionStore, myStore } from './sessions';
 
 export function authorize(app: Express) {
     dotenv.config();
@@ -31,6 +32,8 @@ export function authorize(app: Express) {
         });
 
         const accessToken = tokenResponse.data.split('=')[1].split('&')[0];
+
+        myStore.set(req.session.id, { accessToken: accessToken });
 
         // step 3b: validate token
         const validateResponse = await axios.post('https://www.thingiverse.com/login/oauth/tokeninfo', null, {
