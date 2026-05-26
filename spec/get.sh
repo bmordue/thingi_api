@@ -3,3 +3,5 @@ for f in `cat files.list.txt`
 do
   wget --quiet $base$f
 done
+
+# https://www.thingiverse.com/swagger/docs/resources/tag.yaml
